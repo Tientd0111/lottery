@@ -39,7 +39,10 @@ const Header = () => {
 	useEffect(()=>{
 		setUser(cookies['cookie-user'])
 	},[])
+<<<<<<< HEAD
 
+=======
+>>>>>>> e8c15180445f953116f5edd31de6e9bf5bfad168
 	return (
 		<header className="header">
 			{/* Top Header Area Start */}
@@ -50,11 +53,32 @@ const Header = () => {
 							<div className="content">
 								<div className="left-content">
 									<ul className="left-list">
+<<<<<<< HEAD
 										{/*<li>*/}
 										{/*	<p>*/}
 										{/*		<FontAwesomeIcon icon={['fas','headset']} />{' Hỗ trợ'}*/}
 										{/*	</p>*/}
 										{/*</li>*/}
+=======
+										<li>
+											<p>
+												<FontAwesomeIcon icon={['fas','headset']} />{' Hỗ trợ'}
+											</p>
+										</li>
+										<li>
+											<p>
+												<FontAwesomeIcon icon={['fas','envelope']} /><a href="/#">{' datph@hqltech.vn'}</a>
+											</p>
+										</li>
+										{/* <li>
+											<div className="language-selector">
+												<select name="language" className="language">
+													<option value={1}>English</option>
+													<option value={2}>Việt Nam</option>
+												</select>
+											</div>
+										</li> */}
+>>>>>>> e8c15180445f953116f5edd31de6e9bf5bfad168
 									</ul>
 								</div>
 								<div className="right-content">
@@ -83,14 +107,24 @@ const Header = () => {
 											</div>
 										</li>
 										<li className={"nav-item dropdown li_cha"}>
+<<<<<<< HEAD
+=======
+											{/*{userCook?userCook.name*/}
+											{/*	: <a href="/#" className={"sign-in"} data-toggle={"modal"} data-target={"#login"}>Đăng nhập</a>*/}
+											{/*}*/}
+>>>>>>> e8c15180445f953116f5edd31de6e9bf5bfad168
 											{user?.name === undefined?(<a href="/#" className={"sign-in"} data-toggle={"modal"} data-target={"#login"}>
 												{'Đăng nhập'}
 											</a>): user?.name}
 											{user?.name !== undefined?<ul className={"ul1"}>
+<<<<<<< HEAD
 												<li className={"li1"}><a href="/#" onClick={()=>{
 													removeCookie("cookie-user")
 													setUser(undefined)
 												}}>Đăng xuất</a></li>
+=======
+												<li className={"li1"}><a href="/#" className={removeCookie("cookie-user")}>Đăng xuất</a></li>
+>>>>>>> e8c15180445f953116f5edd31de6e9bf5bfad168
 											</ul>:''}
 										</li>
 									</ul>
@@ -117,6 +151,7 @@ const Header = () => {
 								<div className="collapse navbar-collapse fixed-height" id="main_menu">
 									<ul className="navbar-nav ml-auto">
 										<li className="nav-item">
+<<<<<<< HEAD
 											<Link className="nav-link active" to={PATH.HOME}>
 												{'Trang chủ'}
 												<div className="mr-hover-effect"/>
@@ -126,6 +161,15 @@ const Header = () => {
 											<Link className="nav-link" to={PATH.PAY}>
 												{'Nạp thẻ'}
 												<div className="mr-hover-effect"/>
+=======
+											<Link className="nav-link active" to={PATH.HOME} role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												{'Trang chủ'}
+											</Link>
+										</li>
+										<li className="nav-item">
+											<Link className="nav-link" to={PATH.PAY} role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												{'Nạp thẻ'}
+>>>>>>> e8c15180445f953116f5edd31de6e9bf5bfad168
 											</Link>
 										</li>
 										<li className="nav-item">

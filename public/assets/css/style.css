@@ -308,9 +308,13 @@ select:focus {
   text-transform: uppercase;
   font-weight: 600;
   padding: 14px 35px;
+<<<<<<< HEAD
   display: flex;
   justify-content: center;
   align-items: center;
+=======
+  display: inline-block;
+>>>>>>> e8c15180445f953116f5edd31de6e9bf5bfad168
   color: #fff;
   border: 0px;
   border-radius: 50px;

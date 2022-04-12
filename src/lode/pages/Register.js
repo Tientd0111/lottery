@@ -16,11 +16,24 @@ const Register = () => {
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
+<<<<<<< HEAD
 			<FormInput control={control} name={'username'} placeholder={'Nhập tên đăng nhập...'} label={'Tên đăng nhập'}/>
 			<FormInput control={control} name={'password'} placeholder={'Nhập mật khẩu...'} label={'Mật khẩu'}/>
 			<FormInput control={control} name={'name'} placeholder={'Nhập họ tên...'} label={'Họ tên'}/>
 			<FormInput control={control} name={'email'} placeholder={'Nhập email...'} label={'Email'}/>
 			<FormInput control={control} name={'phone_number'} placeholder={'Nhập số điện thoại...'} label={'Số điện thoại'}/>
+=======
+			<FormInput control={control} name={'name'} placeholder={'Nhập họ tên...'} label={'Họ tên'}/>
+			<FormInput control={control} name={'email'} placeholder={'Nhập email...'} label={'Email'}/>
+			<FormInput control={control} name={'phone_number'} placeholder={'Nhập số điện thoại...'} label={'Số điện thoại'}/>
+			<FormInput control={control} name={'username'} placeholder={'Nhập tên đăng nhập...'} label={'Tên đăng nhập'}/>
+			<FormInput control={control} name={'password'} placeholder={'Nhập mật khẩu...'} label={'Mật khẩu'}/>
+			{/*<div className="form-group">*/}
+			{/*	<label htmlFor="login-input-password">Mật khẩu <span style={{color:'red'}}>*</span></label>*/}
+			{/*	<input {...register("password", { required: "Vui lòng nhập mật khẩu." })} type="password" className="input-field" placeholder="Nhập mật khẩu..." />*/}
+			{/*</div>*/}
+
+>>>>>>> e8c15180445f953116f5edd31de6e9bf5bfad168
 			<div className="form-group">
 				<button type="submit" className="mybtn1" >{loading?<AppLoading/>:"Đăng ký"}</button>
 			</div>

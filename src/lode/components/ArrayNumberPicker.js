@@ -4,7 +4,11 @@ import {useFieldArray, useFormContext} from "react-hook-form";
 const ArrayNumberPicker = ({arrays = [], t = false, indexPlus = "0"}) => {
 	let i = -1
 
+<<<<<<< HEAD
 	const {control} = useFormContext();
+=======
+	const {control, watch} = useFormContext();
+>>>>>>> e8c15180445f953116f5edd31de6e9bf5bfad168
 	const {fields, append, remove} = useFieldArray({
 		control,
 		name: 'soDanh'
