@@ -58,26 +58,7 @@ const ViewBetInputSubmit = ({
 						<input {...register('soTienCuoc')} type="text" placeholder="0"
 							   className="format_currency tongtiendanh form-new-2"/>
 					</div>
-					<div className="block-win-bet">
-						<div className="form-group">
-							<div className="bet-one-money">
-								<span className="bet-one-money-text">Cược tối thiểu</span>
-								<span className="bet-one-money-num format_currency">{minBet}</span>
-							</div>
-						</div>
-						<div className="form-group">
-							<div className="bet-one-money">
-								<span className="bet-one-money-text">Tiền đánh / 1 con</span>
-								<span className="bet-one-money-num format_currency">{betInLength}</span>
-							</div>
-						</div>
-						<div className="form-group">
-							<div className="bet-one-money">
-								<span className="bet-one-money-text">Tiền thắng / 1 con</span>
-								<span className="bet-one-money-num format_currency">{winnerBet}</span>
-							</div>
-						</div>
-					</div>
+
 					<input type="submit" value="Đặt cược" className="btn-danhde"/>
 				</div>
 			</div>

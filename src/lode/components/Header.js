@@ -30,6 +30,20 @@ const Header = () => {
 			link: '?name=sieutoc'
 		}
 	]
+	const pays  =[
+		{
+			name: 'Nạp tiền',
+			link:'?name=naptien'
+		},
+		{
+			name: 'Rút tiền',
+			link:'?name=ruttien'
+		},
+		{
+			name: 'Lịch sử nạp',
+			link:'?name=historyPay'
+		},
+	]
 
 	const {user, setUser} = useUserStore(state =>({
 		user: state.user,
@@ -138,15 +152,6 @@ const Header = () => {
 												<div className="mr-hover-effect"/>
 											</Link>
 										</li>
-										<li className="nav-item">
-											<Link className="nav-link" to={PATH.PAY}>
-												{'Nạp thẻ'}
-												<div className="mr-hover-effect"/>
-											</Link>
-										</li>
-										<li className="nav-item">
-											<a className="nav-link" href="/#">{'Trò chơi'}</a>
-										</li>
 										<li className="nav-item dropdown">
 											<a className="nav-link dropdown-toggle"
 											   href="#" role="button"
@@ -164,6 +169,32 @@ const Header = () => {
 												))}
 											</ul>
 										</li>
+										<li className="nav-item dropdown">
+											<a className="nav-link dropdown-toggle"
+											   href="#" role="button"
+											   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												{'Ví'}
+												<div className="mr-hover-effect" />
+											</a>
+											<ul className="dropdown-menu">
+												<li>
+													<Link className="dropdown-item" to={PATH.NAP}>
+														<FontAwesomeIcon icon={['fas','angle-double-right']} />Nạp tiền
+													</Link>
+												</li>
+												<li>
+													<Link className="dropdown-item" to={PATH.RUT}>
+														<FontAwesomeIcon icon={['fas','angle-double-right']} />Rút tiền
+													</Link>
+												</li>
+											</ul>
+										</li>
+										<li className="nav-item">
+											<Link className="nav-link" to={PATH.HISTORY}>
+												Lịch sử
+											</Link>
+										</li>
+
 										<li className="nav-item">
 											<a className="nav-link" href="/#">Liên hệ
 												<div className="mr-hover-effect" /></a>

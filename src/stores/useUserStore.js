@@ -13,7 +13,7 @@ export const useUserStore = create(set => ({
 				localStorage.setItem('key', response.accessToken)
 			})
 			.catch(error=>{
-				toast.error(error.response.data?.msg)
+				console.log(error.response.data)
 				set({loading: false})
 			})
 	},

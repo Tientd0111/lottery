@@ -4,14 +4,16 @@ import {
 import React from 'react';
 import HomeRoutes from "./HomeRoutes";
 import LotteryRoutes from "./LotteryRoutes";
-import PayRoutes from "./PayRoutes";
+import NapRoutes from "./NapRoutes";
+import HistoryRoutes from "./HistoryRoutes";
 
 const RootRoutes = () => {
 	return (
 		<Router>
 			<HomeRoutes/>
 			<LotteryRoutes/>
-			<PayRoutes/>
+			<NapRoutes/>
+			<HistoryRoutes/>
 
 		</Router>
 	);
