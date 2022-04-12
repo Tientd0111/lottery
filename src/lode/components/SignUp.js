@@ -1,8 +1,8 @@
 import React from 'react';
 import FormInput from "./FormInput";
-import AppLoading from "./AppLoading";
 import {useForm} from "react-hook-form";
 import {useUserStore} from "../../stores/useUserStore";
+import ButtonBase from "./ButtonBase";
 
 const SignUp = () => {
 
@@ -27,14 +27,12 @@ const SignUp = () => {
 						</div>
 						<div className="form-area">
 							<form onSubmit={handleSubmit(onSubmit)}>
-<FormInput control={control} name={'username'} placeholder={'Nhập tên đăng nhập...'} label={'Tên đăng nhập'}/>
-								<FormInput control={control} name={'password'} placeholder={'Nhập mật khẩu...'} label={'Mật khẩu'}/>
+								<FormInput control={control} name={'username'} placeholder={'Nhập tên đăng nhập...'} label={'Tên đăng nhập'}/>
+								<FormInput control={control} name={'password'} placeholder={'Nhập mật khẩu...'} label={'Mật khẩu'} type={'password'}/>
 								<FormInput control={control} name={'name'} placeholder={'Nhập họ tên...'} label={'Họ tên'}/>
-								<FormInput control={control} name={'email'} placeholder={'Nhập email...'} label={'Email'}/>
+								{/*<FormInput control={control} name={'email'} placeholder={'Nhập email...'} label={'Email'}/>*/}
 								<FormInput control={control} name={'phone_number'} placeholder={'Nhập số điện thoại...'} label={'Số điện thoại'}/>
-								<div className="form-group">
-									<button type="submit" className="mybtn1" >{loading?<AppLoading/>:"Đăng ký"}</button>
-								</div>
+								<ButtonBase text={'Đăng ký'} isLoading={loading}/>
 							</form>
 						</div>
 					</div>
