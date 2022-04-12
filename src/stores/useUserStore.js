@@ -8,10 +8,12 @@ export const useUserStore = create(set => ({
 		set({loading: true})
 		callService(apis.login.uri, 'POST', bodyParameters)
 			.then(response => {
+				toast.success(response?.msg)
 				set({user: response.user, loading: false});
 				localStorage.setItem('key', response.accessToken)
 			})
 			.catch(error=>{
+				toast.error(error.response.data?.msg)
 				set({loading: false})
 			})
 	},
@@ -22,7 +24,7 @@ export const useUserStore = create(set => ({
 		set({loading:true})
 		callService(apis.register.uri,'POST', bodyParameter)
 			.then(response => {
-				console.log("XXXXXXXX", response)
+				toast.success(response?.msg)
 				set({loading:false});
 			})
 			.catch(error => {
@@ -30,12 +32,6 @@ export const useUserStore = create(set => ({
 				set({loading:false})
 			})
 	},
-
-	lotteryCreate:async (bodyParameter)=>{
-		set ({loading:true})
-		callService(apis.lotteryCreate.uri, 'POST', bodyParameter)
-	},
-
 
 	user: undefined,
 	loading: false,

@@ -35,7 +35,6 @@ const Footer = () => {
 					<div className="col-md-3">
 						<a href="/#" className="btn-icons">
 							<FontAwesomeIcon className="bg-red" icon={['fas','phone']}/>
-
 							<span className="bg-red">0899813354</span>
 						</a>
 						<a href="/#" className="btn-icons">

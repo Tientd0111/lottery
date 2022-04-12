@@ -132,15 +132,6 @@ const FeaturedGame = () => {
 							</div>
 						</div>
 						<div className="col-md-8">
-							{/*<script language="javascript" src="https://www.minhngoc.net.vn/jquery/jquery-1.7.2.js"></script>*/}
-
-							{/*<div id="box_kqxs_minhngoc">*/}
-							{/*	<script*/}
-							{/*		language="javascript"> bgcolor = "#9c0303"; titlecolor = "#ffffff"; dbcolor = "#0000c2";*/}
-							{/*		fsize = "14px"; kqwidth = "500px";*/}
-							{/*	</script>*/}
-							{/*	<script language="javascript" src="https://www.minhngoc.net.vn/getkqxs/mien-bac.js"></script>*/}
-							{/*</div>*/}
 						</div>
 						<div className="col-md-2">
 							<div>
@@ -152,75 +143,13 @@ const FeaturedGame = () => {
 						</div>
 					</div>
 				</div>
-				<div className="nap" id="nap">
-					<div className="container">
-						<div className="row h-100">
-							<div className="col-md-4 content-center">
-								<div className="row ">
-									<div className="col-md-5">
-										<img src={images.naptien} width="100%" alt=""/>
-									</div>
-									<div className="col-md-7 block-title-center">
-										<p className="txt-title-about">Hướng dẫn</p>
-										<p className="txt-highlight-about">Nạp tiền</p>
-									</div>
-								</div>
-								<div className="row w-100">
-									<div className="col-md-5"/>
-									<div className="col-md-7 text-left">
-										{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-										<a href="" className="info_icon" >
-											<span className="text-hover">Xem ngay</span>
-											<span><i className="fas fa-arrow-right"/></span>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div className="col-md-4 content-center">
-								<div className="row ">
-									<div className="col-md-5">
-										<img src={images.ruttien} width="100%" alt=""/>
-									</div>
-									<div className="col-md-7 block-title-center">
-										<p className="txt-title-about">Hướng dẫn</p>
-										<p className="txt-highlight-about">Rút tiền</p>
-									</div>
-								</div>
-								<div className="row w-100">
-									<div className="col-md-5"/>
-									<div className="col-md-7 text-left">
-										{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-										<a href="" className="info_icon" >
-											<span className="text-hover">Xem ngay</span>
-											<span><i className="fas fa-arrow-right"/></span>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div className="col-md-4 content-center">
-								<div className="row ">
-									<div className="col-md-5">
-										<img src={images.danhde} width="100%" alt=""/>
-									</div>
-									<div className="col-md-7 block-title-center">
-										<p className="txt-title-about">Kinh nghiệm</p>
-										<p className="txt-highlight-about">Đánh đề</p>
-									</div>
-								</div>
-								<div className="row w-100">
-									<div className="col-md-5"/>
-									<div className="col-md-7 text-left">
-										{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-										<a href="" className="info_icon" >
-											<span className="text-hover">Xem ngay</span>
-											<span><i className="fas fa-arrow-right"/></span>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				{/*<div className="nap" id="nap">*/}
+				{/*	<div className="container">*/}
+				{/*		<div className="row h-100">*/}
+
+				{/*		</div>*/}
+				{/*	</div>*/}
+				{/*</div>*/}
 			</div>
 		</section>
     )
