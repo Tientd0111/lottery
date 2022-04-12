@@ -1,6 +1,12 @@
 import React from "react";
 
 const HeadPay = () =>{
+	const menu=[
+		{name:'Nạp tiền'},
+		{name:'Rút tiền'},
+		{name:'Lịch sử'},
+		{name:'Ngân hàng'}
+	]
 	return(
 		<section style={{marginTop:"150px"}}>
 			<div className="row header-member nav nav-pills">
@@ -15,21 +21,11 @@ const HeadPay = () =>{
 				</div>
 				<div className="col-md-8">
 					<ul className="nav nav-tabs" style={{justifyContent:"center"}}>
-						<li className="nav-item card ">
-							<a href="#cashback" data-toggle="pill" className="btn btn-link card-nav active">Hoàn Trả</a>
-						</li>
-						<li className="nav-item card ">
-							<a href="#deposit" data-toggle="pill" className="btn btn-link card-nav">Nạp tiền</a>
-						</li>
-						<li className="nav-item card ">
-							<a href="#withdraw" data-toggle="pill" className="btn btn-link card-nav">Rút tiền</a>
-						</li>
-						<li className="nav-item card ">
-							<a href="#history" data-toggle="pill" className="btn btn-link card-nav">Lịch sử</a>
-						</li>
-						<li className="nav-item card ">
-							<a href="#bank" data-toggle="pill" className="btn btn-link card-nav">Ngân hàng</a>
-						</li>
+						{menu.map((item)=>(
+							<li className="nav-item card" >
+								<a href="/#" data-toggle="pill" className="btn btn-link card-nav" style={{padding:"39px 14px 37px 18px"}}>{item.name}</a>
+							</li>
+						))}
 					</ul>
 				</div>
 			</div>

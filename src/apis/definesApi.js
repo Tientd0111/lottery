@@ -4,6 +4,9 @@ const apis = {
 	},
 	register: {
 		uri: 'auth/register'
+	},
+	bet: {
+		uri:'billLottery/create'
 	}
 }
 export default apis

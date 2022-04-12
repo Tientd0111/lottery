@@ -10,19 +10,9 @@ import DauDuoi from "./Content/DauDuoi";
 import LoXien from "./Content/LoXien";
 import {FormProvider, useForm} from "react-hook-form";
 import ViewBetInputSubmit from "../../components/ViewBetInputSubmit";
+import {betLotteryStore} from "../../../stores/betLotteryStore";
 
 const LotteryPage = () => {
-
-	const pageHeaderCallback = useCallback((code)=>{
-		switch (code) {
-			case Constant.DANH_LO:
-				form.reset({soDanh: [], kieuDanh: code, kieuLo: Constant.LO_2_SO})
-				break
-			case Constant.BA_CANG:
-				form.reset({soDanh: [], kieuDanh: code, kieu3Cang: Constant.BA_CANG})
-				break
-		}
-	}, [])
 
 	const form = useForm({
 		defaultValues: {
@@ -31,8 +21,41 @@ const LotteryPage = () => {
 		}
 	});
 
-	const handleSubmit = (data) => {
-		console.log(data)
+	const initValue = (kieuDanh, kieuChoi) => {
+		return {soDanh: [], kieuDanh , kieuChoi, mien: form.getValues('mien'), ngayDanh: form.getValues('ngayDanh')}
+	}
+	const pageHeaderCallback = useCallback((code)=>{
+		switch (code) {
+			case Constant.DANH_LO:
+				form.reset(initValue(code, Constant.LO_2_SO))
+				break
+			case Constant.BA_CANG:
+				form.reset(initValue(code, Constant.BA_CANG))
+				break
+			case Constant.DANH_DE:
+				form.reset(initValue(code, Constant.DANH_DE))
+				break
+			case Constant.DAU_DUOI:
+				form.reset(initValue(code, Constant.DE_DAU_DUOI))
+				break
+			case Constant.LO_XIEN:
+				form.reset(initValue(code, Constant.LO_XIEN))
+				break
+		}
+	}, [form, initValue])
+	const {loading, bet} = betLotteryStore(state => ({
+		loading: state.loading,
+		bet: state.bet
+	}))
+	const handleSubmit = async (data) => {
+		if(Array.isArray(data.soDanh)){
+			let number = []
+			data.soDanh.map((item) => {
+				number.push(item.so)
+			})
+			data.soDanh = number
+		}
+		await bet(data)
 	}
 
 	const invalidSubmit = (err) => {

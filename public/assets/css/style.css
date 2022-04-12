@@ -63,7 +63,7 @@ body {
   overflow-x: hidden; }
 
 body.modal-open {
-  padding-right: 0px !important; }
+  padding-right: 0 !important; }
 
 h1 {
   font-size: 60px;
@@ -172,11 +172,11 @@ select:focus {
 
 @-webkit-keyframes upDownAnimation {
   0% {
-    margin-top: 0px; }
+    margin-top: 0; }
   50% {
     margin-top: 80px; }
   100% {
-    margin-top: 0px; } }
+    margin-top: 0; } }
 
 @keyframes upDownAnimation {
   0% {
@@ -308,13 +308,10 @@ select:focus {
   text-transform: uppercase;
   font-weight: 600;
   padding: 14px 35px;
-<<<<<<< HEAD
   display: flex;
   justify-content: center;
   align-items: center;
-=======
   display: inline-block;
->>>>>>> e8c15180445f953116f5edd31de6e9bf5bfad168
   color: #fff;
   border: 0px;
   border-radius: 50px;

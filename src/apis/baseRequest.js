@@ -45,7 +45,7 @@ export async function callService(uri, method, bodyParameters, hasToken) {
 		if (hasToken) {
 			authen_token = localStorage.getItem('key');
 		}
-		let headers = !hasToken ? { 'Content-Type': 'application/json;charset=UTF-8' } : { 'Content-Type': 'application/json;charset=UTF-8', 'X-Auth-Token': `${authen_token}` }
+		let headers = !hasToken ? { 'Content-Type': 'application/json;charset=UTF-8' } : { 'Content-Type': 'application/json;charset=UTF-8', Authorization: `Bearer ${authen_token}` }
 		let configAxios
 		configAxios = {
 			url,

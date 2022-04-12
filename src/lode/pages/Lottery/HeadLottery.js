@@ -23,11 +23,10 @@ const HeadLottery = ({pageCallback = () => {}}) =>{
 
 	useEffect(()=>{
 		pageCallback(loadbet[0].id)
-	},[pageCallback])
+	},[])
 
 	const setTabHeader = (code) => {
 		pageCallback(code)
-		console.log(pageCallback(code))
 	}
 
 	return(

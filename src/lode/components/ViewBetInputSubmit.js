@@ -9,7 +9,6 @@ const ViewBetInputSubmit = ({
 	winnerBet = ''
 }) => {
 	const {watch,register} = useFormContext()
-	console.log(watch)
 	const loadbet = [
 		{id: Constant.DAI_MB, name: 'Miền Bắc'},
 		{id: Constant.DAI_MN, name: 'Miền Nam'},
@@ -30,8 +29,6 @@ const ViewBetInputSubmit = ({
 		{id:Constant.XIEN_4, name: 'Xiên 4'},
 	]
 	let first,last,end = '';
-	const watchKieuLo = watch('kieuLo')
-	console.log(watch())
 	return (
 		<div className="col-md-3">
 			<div className="right-panel">
@@ -47,12 +44,9 @@ const ViewBetInputSubmit = ({
 				<div className="content-panel">
 					<div className={"cat-lode"}>
 						{loadbet.map((item,index)=>{
-
-							<p key={index}
-							   className={`${watch('mien') === item.id ? (first = item.name): ''} && 
+							<p key={index} className={`${watch('mien') === item.id ? (first = item.name): ''} && 
 							   ${watch('kieuDanh') === item.id ? (last = item.name): ''} && 
-							   ${watch('kieulo') === item.id ? (end = item.name): ''}`}/>
-								console.log(end)
+							   ${watch('kieuChoi') === item.id ? (end = item.name): ''}`}/>
 						})}
 						<p className={"subtitile"}>{first +'/'+ last+'/'+ end}</p>
 					</div>
