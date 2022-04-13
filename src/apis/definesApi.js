@@ -7,6 +7,12 @@ const apis = {
 	},
 	bet: {
 		uri:'billLottery/create'
+	},
+	transfer:{
+		uri:'transfer/create'
+	},
+	confirm:{
+		uri:'transfer/confirmOrder'
 	}
 }
 export default apis

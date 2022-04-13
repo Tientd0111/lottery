@@ -37,7 +37,12 @@ const Constant = {
 	LO_DA: 'LD',
 	LO_DA_2: 'LD2',
 	LO_DA_3: 'LD3',
-	LO_DA_4: 'LD4'
+	LO_DA_4: 'LD4',
+	MB_BANK: 'MB BANK',
+	TECH: 'Techcombank',
+	VIET: 'Vietcombank',
+	BIDV: 'BIDV',
+	TP: 'TP Bank'
 }
 
 export default Constant

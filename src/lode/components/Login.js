@@ -21,6 +21,7 @@ const Login = () => {
 		user: state.user,
 		login: state.login
 	}))
+	console.log(user)
 	const onSubmit = async data => {
 		await login(data)
 	};

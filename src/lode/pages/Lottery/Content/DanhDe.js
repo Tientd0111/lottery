@@ -17,9 +17,9 @@ const DanhDe = () => {
 	return (
 		<div className={"danh-de"}>
 			<div id="tabBetType" className="bb-1">
-				<div className={tabst === 1?"kd1 act":"kd1"} id="loto_type_info" onClick={()=>toggleTab(1)}>Đề đầu
+				<div className={tabst === 1?"kd1 act":"kd1"}  onClick={()=>toggleTab(1)}>Đề đầu
 				</div>
-				<div className={tabst === 2?"kd1 act":"kd1"}  onClick={()=>toggleTab(2)} id="loto_type_info">Đề đặc biệt
+				<div className={tabst === 2?"kd1 act":"kd1"}  onClick={()=>toggleTab(2)}>Đề đặc biệt
 				</div>
 				<div className="clearfix"/>
 			</div>

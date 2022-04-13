@@ -88,39 +88,24 @@ const Header = () => {
 									<ul className="right-list">
 										<li>
 											<div className="cart-icon tm-dropdown">
-												<FontAwesomeIcon icon={['fas','cart-arrow-down']} />
-												<span className="cart-count">10</span>
-												<div className="tm-dropdown-menu">
-													<ul className="list">
-														<li className="list-item">
-															<div className="close">
-																<FontAwesomeIcon icon={['fas','times']} />
-															</div>
-															<ul className="number-list">
-																<li>24</li>
-																<li>25</li>
-																<li>26</li>
-																<li>27</li>
-																<li>28</li>
-															</ul>
-														</li>
-													</ul>
-													<a href="/#" className="link-btn">{'Thanh toán'}</a>
-												</div>
+												<p>Ví :<span>{user.balance}K</span></p>
 											</div>
 										</li>
 										<li className={"nav-item dropdown li_cha"}>
 											{/*{userCook?userCook.name*/}
 											{/*	: <a href="/#" className={"sign-in"} data-toggle={"modal"} data-target={"#login"}>Đăng nhập</a>*/}
 											{/*}*/}
-											{user?.name === undefined?(<a href="/#" className={"sign-in"} data-toggle={"modal"} data-target={"#login"}>
+											{user?.username === undefined?(<a href="/#" className={"sign-in"} data-toggle={"modal"} data-target={"#login"}>
 												{'Đăng nhập'}
-											</a>): user?.name}
-											{user?.name !== undefined?<ul className={"ul1"}>
+											</a>): user?.username}
+											{user?.username !== undefined?<ul className={"ul1"}>
 												<li className={"li1"}><a href="/#" onClick={()=>{
 													removeCookie("cookie-user")
 													setUser(undefined)
 												}}>Đăng xuất</a></li>
+												<li className={"li1"} style={{display:""}}>
+													<Link>Tài khoản</Link>
+												</li>
 											</ul>:''}
 										</li>
 									</ul>
