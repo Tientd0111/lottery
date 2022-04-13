@@ -36,3 +36,103 @@
     transform: rotate(360deg);
   }
 }
+
+
+@-webkit-keyframes test{
+  0%{
+    background-image: url('./assets/images/taixiu/ani/d_1.png');
+  }
+  10%{
+    background-image: url('./assets/images/taixiu/ani/d_2.png');
+  }
+  20%{
+    background-image: url('./assets/images/taixiu/ani/d_3.png');
+  }
+  30%{
+    background-image: url('./assets/images/taixiu/ani/d_4.png');
+  }
+  40%{
+    background-image: url('./assets/images/taixiu/ani/d_5.png');
+  }
+  50%{
+    background-image: url('./assets/images/taixiu/ani/d_6.png');
+  }
+  60%{
+    background-image: url('./assets/images/taixiu/ani/d_7.png');
+  }
+  70%{
+    background-image: url('./assets/images/taixiu/ani/d_8.png');
+  }
+  80%{
+    background-image: url('./assets/images/taixiu/ani/d_9.png');
+  }
+  90%{
+    background-image: url('./assets/images/taixiu/ani/d_10.png');
+  }
+  100%{
+    background-image: url('./assets/images/taixiu/ani/d_10.png');
+  }
+}
+
+@keyframes test{
+  0%{
+    background-image: url('./assets/images/taixiu/ani/d_1.png');
+  }
+  10%{
+    background-image: url('./assets/images/taixiu/ani/d_2.png');
+  }
+  20%{
+    background-image: url('./assets/images/taixiu/ani/d_3.png');
+  }
+  30%{
+    background-image: url('./assets/images/taixiu/ani/d_4.png');
+  }
+  40%{
+    background-image: url('./assets/images/taixiu/ani/d_5.png');
+  }
+  50%{
+    background-image: url('./assets/images/taixiu/ani/d_6.png');
+  }
+  60%{
+    background-image: url('./assets/images/taixiu/ani/d_7.png');
+  }
+  70%{
+    background-image: url('./assets/images/taixiu/ani/d_8.png');
+  }
+  80%{
+    background-image: url('./assets/images/taixiu/ani/d_9.png');
+  }
+  90%{
+    background-image: url('./assets/images/taixiu/ani/d_10.png');
+  }
+  100%{
+    background-image: url('./assets/images/taixiu/ani/d_10.png');
+  }
+}
+
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.route_image{
+  -webkit-animation:spin 4s linear infinite;
+  -moz-animation:spin 4s linear infinite;
+  animation:spin 4s linear infinite;
+  width: 100px;
+  height: 100px;
+}
+
+.dice_an{
+  width: 192px;
+  height: 250px;
+  float: left;
+  background-size: contain;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  -webkit-animation: test 2s infinite;
+  animation: test 2s infinite;
+  -webkit-animation-timing-function: steps(1, end);
+  animation-timing-function: steps(1, end);
+  /*background-image: url('./assets/images/taixiu/ani/d_10.png');*/
+}

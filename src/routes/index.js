@@ -14,7 +14,6 @@ const RootRoutes = () => {
 			<LotteryRoutes/>
 			<NapRoutes/>
 			<HistoryRoutes/>
-
 		</Router>
 	);
 };

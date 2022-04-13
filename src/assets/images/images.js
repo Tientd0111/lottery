@@ -21,6 +21,15 @@ import doso from './lode/mayquayso.png';
 import mienbac from './lode/dai/mienbac.jpg';
 import mientrung from './lode/dai/mientrung.jpg';
 import miennam from './lode/dai/miennam.jpg';
+import bgTx from './taixiu/bg.png'
+import d_1 from './taixiu/d_1.png'
+import d_2 from './taixiu/d_2.png'
+import d_3 from './taixiu/d_3.png'
+import d_4 from './taixiu/d_4.png'
+import d_5 from './taixiu/d_5.png'
+import d_6 from './taixiu/d_6.png'
+import loop_i from './taixiu/loop_i.png'
+import loop_o from './taixiu/loop_o.png'
 
 const images = {
 	//lode
@@ -46,6 +55,18 @@ const images = {
 	doso : doso,
 	mienbac : mienbac,
 	mientrung : mientrung,
-	miennam : miennam
+	miennam : miennam,
+
+
+	// Tai xiu
+	bgTx: bgTx,
+	d_1: d_1,
+	d_2: d_2,
+	d_3: d_3,
+	d_4: d_4,
+	d_5: d_5,
+	d_6: d_6,
+	loop_o: loop_o,
+	loop_i: loop_i
 };
 export default images;
