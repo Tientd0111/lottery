@@ -87,9 +87,8 @@ const Header = () => {
 								<div className="right-content">
 									<ul className="right-list">
 										<li>
-											<div className="cart-icon tm-dropdown">
-												<p>Ví :<span>{user.balance}K</span></p>
-											</div>
+											<div className="cart-icon tm-dropdown"/>
+											
 										</li>
 										<li className={"nav-item dropdown li_cha"}>
 											{/*{userCook?userCook.name*/}
