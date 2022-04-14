@@ -4,6 +4,8 @@ import {useCookies} from "react-cookie";
 import {useUserStore} from "../../../stores/useUserStore";
 import InfoUserRow from "../../components/InfoUserRow";
 import formatNumber from "../../../hooks/formatNumber";
+import Path from "../../../routes/path";
+import {Link} from "react-router-dom";
 
 const InfoPage = () => {
 
@@ -28,7 +30,6 @@ const InfoPage = () => {
 					<div className="tab-content bg-content" id="myTabContent">
 						<div className="form-deposit-bank ">
 							<div className="row">
-								<form >
 									<div className="col-md-10 p-20" style={{maxWidth:"100%"}}>
 										<h4 className="title-deposit">Thông tin cá nhân</h4>
 										<p className="detail-deposit">Thông tin cá nhân của bạn sẽ được bảo mật tối đa</p>
@@ -42,17 +43,17 @@ const InfoPage = () => {
 												<div className="col-md-4">
 												</div>
 												<div className="col-md-8">
-													<button
+													<Link style={{maxWidth:"370px"}}
+															to={Path.HOME}
 														onClick={()=>{
 															removeCookie("cookie-user")
 															setUser(undefined)}}
 															className="btn btn-signin form-control but"
-														type="submit" >Đăng xuất</button>
+														type="submit" >Đăng xuất</Link>
 												</div>
 											</div>
 										</div>
 									</div>
-								</form>
 							</div>
 						</div>
 					</div>

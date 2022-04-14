@@ -13,6 +13,10 @@ const apis = {
 	},
 	confirm:{
 		uri:'transfer/confirmOrder'
+	},
+	withdraw:{
+		uri:'withdraw/create'
 	}
+
 }
 export default apis

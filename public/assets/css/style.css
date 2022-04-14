@@ -5161,3 +5161,24 @@ label.label-cus {
   margin-top: -1px;
 }
 /*Pay End*/
+/*Support component start*/
+.main-content-support {
+  border-radius: 8px;
+  box-shadow: 0 2px 60px 0 rgb(0 0 0 / 8%);
+  background-color: #fff9ed;
+  position: relative;
+}
+.main-content-support .img-bg {
+  position: absolute;
+  width: 100%;
+}
+
+.main-content-support .title-box {
+  position: absolute;
+  width: 100%;
+  padding: 0 20px;
+  font-size: 18px;
+  color: #523600;
+  text-transform: uppercase;
+}
+/*Support component end*/

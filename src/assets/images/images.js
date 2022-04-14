@@ -30,6 +30,7 @@ import d_5 from './taixiu/d_5.png'
 import d_6 from './taixiu/d_6.png'
 import loop_i from './taixiu/loop_i.png'
 import loop_o from './taixiu/loop_o.png'
+import back from './rectangle-sp.png'
 
 const images = {
 	//lode
@@ -56,6 +57,7 @@ const images = {
 	mienbac : mienbac,
 	mientrung : mientrung,
 	miennam : miennam,
+	back: back,
 
 
 	// Tai xiu

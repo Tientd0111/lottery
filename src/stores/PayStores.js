@@ -15,6 +15,16 @@ export const PayStores = create(set => ({
 				set({loading: false})
 			})
 	},
+	withdraw: async (bodyParameters) => {
+		set({loading: true})
+		callService(apis.withdraw.uri, 'POST', bodyParameters, true)
+			.then(response => {
+				toast.success(response.msg)
+			})
+			.catch(error=>{
+				set({loading: false})
+			})
+	},
 	confirmData:async (bodyParameters) => {
 		set({loading: true})
 		callService(apis.confirm.uri, 'POST', bodyParameters, true)
