@@ -9,10 +9,6 @@ const InfoUserRow = ({name = '', value}) => {
 					<label className="label-cus">{name}</label>
 				</div>
 				<div className="col-md-8" style={{maxWidth:"400px"}}>
-					{/*<input type="text"*/}
-					{/*	className="form-control form-custom" disabled*/}
-					{/*	*/}
-					{/*/>*/}
 					<div className="form-control form-custom">{value}</div>
 				</div>
 			</div>
