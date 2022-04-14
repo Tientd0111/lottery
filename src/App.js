@@ -19,15 +19,8 @@ function App() {
 
 	useEffect(()=> {
 		if(user) {
-			socket.on('nap-order-admin-confirm', (res) => {
-				if(res.created_by === user.username) {
-					if(res.status === 2) {
-						toast.success(`Quản trị viên đã xác nhận đơn nạp ${formatNumber(res.money_transfer)} của bạn!`)
-					}
-					else {
-						toast.error(`Quản trị viên đã từ chối đơn nạp ${formatNumber(res.money_transfer)} của bạn!`)
-					}
-				}
+			socket.on('message-to-user', (res)=>{
+				if(res.user === user.username) toast(res.msg)
 			})
 		}
 	},[user])
