@@ -3,6 +3,7 @@ const PATH = {
     LOTTERY: '/lottery',
     NAP:'/nap',
     RUT:'/rut',
-    HISTORY:'/history'
+    HISTORY:'/history',
+    INFO:'/info'
 }
 export default PATH;

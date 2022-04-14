@@ -4,7 +4,7 @@ import constant from "../../../contants/constant";
 import {useForm} from "react-hook-form";
 import {useUserStore} from "../../../stores/useUserStore";
 import {PayStores} from "../../../stores/PayStores";
-
+import formatNumber from '../../../hooks/formatNumber'
 const NapTien = () => {
 	const bank_name  = [
 		{id: constant.MB_BANK,name:constant.MB_BANK,stk:'1234123131'},
@@ -12,6 +12,17 @@ const NapTien = () => {
 		{id: constant.VIET,name:constant.VIET,stk:'1234122341'},
 		{id: constant.BIDV,name:constant.BIDV,stk:'1234313123'},
 		{id: constant.TP,name:constant.TP,stk:'1234123656'}
+	]
+	const money=[
+		{val:'10'},
+		{val:'20'},
+		{val:'50'},
+		{val:'100'},
+		{val:'200'},
+		{val:'500'},
+		{val:'1000'},
+		{val:'3000'},
+		{val:'5000'},
 	]
 	const {loading, tranf, dataResult,confirmData} = PayStores(state => ({
 		loading: state.loading,
@@ -132,16 +143,19 @@ const NapTien = () => {
 											<div className="row">
 												<div className="col-md-4">
 													<label className="label-cus"
-														   htmlFor="from_overview_naptien_tien">Số tiền
-														(<font color="red">
-															<b>*</b>
-														</font>)</label>
+														   htmlFor="from_overview_naptien_bank">Số tiền(<font
+															color="red"><b>*</b></font>)</label>
 												</div>
 												<div className="col-md-8">
-													<input
+													<select
 														{...register("money_transfer")}
-														type="text"
-														className="form-control format_currency form-custom"/>
+														className="form-control form-custom"
+														placeholder={"Chọn mệnh giá"}>
+														{money.map((item,index)=>(
+															<option value={item.val} key={item.val}>{formatNumber(parseInt(item.val))}</option>
+														))}
+													</select>
+
 												</div>
 											</div>
 										</div>

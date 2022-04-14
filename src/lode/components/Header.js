@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import PATH from '../../routes/path';
 import {useUserStore} from "../../stores/useUserStore";
 import {useCookies} from "react-cookie";
+import formatNumber from '../../hooks/formatNumber'
 
 library.add(fas, fab);
 
@@ -87,8 +88,10 @@ const Header = () => {
 								<div className="right-content">
 									<ul className="right-list">
 										<li>
-											<div className="cart-icon tm-dropdown"/>
-											
+											<div className="cart-icon tm-dropdown">
+												<p>Ví :<span>{formatNumber(cookies["cookie-user"].balance)}</span></p>
+											</div>
+
 										</li>
 										<li className={"nav-item dropdown li_cha"}>
 											{/*{userCook?userCook.name*/}
@@ -98,12 +101,8 @@ const Header = () => {
 												{'Đăng nhập'}
 											</a>): user?.username}
 											{user?.username !== undefined?<ul className={"ul1"}>
-												<li className={"li1"}><a href="/#" onClick={()=>{
-													removeCookie("cookie-user")
-													setUser(undefined)
-												}}>Đăng xuất</a></li>
 												<li className={"li1"} style={{display:""}}>
-													<Link>Tài khoản</Link>
+													<Link to={PATH.INFO}>Tài khoản</Link>
 												</li>
 											</ul>:''}
 										</li>

@@ -21,7 +21,6 @@ function App() {
 		if(user) {
 			socket.on('nap-order-admin-confirm', (res) => {
 				if(res.created_by === user.username) {
-					console.log("XXX", res)
 					if(res.status === 2) {
 						toast.success(`Quản trị viên đã xác nhận đơn nạp ${formatNumber(res.money_transfer)} của bạn!`)
 					}
@@ -35,7 +34,7 @@ function App() {
 
 	return (
 		<>
-			<BigSmall/>
+			{/*<BigSmall/>*/}
 			<RootRoutes/>
 			<ToastContainer
 				autoClose={1500}
