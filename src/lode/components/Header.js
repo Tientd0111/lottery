@@ -91,8 +91,15 @@ const Header = () => {
 												<li className={"li1"} style={{display:""}}>
 													<Link to={PATH.INFO}>Tài khoản</Link>
 												</li>
+
 											</ul>:''}
 										</li>
+										<li>
+											<a >
+												<FontAwesomeIcon icon={['fas','retweet']}/>
+											</a>
+										</li>
+
 									</ul>
 								</div>
 							</div>

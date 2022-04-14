@@ -5176,9 +5176,13 @@ label.label-cus {
 .main-content-support .title-box {
   position: absolute;
   width: 100%;
-  padding: 0 20px;
+  padding: 25px 20px;
   font-size: 18px;
   color: #523600;
   text-transform: uppercase;
+}
+.main-content-support .sp-content {
+  padding: 120px 25px 0 25px;
+  min-height: 361px;
 }
 /*Support component end*/

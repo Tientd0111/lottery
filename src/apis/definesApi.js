@@ -20,6 +20,9 @@ const apis = {
 
 	logout: {
 		uri: 'auth/logout'
+	},
+	reload:{
+		uri:'user/reload'
 	}
 
 }

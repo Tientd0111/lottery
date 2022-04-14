@@ -6,7 +6,7 @@ const Support = () => {
 		<div className={"main-content-support"}>
 			<div className={"sp-header"}>
 				<img src={images.back} className={"img-bg img-fluid"} alt={"Logo"}/>
-				<h4 style={{color:"#000"}}>Bạn Gặp khó khăn ?</h4>
+				<h4 style={{color:"#000"}} className={"title-box"}>Bạn Gặp khó khăn ?</h4>
 			</div>
 			<div className={"sp-content"}></div>
 		</div>
