@@ -5,15 +5,28 @@ import {useUserStore} from "../../../stores/useUserStore";
 import InfoUserRow from "../../components/InfoUserRow";
 import formatNumber from "../../../hooks/formatNumber";
 import Path from "../../../routes/path";
-import {Link} from "react-router-dom";
+import ButtonBase from "../../components/ButtonBase";
+import { useHistory } from 'react-router-dom'
 
 const InfoPage = () => {
 
 	const [cookies, removeCookie] = useCookies(['cookie-user']);
-	const {user, setUser} = useUserStore(state =>({
+	const {user, setUser , logout, loading} = useUserStore(state =>({
 		user: state.user,
-		setUser: state.setUser
+		setUser: state.setUser,
+		logout: state.logout,
+		loading: state.loading
 	}))
+
+	const history = useHistory()
+
+	const logoutSection = async () => {
+		await logout();
+		removeCookie("cookie-user");
+		setUser(undefined);
+		history.push(Path.HOME);
+	}
+
 	return (
 		<CommonMain>
 			<section style={{marginTop:"180px"}}>
@@ -43,13 +56,7 @@ const InfoPage = () => {
 												<div className="col-md-4">
 												</div>
 												<div className="col-md-8">
-													<Link style={{maxWidth:"370px"}}
-															to={Path.HOME}
-														onClick={()=>{
-															removeCookie("cookie-user")
-															setUser(undefined)}}
-															className="btn btn-signin form-control but"
-														type="submit" >Đăng xuất</Link>
+													<ButtonBase onClick={logoutSection} isLoading={loading} text={'Đăng xuất'}/>
 												</div>
 											</div>
 										</div>

@@ -16,6 +16,10 @@ const apis = {
 	},
 	withdraw:{
 		uri:'withdraw/create'
+	},
+
+	logout: {
+		uri: 'auth/logout'
 	}
 
 }

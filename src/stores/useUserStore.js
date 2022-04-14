@@ -33,6 +33,19 @@ export const useUserStore = create(set => ({
 			})
 	},
 
+	logout: async ()=>{
+		set({loading:true})
+		callService(apis.logout.uri,'POST', {}, true)
+			.then(response => {
+				toast.success(response?.msg)
+				set({loading:false});
+			})
+			.catch(error => {
+				toast.error(error)
+				set({loading:false})
+			})
+	},
+
 	user: undefined,
 	loading: false,
 }))
