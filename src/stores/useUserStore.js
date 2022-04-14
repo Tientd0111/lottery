@@ -32,14 +32,13 @@ export const useUserStore = create(set => ({
 				set({loading:false})
 			})
 	},
-	reload: async (bodyParameter)=>{
-		callService(apis.reload.uri,'POST', bodyParameter)
+	reload: async ()=>{
+		callService(apis.reload.uri,'POST', {},true)
 			.then(response => {
-				toast.success(response?.msg)
+				set({user:response});
 				set({loading:false});
 			})
 			.catch(error => {
-				toast.error(error.response.data?.msg)
 				set({loading:false})
 			})
 	},

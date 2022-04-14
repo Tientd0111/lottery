@@ -46,9 +46,10 @@ const Header = () => {
 		},
 	]
 
-	const {user, setUser} = useUserStore(state =>({
+	const {user, setUser,reload} = useUserStore(state =>({
 		user: state.user,
-		setUser: state.setUser
+		setUser: state.setUser,
+		reload:state.reload
 	}))
 	const [cookies, removeCookie] = useCookies(['cookie-user']);
 
@@ -95,7 +96,7 @@ const Header = () => {
 											</ul>:''}
 										</li>
 										<li>
-											<a >
+											<a onClick={()=>{reload()}}>
 												<FontAwesomeIcon icon={['fas','retweet']}/>
 											</a>
 										</li>
