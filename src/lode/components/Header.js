@@ -119,7 +119,10 @@ const Header = () => {
 								<a className="navbar-brand" href="#">
 									{/* <img src="https://hqltech.vn/assets/images/logo.svg" alt="" /> */}
 								</a>
-								<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_menu" aria-controls="main_menu" aria-expanded="false" aria-label="Toggle navigation">
+								<button className="navbar-toggler" type="button"
+										data-toggle="collapse" data-target="#main_menu"
+										aria-controls="main_menu" aria-expanded="false"
+										aria-label="Toggle navigation">
 									<span className="navbar-toggler-icon" />
 								</button>
 								<div className="collapse navbar-collapse fixed-height" id="main_menu">
@@ -167,10 +170,25 @@ const Header = () => {
 												</li>
 											</ul>
 										</li>
-										<li className="nav-item">
-											<Link className="nav-link" to={PATH.HISTORY}>
-												Lịch sử
-											</Link>
+										<li className="nav-item dropdown">
+											<a className="nav-link dropdown-toggle"
+											   href="#" role="button"
+											   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												{'Lịch sử'}
+												<div className="mr-hover-effect" />
+											</a>
+											<ul className="dropdown-menu">
+												<li>
+													<Link className="dropdown-item" to={PATH.HISTORYTRANSFER}>
+														<FontAwesomeIcon icon={['fas','angle-double-right']} />Lịch sử giao dịch
+													</Link>
+												</li>
+												<li>
+													<Link className="dropdown-item" to={PATH.HISTORYBET}>
+														<FontAwesomeIcon icon={['fas','angle-double-right']} />Lịch sử cá cược
+													</Link>
+												</li>
+											</ul>
 										</li>
 
 										<li className="nav-item">

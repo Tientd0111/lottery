@@ -27,7 +27,7 @@ const RutTien = () => {
 		{val:'3000'},
 		{val:'5000'},
 	]
-	const {handleSubmit, register} = useForm();
+	const {handleSubmit, register,formState: { errors }} = useForm();
 	const {withdraw} = PayStores(state => ({
 		withdraw: state.withdraw,
 	}))
@@ -90,9 +90,12 @@ const RutTien = () => {
 														</div>
 														<div className="col-md-8">
 															<input
-																{...register("bank_account_name_to")}
+																{...register("bank_account_name_to",{required:true})}
 																type="text"
 																className="form-control form-custom"/>
+																<span style={{color:"red",fontSize:"15px"}}>
+																	{errors.bank_account_name_to?.type === 'required' && "Tên người nhận không được để trống"}
+																</span>
 														</div>
 													</div>
 												</div>
@@ -100,15 +103,18 @@ const RutTien = () => {
 													<div className="row">
 														<div className="col-md-4">
 															<label htmlFor="from_overview_ruttien_bank"
-																   className="label-cus">Số tài khoản (<font
+																   className="label-cus">Số tài khoản nhận(<font
 																color="red">
 																<b>*</b></font>)</label>
 														</div>
 														<div className="col-md-8">
 															<input
-																{...register("bank_account_number_to")}
+																{...register("bank_account_number_to",{required:true})}
 																type="text"
 																className="form-control form-custom"/>
+															<span style={{color:"red",fontSize:"15px"}}>
+																{errors.bank_account_number_to?.type === 'required' && "Số tài khoản không được để trống"}
+															</span>
 														</div>
 													</div>
 												</div>
