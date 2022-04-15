@@ -25,8 +25,8 @@ const LoXien = () => {
 				</div>
 				<div className="clearfix"/>
 			</div>
-			<div className="table">
-				<div className="col-xs-9">
+			<div className="table row">
+				<div className="col-md-12">
 					<div className="info-box">
 						<table style={{width: '100%', height: '100%'}}>
 							<tbody>

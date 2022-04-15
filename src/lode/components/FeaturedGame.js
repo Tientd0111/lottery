@@ -14,7 +14,7 @@ const FeaturedGame = () => {
 				<div className="main main-home">
 					<div className="list-lode containers-custom pb-120">
 						<div className="row">
-							<div className="col-xs-12 mtb-40">
+							<div className="col-md-12 mtb-40">
 								<h2 className="lode-title">Đánh Đề <span>Trực Tuyến</span></h2>
 								<p className="lode-des">Chúng tôi là nhà cái uy tín nhất, với nguồn vốn từ Macau. Tỉ lệ trả
 									thưởng cực cao , rút &

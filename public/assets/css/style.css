@@ -4592,7 +4592,9 @@ body{
 .main-content{
   margin-top: 150px;
 }
-
+.info-box{
+  overflow: auto;
+}
 .chon-so{
   position: relative;
   min-height: 300px;
@@ -5108,7 +5110,7 @@ label.label-cus {
 
 }
 .box-border {
-  height: 145px;
+  height: auto;
   border-radius: 4px;
   border: solid 1px #eaeaea;
   background-color: #ffffff;
@@ -5190,8 +5192,8 @@ label.label-cus {
 }
 .main-content-support .bg-font-ico {
   text-align: center;
-  width: 80px;
-  height: 80px;
+  width: 65px;
+  height: 65px;
   display: flex;
   justify-content: center;
   align-items: center;

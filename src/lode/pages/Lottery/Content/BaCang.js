@@ -46,8 +46,8 @@ const BaCang = () => {
 		setArrrayPicker(update);
 	},[]);
 	return (
-		<div className="table">
-			<div className="col-xs-9">
+		<div className="table row">
+			<div className="col-md-12">
 				<div className="info-box">
 					<div className={"tabs-main"}>
 						<ul className="nav nav-tabs tab-bet">

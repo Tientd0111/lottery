@@ -24,8 +24,8 @@ const DauDuoi = () => {
 				</div>
 				<div className="clearfix"/>
 			</div>
-			<div className="table">
-				<div className="col-xs-9">
+			<div className="table row">
+				<div className="col-md-12">
 					<div className="info-box">
 						<div className={"tabs-main"} style={{float:"left"}}>
 							<ul className="nav nav-tabs tab-bet">
