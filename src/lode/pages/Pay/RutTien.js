@@ -5,6 +5,8 @@ import {useForm} from "react-hook-form";
 import formatNumber from "../../../hooks/formatNumber";
 import {PayStores} from "../../../stores/PayStores";
 import Support from "../../components/Support";
+import {useHistory} from "react-router-dom";
+import Path from "../../../routes/path";
 
 const RutTien = () => {
 	const bank_name  = [
@@ -32,6 +34,11 @@ const RutTien = () => {
 	const onSubmit = async data => {
 		await withdraw(data)
 	};
+	const next = useHistory()
+
+	const back = async () => {
+		next.push(Path.HISTORY);
+	}
 	return (
 		<CommonMain>
 			<section style={{marginTop:"180px"}}>
@@ -129,7 +136,7 @@ const RutTien = () => {
 														<div className="col-md-4">
 														</div>
 														<div className="col-md-8">
-															<div className="col-md-8">
+															<div className="col-md-8" style={{maxWidth:"100%"}}>
 																<input className="btn btn-signin form-control but"
 																	   type="submit" value="Rút tiền"/>
 															</div>

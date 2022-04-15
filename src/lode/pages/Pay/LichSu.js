@@ -44,7 +44,6 @@ const LichSu = () => {
 										</tr>
 										</thead>
 										<tbody>
-										<tr>
 											<tr>
 												<td>Ngày tạo</td>
 												<td>Ngày đánh</td>
@@ -59,7 +58,6 @@ const LichSu = () => {
 												<td>Kết quả</td>
 												<td>Ghi chú</td>
 											</tr>
-										</tr>
 										</tbody>
 									</table>
 								</div>

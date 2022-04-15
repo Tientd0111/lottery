@@ -5185,4 +5185,38 @@ label.label-cus {
   padding: 120px 25px 0 25px;
   min-height: 361px;
 }
+.main-content-support .bg-font-ico.bg-red {
+  background: #d01c2d;
+}
+.main-content-support .bg-font-ico {
+  text-align: center;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #d01c2d;
+  border-radius: 50%;
+}
+.main-content-support .block-center {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 60px;
+}
+.clr-red {
+  color: #d01c2d;
+}
+.txt-top {
+  font-size: 13px;
+  margin: 0;
+}
+.txt-bottom {
+  font-size: 16px;
+  margin: 0;
+}
+.main-content-support a {
+  color: #d01c2d;
+}
 /*Support component end*/

@@ -97,7 +97,7 @@ const Header = () => {
 										</li>
 										<li>
 											<a onClick={()=>{reload()}}>
-												<FontAwesomeIcon icon={['fas','retweet']}/>
+												<FontAwesomeIcon className={"icons-phone icn-sp"} icon={['fas','phone']}/>
 											</a>
 										</li>
 
