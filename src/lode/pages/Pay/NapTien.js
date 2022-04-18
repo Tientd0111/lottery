@@ -2,7 +2,6 @@ import React from 'react';
 import CommonMain from "../../CommonMain";
 import constant from "../../../contants/constant";
 import {useForm} from "react-hook-form";
-import {useUserStore} from "../../../stores/useUserStore";
 import {UsePayStores} from "../../../stores/usePayStores";
 import formatNumber from '../../../hooks/formatNumber'
 import Support from "../../components/Support";
@@ -25,8 +24,7 @@ const NapTien = () => {
 		{val:'3000'},
 		{val:'5000'},
 	]
-	const {loading, tranf, dataResult,confirmData} = UsePayStores(state => ({
-		loading: state.loading,
+	const {tranf, dataResult,confirmData} = UsePayStores(state => ({
 		tranf: state.tranf,
 		dataResult: state.dataResult,
 		confirmData: state.confirmData,
@@ -70,7 +68,7 @@ const NapTien = () => {
 															{...register("Bank_name_to")}
 															className="form-control form-custom"
 															placeholder={"Chọn ngân hàng"}>
-															{bank_name.map((item,index)=>(
+															{bank_name.map((item)=>(
 																<option value={item.id} key={item.id}>{item.name}</option>
 															))}
 														</select>
@@ -110,7 +108,8 @@ const NapTien = () => {
 															   type="text"
 															   className="form-control form-custom"/>
 														<span style={{color:"red",fontSize:"15px"}}>
-															{errors.bank_account_name_to?.type === 'required' && "Tên người nhận không được để trống"}
+															{errors.bank_account_name_to?.type === 'required'
+																&& "Tên người nhận không được để trống"}
 														</span>
 													</div>
 												</div>
@@ -128,7 +127,8 @@ const NapTien = () => {
 															   type="text"
 															   className="form-control form-custom"/>
 														<span style={{color:"red",fontSize:"15px"}}>
-															{errors.bank_account_name_from?.type === 'required' && "Tên người gửi không được để trống"}
+															{errors.bank_account_name_from?.type === 'required'
+																&& "Tên người gửi không được để trống"}
 														</span>
 													</div>
 												</div>
@@ -145,7 +145,8 @@ const NapTien = () => {
 															   type="text"
 															   className="form-control form-custom"/>
 														<span style={{color:"red",fontSize:"15px"}}>
-															{errors.bank_account_number_from?.type === 'required' && "Stk người gửi không được để trống"}
+															{errors.bank_account_number_from?.type === 'required'
+																&& "Stk người gửi không được để trống"}
 														</span>
 													</div>
 												</div>
@@ -162,8 +163,10 @@ const NapTien = () => {
 															{...register("money_transfer")}
 															className="form-control form-custom"
 															placeholder={"Chọn mệnh giá"}>
-															{money.map((item,index)=>(
-																<option value={item.val} key={item.val}>{formatNumber(parseInt(item.val))}</option>
+															{money.map((item)=>(
+																<option value={item.val} key={item.val}>
+																	{formatNumber(parseInt(item.val))}
+																</option>
 															))}
 														</select>
 
@@ -175,7 +178,8 @@ const NapTien = () => {
 													<div className="col-md-4">
 													</div>
 													<div className="col-md-8">
-														<input className="btn btn-signin form-control but"
+														<input
+															className="btn btn-signin form-control but"
 															   type="submit" value="Nạp tiền"/>
 													</div>
 												</div>
@@ -202,7 +206,8 @@ const NapTien = () => {
 								<div className="row mt-0-30">
 									<div className="col-md-12 box-border">
 										<p className="guide-deposit">Hướng dẫn nhập Mã giao dịch:</p>
-										<p className="guide-help"><i className="icons-hand"></i> Nếu
+										<p className="guide-help">
+											<i className="icons-hand"></i> Nếu
 											bạn <span>chuyển qua ATM</span> vui lòng
 											điền <span>"Số Tài Khoản Ngân Hàng của bạn"</span>.</p>
 										<p className="guide-help"><i className="icons-hand"></i> Nếu
