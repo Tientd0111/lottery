@@ -70,7 +70,7 @@ const RutTien = () => {
 														</div>
 														<div className="col-md-8">
 															<select
-																{...register("Bank_name")}
+																{...register("bank_name")}
 																className="form-control form-custom"
 																placeholder={"Chọn ngân hàng"}>
 																{bank_name.map((item,index)=>(
