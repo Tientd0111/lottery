@@ -25,7 +25,9 @@ const FeaturedGame = () => {
 						<div className="row">
 							<div className="col-md-3 col-sm-6 col-xs-12">
 								<div className="box photo-1">
-									<div className="bg-box mb" style={{backgroundImage:`url(${images.mienbac})`}}/>
+									<div className="bg-box mb">
+										<img src={images.mienbac} alt=""/>
+									</div>
 									<div className="info-box">
 										<div className="bg-blur mb" style={{backgroundImage:`url(${images.mienbac})`}}/>
 										<p>Tổng cược trong ngày</p>
@@ -46,7 +48,9 @@ const FeaturedGame = () => {
 							</div>
 							<div className="col-md-3 col-sm-6 col-xs-12">
 								<div className="box photo-1">
-									<div className="bg-box mt" style={{backgroundImage:`url(${images.mientrung})`}}/>
+									<div className="bg-box mt" style={{backgroundImage:`url(${images.mientrung})`}}>
+										<img src={images.mientrung} alt={"mientrung"} />
+									</div>
 									<div className="info-box">
 										<div className="bg-blur mt" style={{backgroundImage:`url(${images.mientrung})`}}/>
 										<p>Tổng cược trong ngày</p>
@@ -66,7 +70,9 @@ const FeaturedGame = () => {
 							</div>
 							<div className="col-md-3 col-sm-6 col-xs-12">
 								<div className="box photo-1">
-									<div className="bg-box mn" style={{backgroundImage:`url(${images.miennam})`}}/>
+									<div className="bg-box mn">
+										<img src={images.miennam} alt=""/>
+									</div>
 									<div className="info-box">
 										<div className="bg-blur mn" style={{backgroundImage:`url(${images.miennam})`}}/>
 										<p>Tổng cược trong ngày</p>

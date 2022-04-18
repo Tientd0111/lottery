@@ -1557,10 +1557,11 @@ select:focus {
   position: unset; }
 .features.about-page .feature-box .feature-box-inner {
   position: unset;
-  top: 0px; }
+  top: 0; }
 .lode-title {
   font-size: 32px;
-  text-transform: capitalize;
+  font-weight: 600;
+  text-transform: uppercase;
   color: #d01c2d;
 }
 .lode-des {
@@ -1745,10 +1746,9 @@ select:focus {
   height: 140px;
 }
 .title-box-number {
-  font-family: 'Muli-Bold-Extra',sans-serif;
   color: #d01c2d;
-  font-size: 30px;
-  font-weight: bold;
+  font-size: 25px;
+  font-weight: 700;
   text-transform: uppercase;
 }
 .nap{
@@ -4912,9 +4912,6 @@ body{
   align-items: center;
   border: none;
   text-align: center;
-}
-.box{
-  padding-left: 10px;
 }
 .card .card-nav{
   text-decoration: none;
