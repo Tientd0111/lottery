@@ -3,9 +3,9 @@ import {callService} from "../apis/baseRequest";
 import apis from "../apis/definesApi";
 
 export const HistoryStores = create(set => ({
-	historyTranf: async (bodyParameters) => {
+	TransferNap: async (bodyParameters) => {
 		set({loading: true})
-		callService(apis.historytransfer.uri, 'POST', bodyParameters, true)
+		callService(apis.HisNap.uri, 'POST', bodyParameters, true)
 			.then(response => {
 				set({dataResult: response.result,loading: false});
 			})

@@ -185,7 +185,7 @@ const Header = () => {
 												</li>
 												<li>
 													<Link className="dropdown-item" to={PATH.HISTORYRUT}>
-														<FontAwesomeIcon icon={['fas','angle-double-right']} />Lịch sử cá cược
+														<FontAwesomeIcon icon={['fas','angle-double-right']} />Lịch sử rút tiền
 													</Link>
 												</li>
 											</ul>
