@@ -10,7 +10,7 @@ const HistoryRoutes = () => {
 			<Route exact path={PATH.HISTORYTRANSFER}>
 				<LichSu/>
 			</Route>
-			<Route exact path={PATH.HISTORYBET}>
+			<Route exact path={PATH.HISTORYRUT}>
 				<LichSuCuoc/>
 			</Route>
 		</Switch>
