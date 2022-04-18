@@ -24,9 +24,12 @@ const apis = {
 	reload:{
 		uri:'user/reload'
 	},
-	hisRut:{
+	hisNap:{
 		uri:'transfer/history'
-	}
+	},
+	hisRut:{
+		uri:'withdraw/history'
+	},
 
 }
 export default apis

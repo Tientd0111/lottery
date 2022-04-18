@@ -179,7 +179,7 @@ const Header = () => {
 											</a>
 											<ul className="dropdown-menu">
 												<li>
-													<Link className="dropdown-item" to={PATH.HISTORYTRANSFER}>
+													<Link className="dropdown-item" to={PATH.HISTORYNAP}>
 														<FontAwesomeIcon icon={['fas','angle-double-right']} />Lịch sử giao dịch
 													</Link>
 												</li>

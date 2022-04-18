@@ -3,17 +3,36 @@ import {callService} from "../apis/baseRequest";
 import apis from "../apis/definesApi";
 
 export const useHistoryStores = create(set => ({
-	transferRut: async (bodyParameters) => {
+	transferNap: async (bodyParameters) => {
 		set({loading: true})
-		callService(apis.hisRut.uri, 'POST', bodyParameters, true)
+		callService(apis.hisNap.uri, 'POST', bodyParameters, true)
 			.then(response => {
-				set({dataHis: response, loading: false})
+				set({loading: false})
+				if(bodyParameters?.addItem) {
+					set(state => ({dataHis: [...state.dataHis, ...response]}))
+				} else {
+					set({dataHis: response})
+				}
 			})
 			.catch(error=>{
 				set({loading: false})
 			})
 	},
-
-	dataHis:undefined,
+	transferRut: async (bodyParameters) => {
+		set({loading: true})
+		callService(apis.hisRut.uri, 'POST', bodyParameters, true)
+			.then(response => {
+				set({loading: false})
+				if(bodyParameters?.addItem) {
+					set(state => ({dataHis: [...state.dataHis, ...response]}))
+				} else {
+					set({dataHis: response})
+				}
+			})
+			.catch(error=>{
+				set({loading: false})
+			})
+	},
+	dataHis: [],
 	loading: false,
 }))
