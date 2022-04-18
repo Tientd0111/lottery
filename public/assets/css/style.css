@@ -1560,12 +1560,7 @@ select:focus {
   top: 0px; }
 .lode-title {
   font-size: 32px;
-  font-weight: 900;
-  text-transform: uppercase;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
+  text-transform: capitalize;
   color: #d01c2d;
 }
 .lode-des {
@@ -1584,7 +1579,7 @@ select:focus {
   height: 375px;
   max-width: 340px;
   background-color: #151c33;
-  margin: 0 auto;
+  margin: 20px auto;
   box-shadow: 0 4px 24px 0 rgb(0 0 0 / 10%);
 }
 
