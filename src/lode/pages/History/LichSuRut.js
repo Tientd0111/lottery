@@ -56,7 +56,7 @@ const LichSuRut = () => {
 											<td>{item.bank_account_name_to}</td>
 											<td>{item.bank_account_number_to}</td>
 											<td>{formatNumber(item.money_transfer)}</td>
-											<td>{item.status}</td>
+											<td>{item.created_by}</td>
 										</tr>
 									))}
 								<ButtonBase

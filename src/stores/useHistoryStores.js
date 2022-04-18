@@ -33,6 +33,21 @@ export const useHistoryStores = create(set => ({
 				set({loading: false})
 			})
 	},
+	hisBet: async (bodyParameters) => {
+		set({loading: true})
+		callService(apis.hisBet.uri, 'POST', bodyParameters, true)
+			.then(response => {
+				set({loading: false})
+				if(bodyParameters?.addItem) {
+					set(state => ({dataHis: [...state.dataHis, ...response]}))
+				} else {
+					set({dataHis: response})
+				}
+			})
+			.catch(error=>{
+				set({loading: false})
+			})
+	},
 	dataHis: [],
 	loading: false,
 }))

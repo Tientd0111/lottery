@@ -30,6 +30,9 @@ const apis = {
 	hisRut:{
 		uri:'withdraw/history'
 	},
+	hisBet:{
+		uri:'billLottery/history'
+	}
 
 }
 export default apis

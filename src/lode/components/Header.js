@@ -97,7 +97,7 @@ const Header = () => {
 										</li>
 										<li>
 											<a onClick={()=>{reload()}}>
-												<FontAwesomeIcon className={"icons-phone icn-sp"} icon={['fas','phone']}/>
+												<FontAwesomeIcon className={"icons-phone icn-sp"} icon={['fas','spinner']}/>
 											</a>
 										</li>
 
@@ -179,8 +179,13 @@ const Header = () => {
 											</a>
 											<ul className="dropdown-menu">
 												<li>
+													<Link className="dropdown-item" to={PATH.HISTORYBET}>
+														<FontAwesomeIcon icon={['fas','angle-double-right']} />Lịch sử cá cược
+													</Link>
+												</li>
+												<li>
 													<Link className="dropdown-item" to={PATH.HISTORYNAP}>
-														<FontAwesomeIcon icon={['fas','angle-double-right']} />Lịch sử giao dịch
+														<FontAwesomeIcon icon={['fas','angle-double-right']} />Lịch sử nạp tiền
 													</Link>
 												</li>
 												<li>

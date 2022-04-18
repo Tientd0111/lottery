@@ -5,6 +5,7 @@ const PATH = {
     RUT:'/rut',
     HISTORYRUT:'/historyrut',
     HISTORYNAP:'/historyNap',
+    HISTORYBET:'/history',
     INFO:'/info',
 }
 export default PATH;
