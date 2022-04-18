@@ -2,17 +2,18 @@ import create from 'zustand';
 import {callService} from "../apis/baseRequest";
 import apis from "../apis/definesApi";
 
-export const HistoryStores = create(set => ({
-	TransferNap: async (bodyParameters) => {
+export const useHistoryStores = create(set => ({
+	transferRut: async (bodyParameters) => {
 		set({loading: true})
-		callService(apis.HisNap.uri, 'POST', bodyParameters, true)
+		callService(apis.hisRut.uri, 'POST', bodyParameters, true)
 			.then(response => {
-				set({dataResult: response.result,loading: false});
+				set({dataHis: response, loading: false})
 			})
 			.catch(error=>{
 				set({loading: false})
 			})
 	},
-	dataResult:undefined,
+
+	dataHis:undefined,
 	loading: false,
 }))

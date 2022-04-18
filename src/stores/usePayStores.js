@@ -3,7 +3,7 @@ import {callService} from "../apis/baseRequest";
 import apis from "../apis/definesApi";
 import {toast} from "react-toastify";
 
-export const PayStores = create(set => ({
+export const UsePayStores = create(set => ({
 	tranf: async (bodyParameters) => {
 		set({loading: true})
 		callService(apis.transfer.uri, 'POST', bodyParameters, true)

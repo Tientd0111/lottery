@@ -1,10 +1,26 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import CommonMain from "../../CommonMain";
 import HeadHistory from "../../components/HeadHistory";
 import ContentHistory from "../../components/ContentHistory";
 import Support from "../../components/Support";
+import {useHistoryStores} from "../../../stores/useHistoryStores";
+import formatNumber from "../../../hooks/formatNumber";
 
 const LichSuRut = () => {
+	const {transferRut, histories} = useHistoryStores(state => ({
+		transferRut: state.transferRut,
+		histories: state.dataHis
+	}))
+
+	useEffect( ()=>{
+		async function fetchData() {
+			await transferRut()
+		}
+		fetchData()
+	},[])
+
+	console.log(histories)
+
 	return (
 		<CommonMain>
 			<section style={{marginTop:"180px"}}>
@@ -16,16 +32,22 @@ const LichSuRut = () => {
 							<table className="table table-bordered table-striped"
 								   style={{overflow:"auto"}}>
 								<tbody>
-								<tr>
-									<td>Ngày </td>
+								<tr style={{textAlign:'center'}}>
+									<td>Ngày tạo</td>
 									<td>Ngày GD</td>
-									<td>Kiểu GD</td>
 									<td>Ngân hàng</td>
 									<td>Số tiền</td>
-									<td>Tiền sau GD</td>
 									<td>Trạng thái</td>
-									<td>Ghi chú</td>
 								</tr>
+								{histories?.map((item)=>(
+									<tr style={{textAlign:'center'}}>
+										<td>{item.created_at}</td>
+										<td>{item.updated_at}</td>
+										<td>{item.bank_name_to}</td>
+										<td>{formatNumber(item.money_transfer)}</td>
+										<td>{item.status}</td>
+									</tr>
+								))}
 								</tbody>
 							</table>
 						</div>

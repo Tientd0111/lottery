@@ -3,7 +3,7 @@ import {callService} from "../apis/baseRequest";
 import apis from "../apis/definesApi";
 import {toast} from "react-toastify";
 
-export const betLotteryStore = create(set => ({
+export const useBetLotteryStore = create(set => ({
 	bet: async (bodyParameters) => {
 		set({loading: true})
 		callService(apis.bet.uri, 'POST', bodyParameters, true)

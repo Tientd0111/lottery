@@ -3,7 +3,7 @@ import CommonMain from "../../CommonMain";
 import constant from "../../../contants/constant";
 import {useForm} from "react-hook-form";
 import {useUserStore} from "../../../stores/useUserStore";
-import {PayStores} from "../../../stores/PayStores";
+import {UsePayStores} from "../../../stores/usePayStores";
 import formatNumber from '../../../hooks/formatNumber'
 import Support from "../../components/Support";
 const NapTien = () => {
@@ -25,7 +25,7 @@ const NapTien = () => {
 		{val:'3000'},
 		{val:'5000'},
 	]
-	const {loading, tranf, dataResult,confirmData} = PayStores(state => ({
+	const {loading, tranf, dataResult,confirmData} = UsePayStores(state => ({
 		loading: state.loading,
 		tranf: state.tranf,
 		dataResult: state.dataResult,

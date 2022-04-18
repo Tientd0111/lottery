@@ -3,7 +3,7 @@ import CommonMain from "../../CommonMain";
 import constant from "../../../contants/constant";
 import {useForm} from "react-hook-form";
 import formatNumber from "../../../hooks/formatNumber";
-import {PayStores} from "../../../stores/PayStores";
+import {UsePayStores} from "../../../stores/usePayStores";
 import Support from "../../components/Support";
 
 const RutTien = () => {
@@ -26,7 +26,7 @@ const RutTien = () => {
 		{val:'5000'},
 	]
 	const {handleSubmit, register,formState: { errors }} = useForm();
-	const {withdraw} = PayStores(state => ({
+	const {withdraw} = UsePayStores(state => ({
 		withdraw: state.withdraw,
 	}))
 	const onSubmit = async data => {

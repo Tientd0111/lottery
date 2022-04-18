@@ -10,7 +10,7 @@ import DauDuoi from "./Content/DauDuoi";
 import LoXien from "./Content/LoXien";
 import {FormProvider, useForm} from "react-hook-form";
 import ViewBetInputSubmit from "../../components/ViewBetInputSubmit";
-import {betLotteryStore} from "../../../stores/betLotteryStore";
+import {useBetLotteryStore} from "../../../stores/useBetLotteryStore";
 
 const LotteryPage = () => {
 
@@ -43,7 +43,7 @@ const LotteryPage = () => {
 				break
 		}
 	}, [form, initValue])
-	const {loading, bet} = betLotteryStore(state => ({
+	const {loading, bet} = useBetLotteryStore(state => ({
 		loading: state.loading,
 		bet: state.bet
 	}))

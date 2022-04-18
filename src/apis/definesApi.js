@@ -24,8 +24,8 @@ const apis = {
 	reload:{
 		uri:'user/reload'
 	},
-	HisNap:{
-		uri:''
+	hisRut:{
+		uri:'transfer/history'
 	}
 
 }
