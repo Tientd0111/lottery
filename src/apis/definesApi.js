@@ -23,6 +23,9 @@ const apis = {
 	},
 	reload:{
 		uri:'user/reload'
+	},
+	historyTransfer:{
+		uri:''
 	}
 
 }

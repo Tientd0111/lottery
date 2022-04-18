@@ -77,7 +77,7 @@ const Header = () => {
 									<ul className="right-list">
 										<li>
 											<div className="cart-icon tm-dropdown">
-												<p>Ví :<span>{formatNumber(cookies["cookie-user"].balance)}</span></p>
+												<p>Ví :<span>{formatNumber(user?.balance)}</span></p>
 											</div>
 
 										</li>
