@@ -2,6 +2,7 @@ import React from 'react';
 import {Route, Switch} from "react-router-dom";
 import PATH from './path';
 import LichSu from "../lode/pages/History/LichSu";
+import LichSuCuoc from "../lode/pages/History/LichSuCuoc";
 
 const HistoryRoutes = () => {
 	return (
@@ -10,7 +11,7 @@ const HistoryRoutes = () => {
 				<LichSu/>
 			</Route>
 			<Route exact path={PATH.HISTORYBET}>
-				<LichSu/>
+				<LichSuCuoc/>
 			</Route>
 		</Switch>
 	);

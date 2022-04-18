@@ -10,14 +10,14 @@ const LichSuCuoc = () => {
 			<section style={{marginTop:"180px"}}>
 				<div className={"row"}>
 					<div className="tabs-main main-content-member lsgd-tabs--content tab-pane col-md-9">
-						<HeadHistory title={'Lịch sử giao dịch'}/>
+						<HeadHistory title={'Lịch sử cá cược'}/>
 						<ContentHistory/>
 						<div className="table-responsive" style={{overflow:"auto"}}>
 							<table className="table table-bordered table-striped"
 								   style={{overflow:"auto"}}>
 								<tbody>
 								<tr>
-									<td>Ngày tạo</td>
+									<td>Ngày </td>
 									<td>Ngày GD</td>
 									<td>Kiểu GD</td>
 									<td>Ngân hàng</td>
