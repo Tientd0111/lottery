@@ -53,7 +53,7 @@ const LichSu = () => {
 											<td>{item.mien}</td>
 											<td>{item.kieuDanh}</td>
 											<td>{item.kieuChoi}</td>
-											<td>{item.soDanh.toString()}</td>
+											<td>{item.soDanh?.toString()}</td>
 											<td>{formatNumber(item.soTienCuoc)}</td>
 										</tr>
 									))}
