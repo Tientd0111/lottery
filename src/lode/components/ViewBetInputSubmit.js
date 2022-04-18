@@ -55,7 +55,7 @@ const ViewBetInputSubmit = ({
 					<div id="sodanh"/>
 					<div className="form-group">
 						<div className="info-amount">Tổng tiền đánh(k)</div>
-						<input {...register('soTienCuoc')} type="text" placeholder="0"
+						<input {...register('soTienCuoc', {valueAsNumber: true})} type="number" placeholder="0"
 							   className="format_currency tongtiendanh form-new-2"/>
 					</div>
 
