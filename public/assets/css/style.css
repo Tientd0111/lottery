@@ -5192,6 +5192,9 @@ label.label-cus {
   border: 1px solid #d01c2d;
   border-radius: 50%;
 }
+.bg-font-ico svg{
+  color: white;
+}
 .main-content-support .block-center {
   display: flex;
   flex-direction: column;

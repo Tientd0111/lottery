@@ -23,6 +23,19 @@ const Support = () => {
 						</p>
 					</div>
 				</div>
+				<div className={"row mb-16"}>
+					<div className={"col-md-3"}>
+						<p className={"bg-font-ico ico-bottom bg-red"}>
+							<FontAwesomeIcon icon={['fas','envelope']}/>
+						</p>
+					</div>
+					<div className={"col-md-9 block-center"}>
+						<p className={"txt-top clr-red"}>Gửi ngay</p>
+						<p className={"txt-bottom clr-red"}>
+							<a href="/#">HqlTech@gmail.com</a>
+						</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	);

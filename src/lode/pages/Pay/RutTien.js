@@ -79,14 +79,14 @@ const RutTien = () => {
 														<div className="col-md-4">
 															<label htmlFor="from_overview_ruttien_bank"
 																   className="label-cus">Tên người nhận (<font
-																color="red">
+																color="red" >
 																<b>*</b></font>)</label>
 														</div>
 														<div className="col-md-8">
 															<input
 																{...register("bank_account_name_to",{required:true})}
 																type="text"
-																className="form-control form-custom"/>
+																className="form-control form-custom" placeholder={"Nhập họ tên người nhận viết in hoa không dấu "}/>
 																<span style={{color:"red",fontSize:"15px"}}>
 																	{errors.bank_account_name_to?.type === 'required' && "Tên người nhận không được để trống"}
 																</span>
@@ -105,7 +105,7 @@ const RutTien = () => {
 															<input
 																{...register("bank_account_number_to",{required:true})}
 																type="text"
-																className="form-control form-custom"/>
+																className="form-control form-custom" placeholder={"Nhập số tài khoản nhận tiền"}/>
 															<span style={{color:"red",fontSize:"15px"}}>
 																{errors.bank_account_number_to?.type === 'required' && "Số tài khoản không được để trống"}
 															</span>
