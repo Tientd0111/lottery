@@ -1,7 +1,6 @@
 import './App.css';
 import RootRoutes from "./routes";
 import {toast, ToastContainer} from "react-toastify";
-import BigSmall from "./lode/minigame/BigSmall";
 import React, {useEffect, useRef} from "react";
 import {useSocket} from "./stores/useSocket";
 import {useUserStore} from "./stores/useUserStore";

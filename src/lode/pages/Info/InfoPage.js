@@ -35,7 +35,7 @@ const InfoPage = () => {
 						<div className={"col-md-6"}>
 							<ul className="nav nav-tabs" id="myTab">
 								<li className="nav-item ">
-									<a className="nav-link active" data-toggle="tab" href="#deposit-bank">Thông tin tài khoản</a>
+									<a className="nav-link active" data-toggle="tab" href="/#">Thông tin tài khoản</a>
 								</li>
 							</ul>
 						</div>

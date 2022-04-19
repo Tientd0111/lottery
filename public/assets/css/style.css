@@ -4657,6 +4657,23 @@ body{
 .table span{
   margin-right: 7px;
 }
+.role p{
+  padding: 17px;
+  font-size: 17px;
+  color: #0b0b0b;
+}
+.header-title p{
+  color: #8d8d8f;
+}
+.subtitile{
+  color: #0b0b0b;
+}
+.info-amount{
+  color: #0b0b0b;
+}
+.box_content p{
+  color: #8d8d8f;
+}
 /*.table span>span{*/
 /*  padding: 3px 10px;*/
 /*  cursor: pointer;*/

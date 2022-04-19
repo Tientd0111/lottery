@@ -65,7 +65,7 @@ const NapTien = () => {
 													</div>
 													<div className="col-md-8">
 														<select
-															{...register("Bank_name_to")}
+															{...register("bank_name_to")}
 															className="form-control form-custom"
 															placeholder={"Chọn ngân hàng"}>
 															{bank_name.map((item)=>(
@@ -204,7 +204,7 @@ const NapTien = () => {
 									}
 								</div>
 								<div className="row mt-0-30">
-									<div className="col-md-12 box-border">
+									<div className="col-md-12 box-border box_content">
 										<p className="guide-deposit">Hướng dẫn nhập Mã giao dịch:</p>
 										<p className="guide-help">
 											<i className="icons-hand"></i> Nếu

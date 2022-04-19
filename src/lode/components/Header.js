@@ -51,6 +51,7 @@ const Header = () => {
 		setUser: state.setUser,
 		reload:state.reload
 	}))
+	console.log(user?.username)
 	const [cookies, removeCookie] = useCookies(['cookie-user']);
 
 	useEffect(()=>{
@@ -96,9 +97,11 @@ const Header = () => {
 											</ul>:''}
 										</li>
 										<li>
-											<a onClick={()=>{reload()}}>
-												<FontAwesomeIcon className={"icons-phone icn-sp"} icon={['fas','spinner']}/>
-											</a>
+											{user?.username !== undefined?
+												<a href="/#" onClick={()=>{reload()}}>
+													<FontAwesomeIcon className={"icons-phone icn-sp"} icon={['fas','spinner']}/>
+												</a>:''}
+
 										</li>
 
 									</ul>
