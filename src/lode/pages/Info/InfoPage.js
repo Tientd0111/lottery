@@ -23,6 +23,7 @@ const InfoPage = () => {
 	const logoutSection = async () => {
 		await logout();
 		removeCookie("cookie-user");
+		localStorage.removeItem("key");
 		setUser(undefined);
 		history.push(Path.HOME);
 	}

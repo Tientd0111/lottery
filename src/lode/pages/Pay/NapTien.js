@@ -1,21 +1,13 @@
 import React, {useState} from 'react';
 import CommonMain from "../../CommonMain";
-import constant from "../../../contants/constant";
 import {useForm} from "react-hook-form";
 import {UsePayStores} from "../../../stores/usePayStores";
 import formatNumber from '../../../hooks/formatNumber'
 import Support from "../../components/Support";
-import PATH from "../../../routes/path";
-import {Redirect} from "react-router-dom";
 import {useUserStore} from "../../../stores/useUserStore";
+import {toast} from "react-toastify";
 const NapTien = () => {
-	const bank_name  = [
-		{id: constant.MB_BANK,name:constant.MB_BANK,stk:'1234123131'},
-		{id: constant.TECH,name:constant.TECH,stk:'123412323'},
-		{id: constant.VIET,name:constant.VIET,stk:'1234122341'},
-		{id: constant.BIDV,name:constant.BIDV,stk:'1234313123'},
-		{id: constant.TP,name:constant.TP,stk:'1234123656'}
-	]
+
 	const money=[
 		{val:'10'},
 		{val:'20'},
@@ -32,9 +24,17 @@ const NapTien = () => {
 		dataResult: state.dataResult,
 		confirmData: state.confirmData,
 	}))
+	const {user} = useUserStore(state => ({
+		user: state.user
+	}))
 	const {handleSubmit, register,formState: { errors }} = useForm();
 	const onSubmit = async data => {
-		await tranf(data)
+		if(user?.username !== undefined) {
+			await tranf(data)
+		}
+		else {
+			toast('Vui lòng đăng nhập')
+		}
 	};
 
 	return (

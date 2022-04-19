@@ -80,7 +80,6 @@ const Header = () => {
 											<div className="cart-icon tm-dropdown">
 												<p>Ví :<span>{formatNumber(user?.balance)}</span></p>
 											</div>
-
 										</li>
 										<li className={"nav-item dropdown li_cha"}>
 											{/*{userCook?userCook.name*/}

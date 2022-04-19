@@ -6,6 +6,7 @@ import formatNumber from "../../../hooks/formatNumber";
 import {UsePayStores} from "../../../stores/usePayStores";
 import Support from "../../components/Support";
 import {useUserStore} from "../../../stores/useUserStore";
+import {toast} from "react-toastify";
 
 const RutTien = () => {
 	const bank_name  = [
@@ -31,16 +32,17 @@ const RutTien = () => {
 		withdraw: state.withdraw,
 	}))
 
-	const {reload} = useUserStore(state =>({
-		reload:state.reload
+	const {user} = useUserStore(state =>({
+		user:state.user
 	}))
 	const onSubmit = async data => {
-		await withdraw(data)
+		if(user?.username !== undefined){
+			await withdraw(data)
+		}else {
+			toast("Vui lòng đăng nhập")
+		}
 	};
-	const load = ()=>{
-		reload()
-			.then()
-	}
+
 	return (
 		<CommonMain>
 			<section style={{marginTop:"180px"}}>
@@ -94,7 +96,7 @@ const RutTien = () => {
 															<input
 																{...register("bank_account_name_to",{required:true})}
 																type="text"
-																className="form-control form-custom" placeholder={"Nhập họ tên người nhận viết in hoa không dấu "}/>
+																className="form-control form-custom" />
 																<span style={{color:"red",fontSize:"15px"}}>
 																	{errors.bank_account_name_to?.type === 'required' && "Tên người nhận không được để trống"}
 																</span>
@@ -113,7 +115,7 @@ const RutTien = () => {
 															<input
 																{...register("bank_account_number_to",{required:true})}
 																type="text"
-																className="form-control form-custom" placeholder={"Nhập số tài khoản nhận tiền"}/>
+																className="form-control form-custom"/>
 															<span style={{color:"red",fontSize:"15px"}}>
 																{errors.bank_account_number_to?.type === 'required' && "Số tài khoản không được để trống"}
 															</span>
@@ -145,7 +147,7 @@ const RutTien = () => {
 														</div>
 														<div className="col-md-8">
 															<div className="col-md-8" style={{maxWidth:"100%"}}>
-																<input onClick={load} className="btn btn-signin form-control but"
+																<input className="btn btn-signin form-control but"
 																	   type="submit" value="Rút tiền"/>
 															</div>
 														</div>
