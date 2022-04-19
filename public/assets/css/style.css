@@ -5266,7 +5266,7 @@ label.label-cus {
 .box-send {
   display: grid;
   grid-template-columns: auto 33px 34px;
-  position: absolute;
+  position: relative;
   background: #fff;
   padding: 7px;
   border: 1px solid #9398a0;
