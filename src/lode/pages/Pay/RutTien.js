@@ -5,6 +5,7 @@ import {useForm} from "react-hook-form";
 import formatNumber from "../../../hooks/formatNumber";
 import {UsePayStores} from "../../../stores/usePayStores";
 import Support from "../../components/Support";
+import {useUserStore} from "../../../stores/useUserStore";
 
 const RutTien = () => {
 	const bank_name  = [
@@ -29,10 +30,17 @@ const RutTien = () => {
 	const {withdraw} = UsePayStores(state => ({
 		withdraw: state.withdraw,
 	}))
+
+	const {reload} = useUserStore(state =>({
+		reload:state.reload
+	}))
 	const onSubmit = async data => {
 		await withdraw(data)
 	};
-
+	const load = ()=>{
+		reload()
+			.then()
+	}
 	return (
 		<CommonMain>
 			<section style={{marginTop:"180px"}}>
@@ -137,7 +145,7 @@ const RutTien = () => {
 														</div>
 														<div className="col-md-8">
 															<div className="col-md-8" style={{maxWidth:"100%"}}>
-																<input className="btn btn-signin form-control but"
+																<input onClick={load} className="btn btn-signin form-control but"
 																	   type="submit" value="Rút tiền"/>
 															</div>
 														</div>

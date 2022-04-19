@@ -99,7 +99,7 @@ const Header = () => {
 										<li>
 											{user?.username !== undefined?
 												<a href="/#" onClick={()=>{reload()}}>
-													<FontAwesomeIcon className={"icons-phone icn-sp"} icon={['fas','spinner']}/>
+													<FontAwesomeIcon className={"icons-spin icn-sp"} icon={['fas','spinner']}/>
 												</a>:''}
 
 										</li>

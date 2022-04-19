@@ -4674,6 +4674,12 @@ body{
 .box_content p{
   color: #8d8d8f;
 }
+.icons-spin{
+  animation: load 3s infinite;
+}
+@keyframes load {
+  100%{transform: rotate(360deg);}
+}
 /*.table span>span{*/
 /*  padding: 3px 10px;*/
 /*  cursor: pointer;*/

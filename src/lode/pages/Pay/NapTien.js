@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import CommonMain from "../../CommonMain";
 import constant from "../../../contants/constant";
 import {useForm} from "react-hook-form";
 import {UsePayStores} from "../../../stores/usePayStores";
 import formatNumber from '../../../hooks/formatNumber'
 import Support from "../../components/Support";
+import PATH from "../../../routes/path";
+import {Redirect} from "react-router-dom";
+import {useUserStore} from "../../../stores/useUserStore";
 const NapTien = () => {
 	const bank_name  = [
 		{id: constant.MB_BANK,name:constant.MB_BANK,stk:'1234123131'},
@@ -33,7 +36,6 @@ const NapTien = () => {
 	const onSubmit = async data => {
 		await tranf(data)
 	};
-
 
 	return (
 		<CommonMain>
@@ -197,7 +199,6 @@ const NapTien = () => {
 												className="btn btn-signin form-control but"
 												onClick={()=>{
 													confirmData({id: dataResult.id})
-														.then()
 												}
 												}>Xác nhận đã chuyển</button>
 										</div>
