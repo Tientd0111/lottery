@@ -11,6 +11,7 @@ import LoXien from "./Content/LoXien";
 import {FormProvider, useForm} from "react-hook-form";
 import ViewBetInputSubmit from "../../components/ViewBetInputSubmit";
 import {useBetLotteryStore} from "../../../stores/useBetLotteryStore";
+import LiveChat from "../../components/LiveChat";
 
 const LotteryPage = () => {
 

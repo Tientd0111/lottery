@@ -31,6 +31,8 @@ import d_6 from './taixiu/d_6.png'
 import loop_i from './taixiu/loop_i.png'
 import loop_o from './taixiu/loop_o.png'
 import back from './rectangle-sp.png'
+import icon_pick_emoji from './chatbox/icon-chat.svg'
+import icon_send from './chatbox/send.svg'
 
 const images = {
 	//lode
@@ -58,6 +60,8 @@ const images = {
 	mientrung : mientrung,
 	miennam : miennam,
 	back: back,
+	icon_pick_emoji: icon_pick_emoji,
+	icon_send: icon_send,
 
 
 	// Tai xiu

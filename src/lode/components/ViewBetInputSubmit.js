@@ -1,6 +1,7 @@
 import React from 'react';
 import {useFormContext} from "react-hook-form";
 import Constant from "../../contants/constant";
+import LiveChat from "./LiveChat";
 
 const ViewBetInputSubmit = ({
 	bigTitle = '',
@@ -62,8 +63,11 @@ const ViewBetInputSubmit = ({
 					<input type="submit" value="Đặt cược" className="btn-danhde"/>
 				</div>
 			</div>
+			<LiveChat/>
+
 		</div>
-	);
+
+);
 };
 
 export default ViewBetInputSubmit;
