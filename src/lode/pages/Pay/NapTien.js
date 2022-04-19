@@ -61,65 +61,6 @@ const NapTien = () => {
 												<div className="row">
 													<div className="col-md-4">
 														<label className="label-cus"
-															   htmlFor="from_overview_naptien_bank">Chọn
-															ngân hàng (<font
-																color="red"><b>*</b></font>)</label>
-													</div>
-													<div className="col-md-8">
-														<select
-															{...register("bank_name_to")}
-															className="form-control form-custom"
-															placeholder={"Chọn ngân hàng"}>
-															{bank_name.map((item)=>(
-																<option value={item.id} key={item.id}>{item.name}</option>
-															))}
-														</select>
-
-													</div>
-												</div>
-											</div>
-											<div className="form-group">
-												<div className="row">
-													<div className="col-md-4">
-														<label className="label-cus"
-															   htmlFor="from_overview_naptien_account">Chọn
-															Tk nhận (<font
-																color="red"><b>*</b></font>)</label>
-													</div>
-													<div className="col-md-8">
-														<select {...register("bank_account_number_to")}
-																name="bank_number"
-																className="form-control form-custom">
-															{bank_name.map((item)=>(
-																<option value={item.stk} key={item.stk}>{item.stk}</option>
-															))}
-														</select>
-													</div>
-												</div>
-											</div>
-											<div className="form-group">
-												<div className="row">
-													<div className="col-md-4">
-														<label className="label-cus"
-															   htmlFor="from_overview_naptien_customer">Tên
-															người nhận (<font
-																color="red"><b>*</b></font>)</label>
-													</div>
-													<div className="col-md-8">
-														<input {...register("bank_account_name_to",{required:true})}
-															   type="text"
-															   className="form-control form-custom"/>
-														<span style={{color:"red",fontSize:"15px"}}>
-															{errors.bank_account_name_to?.type === 'required'
-																&& "Tên người nhận không được để trống"}
-														</span>
-													</div>
-												</div>
-											</div>
-											<div className="form-group">
-												<div className="row">
-													<div className="col-md-4">
-														<label className="label-cus"
 															   htmlFor="from_overview_naptien_customer">Tên
 															người gửi (<font
 																color="red"><b>*</b></font>)</label>
@@ -191,6 +132,18 @@ const NapTien = () => {
 									{dataResult === undefined?'':
 										<div className="col-md-4 container-fluid" style={{marginTop:"120px"}}>
 											<h5 style={{color:"#383636"}}>Vui lòng chuyển khoản như sau</h5>
+											<label style={{color:"#000"}}>
+												Ngân hàng:
+												<span style={{color:"red"}}> {dataResult.bank_name}</span>
+											</label>
+											<label style={{color:"#000"}}>
+												Tên người nhận:
+												<span style={{color:"red"}}> {dataResult.bank_account_name}</span>
+											</label>
+											<label style={{color:"#000"}}>
+												Số tài khoản:
+												<span style={{color:"red"}}> {dataResult.bank_number}</span>
+											</label>
 											<label style={{color:"#000"}}>
 												Nội dung chuyển khoản:
 												<span style={{color:"red"}}> {dataResult.description_bank}</span>
