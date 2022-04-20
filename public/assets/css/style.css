@@ -4667,9 +4667,11 @@ body{
   color: #8d8d8f;
 }
 .subtitile{
+  font-size: 14px;
   color: #0b0b0b;
 }
 .info-amount{
+  font-size: 15px;
   color: #0b0b0b;
 }
 .box_content p{
@@ -4734,7 +4736,7 @@ body{
   background-color: #ffffff;
 }
 .head-panel p {
-  font-size: 16px;
+  font-size: 20px;
   color: #d70a0a;
   border: none;
   margin: 0;

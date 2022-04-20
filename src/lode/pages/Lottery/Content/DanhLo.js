@@ -67,17 +67,31 @@ const DanhLo = () => {
 
 	return (
 		<div className={"danh-lo"}>
-			<div id="tabBetType" className="bb-1">
-				<div className={`kd1 ${watchKieuChoi === Constant.LO_2_SO && 'act'}`} id="loto_type_info"
-					 onClick={()=>setTab(Constant.LO_2_SO)}>
-					{'Lô 2 số'}
+			{watch().mien === 'MN'?
+				<div id="tabBetType" className="bb-1">
+					<div className={`kd1 ${watchKieuChoi === Constant.BAO_LO_2 && 'act'}`} id="loto_type_info"
+						 onClick={()=>setTab(Constant.BAO_LO_2)}>
+						{'Lô 2 số'}
+					</div>
+					<div className={`kd1 ${watchKieuChoi === Constant.LO_3_SO && 'act'}`}
+						 onClick={()=>setTab(Constant.BAO_LO_3)} id="loto_type_info">
+						{'Lô 3 số'}
+					</div>
+					<div className="clearfix"/>
+				</div>:
+				<div id="tabBetType" className="bb-1">
+					<div className={`kd1 ${watchKieuChoi === Constant.LO_2_SO && 'act'}`} id="loto_type_info"
+						 onClick={()=>setTab(Constant.LO_2_SO)}>
+						{'Lô 2 số'}
+					</div>
+					<div className={`kd1 ${watchKieuChoi === Constant.LO_3_SO && 'act'}`}
+						 onClick={()=>setTab(Constant.LO_3_SO)} id="loto_type_info">
+						{'Lô 3 số'}
+					</div>
+					<div className="clearfix"/>
 				</div>
-				<div className={`kd1 ${watchKieuChoi === Constant.LO_3_SO && 'act'}`}
-					 onClick={()=>setTab(Constant.LO_3_SO)} id="loto_type_info">
-					{'Lô 3 số'}
-				</div>
-				<div className="clearfix"/>
-			</div>
+			}
+
 			<div className="table row">
 				<div className="col-md-12">
 					<div className="info-box">

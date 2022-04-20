@@ -14,7 +14,6 @@ const ArrayNumberPicker = ({arrays = [], t = false, indexPlus = "0"}) => {
 			const indexOfStevie = fields.findIndex(i => i.so === so);
 			if(indexOfStevie > -1) remove(indexOfStevie)
 			else append({so: so})
-			console.log(indexOfStevie)
 		}else if(fields.length < 1){
 			const indexOfStevie = fields.findIndex(i => i.so === so);
 			if(indexOfStevie > -1) remove(indexOfStevie)

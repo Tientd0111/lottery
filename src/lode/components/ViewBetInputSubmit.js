@@ -28,6 +28,17 @@ const ViewBetInputSubmit = ({
 		{id:Constant.XIEN_2, name: 'Xiên 2'},
 		{id:Constant.XIEN_3, name: 'Xiên 3'},
 		{id:Constant.XIEN_4, name: 'Xiên 4'},
+		{id:Constant.BAO_LO, name: 'Bao Lô'},
+		{id:Constant.BAO_LO_2, name: 'Bao lô 2 số'},
+		{id:Constant.BAO_LO_3, name: 'Bao lô 3 số'},
+		{id:Constant.LO_DA, name: 'Lô Đá'},
+		{id:Constant.LO_DA_2, name: 'Đá 2'},
+		{id:Constant.LO_DA_3, name: 'Đá 3'},
+		{id:Constant.LO_DA_4, name: 'Đá 4'},
+		{id:Constant.XIU_CHU, name: 'Xỉu Chủ'},
+		{id:Constant.XIU_CHU_DAU, name: 'Xỉu Chủ Đầu'},
+		{id:Constant.XIU_CHU_DUOI, name: 'Xỉu Chủ Đuôi'},
+		{id:Constant.XIU_CHU_DAU_DUOI, name: 'Xỉu Chủ Đầu - Đuôi'},
 	]
 	let first,last,end = '';
 	return (

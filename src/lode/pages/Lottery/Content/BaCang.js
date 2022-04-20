@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import ArrayNumberPicker from "../../../components/ArrayNumberPicker";
 import TabKieuChoi from "../../../components/TabKieuChoi";
 import Constant from "../../../../contants/constant";
-import {useFormContext} from "react-hook-form";
+import {useForm, useFormContext} from "react-hook-form";
 
 const BaCang = () => {
 	const load = [

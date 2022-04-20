@@ -16,11 +16,11 @@ const LotteryPage = () => {
 	const form = useForm({
 		defaultValues: {
 			kieuDanh: Constant.DANH_LO,
-			mien: Constant.DAI_MB
+			mien: Constant.DAI_MB,
+			kieuChoi: Constant.LO_2_SO
 		}
 	});
 
-	console.log("Mien", form.watch('mien'))
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	const initValue = (kieuDanh, kieuChoi) => {
 		return {soDanh: [], kieuDanh , kieuChoi, mien: form.getValues('mien'), ngayDanh: form.getValues('ngayDanh')}
@@ -31,17 +31,29 @@ const LotteryPage = () => {
 			case Constant.DANH_LO:
 				form.reset(initValue(code, Constant.LO_2_SO))
 				break
+			case Constant.BAO_LO:
+				form.reset(initValue(code, Constant.BAO_LO_2))
+				break
+			case Constant.BA_CANG_DAU:
+				form.reset(initValue(code, Constant.BA_CANG_DAU))
+				break
 			case Constant.BA_CANG:
 				form.reset(initValue(code, Constant.BA_CANG))
 				break
+			case Constant.XIU_CHU:
+				form.reset(initValue(code, Constant.XIU_CHU_DAU))
+				break
 			case Constant.DANH_DE:
-				form.reset(initValue(code, Constant.DANH_DE))
+				form.reset(initValue(code, Constant.DE_DAU))
 				break
 			case Constant.DAU_DUOI:
-				form.reset(initValue(code, Constant.DE_DAU_DUOI))
+				form.reset(initValue(code, Constant.DAU_DUOI_DAU))
 				break
 			case Constant.LO_XIEN:
-				form.reset(initValue(code, Constant.LO_XIEN))
+				form.reset(initValue(code, Constant.LO_XIEN_2))
+				break
+			case Constant.LO_DA:
+				form.reset(initValue(code, Constant.LO_DA_2))
 				break
 		}
 	}, [form, initValue])
@@ -83,6 +95,11 @@ const LotteryPage = () => {
 											)
 										}
 										{
+											contentPage === Constant.BAO_LO&&(
+												<DanhLo />
+											)
+										}
+										{
 											contentPage === Constant.DANH_DE&&(
 												<DanhDe />
 											)
@@ -93,12 +110,22 @@ const LotteryPage = () => {
 											)
 										}
 										{
+											contentPage === Constant.XIU_CHU&&(
+												<BaCang />
+											)
+										}
+										{
 											contentPage === Constant.DAU_DUOI&&(
 												<DauDuoi />
 											)
 										}
 										{
 											contentPage === Constant.LO_XIEN&&(
+												<LoXien />
+											)
+										}
+										{
+											contentPage === Constant.LO_DA&&(
 												<LoXien />
 											)
 										}
