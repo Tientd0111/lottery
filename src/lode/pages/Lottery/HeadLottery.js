@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import Constant from "../../../contants/constant";
 import {useFormContext} from "react-hook-form";
 import moment from "moment";
+import constant from "../../../contants/constant";
 
 const HeadLottery = ({pageCallback = () => {}}) =>{
 
@@ -35,11 +36,11 @@ const HeadLottery = ({pageCallback = () => {}}) =>{
 				<div className="col-md-4">
 					<div>
 						<label htmlFor="commission_rate" className="label-cus">Đài</label>
-						<select {...register('mien')} name="commission_rate" id="commission_rate"
+						<select {...register('mien')} id="commission_rate"
 								className="form-control form-option"
 								placeholder="Chọn đài">
 							{arrDai.map((item)=>(
-								<option value={item.id} key={item.id}>{item.name}</option>
+								<option key={item.id} value={item.id}>{item.name}</option>
 							))}
 						</select>
 					</div>

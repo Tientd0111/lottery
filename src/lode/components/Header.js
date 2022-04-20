@@ -51,7 +51,6 @@ const Header = () => {
 		setUser: state.setUser,
 		reload:state.reload
 	}))
-	console.log(user?.username)
 	const [cookies, removeCookie] = useCookies(['cookie-user']);
 
 	useEffect(()=>{

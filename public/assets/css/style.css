@@ -4596,8 +4596,9 @@ body{
   margin-top: 10px;
 }
 .bb-1 {
+  display: flex;
   border-bottom: 1px solid #e6e6e6;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 .kd1 {
   width: auto;

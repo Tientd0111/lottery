@@ -1,5 +1,8 @@
 import React, {useState} from 'react';
 import ArrayNumberPicker from "../../../components/ArrayNumberPicker";
+import {useFormContext} from "react-hook-form";
+import Constant from "../../../../contants/constant";
+import TabKieuChoi from "../../../components/TabKieuChoi";
 
 const DanhDe = () => {
 	const [arrayPicker, setArrrayPicker] = React.useState([])
@@ -11,18 +14,24 @@ const DanhDe = () => {
 		setArrrayPicker(update);
 	},[]);
 	const [tabst, setTabst] = useState(1);
-	const  toggleTab=(index)=>{
-		setTabst(index);
-	}
+	const {watch} = useFormContext()
+
 	return (
 		<div className={"danh-de"}>
-			<div id="tabBetType" className="bb-1">
-				<div className={tabst === 1?"kd1 act":"kd1"}  onClick={()=>toggleTab(1)}>Đề đầu
+			{watch().mien === 'MN'?
+				<div className="bb-1">
+					<TabKieuChoi name={'Đề đầu'} value={Constant.DE_DAU}/>
+					<TabKieuChoi name={'Đề đặc biệt'} value={Constant.DE_DAC_BIET}/>
+					<TabKieuChoi name={'Đánh đầu đuôi'} value={Constant.DE_DAU_DUOI}/>
+					<div className="clearfix"/>
+				</div>:
+				<div className="bb-1">
+					<TabKieuChoi name={'Đề đầu'} value={Constant.DE_DAU}/>
+					<TabKieuChoi name={'Đề đặc biệt'} value={Constant.DE_DAC_BIET}/>
+					<div className="clearfix"/>
 				</div>
-				<div className={tabst === 2?"kd1 act":"kd1"}  onClick={()=>toggleTab(2)}>Đề đặc biệt
-				</div>
-				<div className="clearfix"/>
-			</div>
+
+			}
 			<div className="table row">
 				<div className="col-md-12">
 					<div className="info-box">

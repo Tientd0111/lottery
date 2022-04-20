@@ -1,6 +1,5 @@
 import React, {useCallback, useState} from 'react';
 import CommonMain from '../../CommonMain';
-import useQuery from '../../../hooks/useQuery';
 import HeadLottery from "./HeadLottery";
 import Constant from "../../../contants/constant";
 import DanhLo from "./Content/DanhLo";
@@ -14,7 +13,6 @@ import {useBetLotteryStore} from "../../../stores/useBetLotteryStore";
 import LiveChat from "../../components/LiveChat";
 
 const LotteryPage = () => {
-
 	const form = useForm({
 		defaultValues: {
 			kieuDanh: Constant.DANH_LO,
@@ -22,10 +20,13 @@ const LotteryPage = () => {
 		}
 	});
 
+	console.log("Mien", form.watch('mien'))
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	const initValue = (kieuDanh, kieuChoi) => {
 		return {soDanh: [], kieuDanh , kieuChoi, mien: form.getValues('mien'), ngayDanh: form.getValues('ngayDanh')}
 	}
 	const pageHeaderCallback = useCallback((code)=>{
+		// eslint-disable-next-line default-case
 		switch (code) {
 			case Constant.DANH_LO:
 				form.reset(initValue(code, Constant.LO_2_SO))
