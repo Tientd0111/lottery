@@ -7,11 +7,9 @@ import DanhDe from "./Content/DanhDe";
 import BaCang from "./Content/BaCang";
 import DauDuoi from "./Content/DauDuoi";
 import LoXien from "./Content/LoXien";
-import {FormProvider, useForm, useFormContext} from "react-hook-form";
+import {FormProvider, useForm} from "react-hook-form";
 import ViewBetInputSubmit from "../../components/ViewBetInputSubmit";
 import {useBetLotteryStore} from "../../../stores/useBetLotteryStore";
-import LiveChat from "../../components/LiveChat";
-import constant from "../../../contants/constant";
 import {useUserStore} from "../../../stores/useUserStore";
 import {toast} from "react-toastify";
 
@@ -25,7 +23,7 @@ const LotteryPage = () => {
 	});
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	const initValue = (kieuDanh, kieuChoi) => {
-		return {soDanh: [], kieuDanh , kieuChoi,mien: form.getValues('mien'), ngayDanh: form.getValues('ngayDanh')}
+		return {soDanh: [], kieuDanh , kieuChoi,mien: form.getValues('mien')}
 	}
 	const pageHeaderCallback = useCallback((code)=>{
 		// eslint-disable-next-line default-case

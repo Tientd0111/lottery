@@ -1,7 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import Constant from "../../../contants/constant";
-import {useForm, useFormContext} from "react-hook-form";
-import moment from "moment";
+import { useFormContext} from "react-hook-form";
 
 const HeadLottery = ({pageCallback = () => {}}) =>{
 
