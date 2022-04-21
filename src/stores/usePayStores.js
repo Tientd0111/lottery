@@ -12,6 +12,7 @@ export const UsePayStores = create(set => ({
 				toast.success(response.msg)
 			})
 			.catch(error=>{
+				console.log(error.response.data.msg)
 				set({loading: false})
 			})
 	},
@@ -22,6 +23,7 @@ export const UsePayStores = create(set => ({
 				toast.success(response.msg)
 			})
 			.catch(error=>{
+				console.log(error.response.data.msg)
 				set({loading: false})
 			})
 	},
@@ -33,6 +35,7 @@ export const UsePayStores = create(set => ({
 				toast.success(response.msg)
 			})
 			.catch(error=>{
+				console.log(error.response.data.msg)
 				set({loading: false})
 			})
 	},

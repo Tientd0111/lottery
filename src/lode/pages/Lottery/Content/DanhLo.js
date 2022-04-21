@@ -69,12 +69,12 @@ const DanhLo = () => {
 		<div className={"danh-lo"}>
 			{watch().mien === 'MN'?
 				<div id="tabBetType" className="bb-1">
-					<div className={`kd1 ${watchKieuChoi === Constant.BAO_LO_2 && 'act'}`} id="loto_type_info"
-						 onClick={()=>setTab(Constant.BAO_LO_2)}>
+					<div className={`kd1 ${watchKieuChoi === Constant.LO_2_SO && 'act'}`} id="loto_type_info"
+						 onClick={()=>setTab(Constant.LO_2_SO)}>
 						{'Lô 2 số'}
 					</div>
 					<div className={`kd1 ${watchKieuChoi === Constant.LO_3_SO && 'act'}`}
-						 onClick={()=>setTab(Constant.BAO_LO_3)} id="loto_type_info">
+						 onClick={()=>setTab(Constant.LO_3_SO)} id="loto_type_info">
 						{'Lô 3 số'}
 					</div>
 					<div className="clearfix"/>

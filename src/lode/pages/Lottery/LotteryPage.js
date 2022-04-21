@@ -7,10 +7,13 @@ import DanhDe from "./Content/DanhDe";
 import BaCang from "./Content/BaCang";
 import DauDuoi from "./Content/DauDuoi";
 import LoXien from "./Content/LoXien";
-import {FormProvider, useForm} from "react-hook-form";
+import {FormProvider, useForm, useFormContext} from "react-hook-form";
 import ViewBetInputSubmit from "../../components/ViewBetInputSubmit";
 import {useBetLotteryStore} from "../../../stores/useBetLotteryStore";
 import LiveChat from "../../components/LiveChat";
+import constant from "../../../contants/constant";
+import {useUserStore} from "../../../stores/useUserStore";
+import {toast} from "react-toastify";
 
 const LotteryPage = () => {
 	const form = useForm({
@@ -20,10 +23,9 @@ const LotteryPage = () => {
 			kieuChoi: Constant.LO_2_SO
 		}
 	});
-
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	const initValue = (kieuDanh, kieuChoi) => {
-		return {soDanh: [], kieuDanh , kieuChoi, mien: form.getValues('mien'), ngayDanh: form.getValues('ngayDanh')}
+		return {soDanh: [], kieuDanh , kieuChoi,mien: form.getValues('mien'), ngayDanh: form.getValues('ngayDanh')}
 	}
 	const pageHeaderCallback = useCallback((code)=>{
 		// eslint-disable-next-line default-case
@@ -32,13 +34,10 @@ const LotteryPage = () => {
 				form.reset(initValue(code, Constant.LO_2_SO))
 				break
 			case Constant.BAO_LO:
-				form.reset(initValue(code, Constant.BAO_LO_2))
-				break
-			case Constant.BA_CANG_DAU:
-				form.reset(initValue(code, Constant.BA_CANG_DAU))
+				form.reset(initValue(code, Constant.LO_2_SO))
 				break
 			case Constant.BA_CANG:
-				form.reset(initValue(code, Constant.BA_CANG))
+				form.reset(initValue(code, form.watch('mien') === 'MB' ? Constant.BA_CANG : Constant.BA_CANG_DAU))
 				break
 			case Constant.XIU_CHU:
 				form.reset(initValue(code, Constant.XIU_CHU_DAU))
@@ -47,10 +46,13 @@ const LotteryPage = () => {
 				form.reset(initValue(code, Constant.DE_DAU))
 				break
 			case Constant.DAU_DUOI:
-				form.reset(initValue(code, Constant.DAU_DUOI_DAU))
+				form.reset(initValue(code, Constant.DAU_DUOI))
 				break
 			case Constant.LO_XIEN:
-				form.reset(initValue(code, Constant.LO_XIEN_2))
+				form.reset(initValue(code, Constant.LO_XIEN))
+				break
+			case Constant.XIEN:
+				form.reset(initValue(code, Constant.XIEN_2))
 				break
 			case Constant.LO_DA:
 				form.reset(initValue(code, Constant.LO_DA_2))
@@ -61,15 +63,22 @@ const LotteryPage = () => {
 		loading: state.loading,
 		bet: state.bet
 	}))
+	const {user} = useUserStore(state => ({
+		user: state.user
+	}))
 	const handleSubmit = async (data) => {
-		if(Array.isArray(data.soDanh)){
-			let number = []
-			data.soDanh.map((item) => {
-				number.push(item.so)
-			})
-			data.soDanh = number
+		if(user?.username !== undefined){
+			if(Array.isArray(data.soDanh)){
+				let number = []
+				data.soDanh.map((item) => {
+					number.push(item.so)
+				})
+				data.soDanh = number
+			}
+			await bet(data)
+		}else {
+			toast('Vui lòng đăng nhập')
 		}
-		await bet(data)
 	}
 
 	const invalidSubmit = (err) => {
@@ -121,6 +130,11 @@ const LotteryPage = () => {
 										}
 										{
 											contentPage === Constant.LO_XIEN&&(
+												<LoXien />
+											)
+										}
+										{
+											contentPage === Constant.XIEN&&(
 												<LoXien />
 											)
 										}

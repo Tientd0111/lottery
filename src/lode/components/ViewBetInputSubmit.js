@@ -25,12 +25,14 @@ const ViewBetInputSubmit = ({
 		{id:Constant.LO_3_SO, name: 'Lô 3 Số'},
 		{id:Constant.DAU_DUOI_DAU, name: 'Đầu'},
 		{id:Constant.DAU_DUOI_DUOI, name: 'Đuôi'},
+		{id:Constant.XIEN, name: 'Xiên'},
 		{id:Constant.XIEN_2, name: 'Xiên 2'},
 		{id:Constant.XIEN_3, name: 'Xiên 3'},
 		{id:Constant.XIEN_4, name: 'Xiên 4'},
+		{id:Constant.LO_XIEN_2, name: 'Xiên 2'},
+		{id:Constant.LO_XIEN_3, name: 'Xiên 3'},
+		{id:Constant.LO_XIEN_4, name: 'Xiên 4'},
 		{id:Constant.BAO_LO, name: 'Bao Lô'},
-		{id:Constant.BAO_LO_2, name: 'Bao lô 2 số'},
-		{id:Constant.BAO_LO_3, name: 'Bao lô 3 số'},
 		{id:Constant.LO_DA, name: 'Lô Đá'},
 		{id:Constant.LO_DA_2, name: 'Đá 2'},
 		{id:Constant.LO_DA_3, name: 'Đá 3'},
@@ -39,6 +41,9 @@ const ViewBetInputSubmit = ({
 		{id:Constant.XIU_CHU_DAU, name: 'Xỉu Chủ Đầu'},
 		{id:Constant.XIU_CHU_DUOI, name: 'Xỉu Chủ Đuôi'},
 		{id:Constant.XIU_CHU_DAU_DUOI, name: 'Xỉu Chủ Đầu - Đuôi'},
+		{id:Constant.BA_CANG_DAU, name: 'Ba Càng Đầu'},
+		{id:Constant.BA_CANG_DUOI, name: 'Ba Càng Đuôi'},
+		{id:Constant.BA_CANG_DAU_DUOI, name: 'Ba Càng Đầu Đuôi'},
 	]
 	let first,last,end = '';
 	return (
@@ -56,9 +61,10 @@ const ViewBetInputSubmit = ({
 				<div className="content-panel">
 					<div className={"cat-lode"}>
 						{loadbet.map((item,index)=>{
-							<p key={index} className={`${watch('mien') === item.id ? (first = item.name): ''} && 
-							   ${watch('kieuDanh') === item.id ? (last = item.name): ''} && 
-							   ${watch('kieuChoi') === item.id ? (end = item.name): ''}`}/>
+							<p key={index} className={`
+								${watch('mien') === item.id ? (first = item.name): ''} && 
+								${watch('kieuDanh') === item.id ? (last = item.name): ''} && 
+							 	${watch('kieuChoi') === item.id ? (end = item.name): ''}`}/>
 						})}
 						<p className={"subtitile"}>{first +'/'+ last+'/'+ end}</p>
 					</div>

@@ -1,17 +1,24 @@
 import React, {useEffect, useState} from "react";
 import Constant from "../../../contants/constant";
-import {useFormContext} from "react-hook-form";
+import {useForm, useFormContext} from "react-hook-form";
 import moment from "moment";
 
 const HeadLottery = ({pageCallback = () => {}}) =>{
 
-	const {watch, register} = useFormContext()
+	const {watch, register, reset} = useFormContext()
 	const loadbet = [
 		{id: Constant.DANH_LO, name: 'Đánh Lô'},
 		{id: Constant.BA_CANG, name: '3 Càng'},
 		{id: Constant.DANH_DE, name: 'Đánh Đề'},
 		{id: Constant.DAU_DUOI, name: 'Đầu Đuôi'},
 		{id: Constant.LO_XIEN, name: 'Lô Xiên'},
+	]
+	const loadbetMT = [
+		{id: Constant.DANH_LO, name: 'Đánh Lô'},
+		{id: Constant.BA_CANG, name: '3 Càng'},
+		{id: Constant.DANH_DE, name: 'Đánh Đề'},
+		{id: Constant.DAU_DUOI, name: 'Đầu Đuôi'},
+		{id: Constant.XIEN, name: 'Xiên'},
 	]
 	const loadbetMN = [
 		{id: Constant.BAO_LO, name: 'Bao Lô'},
@@ -35,6 +42,31 @@ const HeadLottery = ({pageCallback = () => {}}) =>{
 		pageCallback(code)
 	}
 
+	const resetValue = (mien) => {
+		let kieuDanh = mien === Constant.DAI_MN ? Constant.BAO_LO : Constant.DANH_LO
+		return {soDanh: [], mien, kieuChoi: Constant.LO_2_SO, kieuDanh}
+	}
+
+	useEffect(() => {
+		const subscription = watch((value, { name, type }) => {
+			if(name === 'mien') {
+				switch (watch('mien')) {
+					case Constant.DAI_MB:
+						reset(resetValue(Constant.DAI_MB))
+						break
+					case Constant.DAI_MN:
+						reset(resetValue(Constant.DAI_MN))
+						break
+					case Constant.DAI_MT:
+						reset(resetValue(Constant.DAI_MT))
+						break
+				}
+			}
+		})
+		return () => subscription.unsubscribe();
+	}, [watch]);
+
+
 	return(
 		<section>
 			<div className="row callback">
@@ -50,15 +82,25 @@ const HeadLottery = ({pageCallback = () => {}}) =>{
 						</select>
 					</div>
 				</div>
-				<div className="col-md-4 form-day">
-					<label htmlFor="commission_rate" className="label-cus">Ngày</label>
-					<input {...register('ngayDanh', {value: moment().format('YYYY-MM-DD')})} type="date" className="form-control form-option"/>
-				</div>
 			</div>
 			{watch().mien === 'MN'?
 				<div className="kieu-danh row">
 					{loadbetMN.map((item,index)=>(
-						<div key={index} className={`col-md-2 kd ${watch('kieuDanh') === item.id ? 'act': ''}`} onClick={()=>setTabHeader(item.id)}>
+						<div key={index} className={`col-md-2 kd ${watch('kieuDanh') === item.id ? 'act': ''}`}
+							 onClick={()=>setTabHeader(item.id)}>
+							<div className="btn-checkbox">
+						 <span className="circle">
+							<span className="circle-dots"/>
+						 </span>
+								{item.name}
+							</div>
+						</div>
+					))}
+				</div>:watch('mien') === 'MB'?
+				<div className="kieu-danh row">
+					{loadbet.map((item,index)=>(
+						<div key={index} className={`col-md-2 kd ${watch('kieuDanh') === item.id ? 'act': ''}`}
+							 onClick={()=>setTabHeader(item.id)}>
 							<div className="btn-checkbox">
 						 <span className="circle">
 							<span className="circle-dots"/>
@@ -69,12 +111,13 @@ const HeadLottery = ({pageCallback = () => {}}) =>{
 					))}
 				</div>:
 				<div className="kieu-danh row">
-					{loadbet.map((item,index)=>(
-						<div key={index} className={`col-md-2 kd ${watch('kieuDanh') === item.id ? 'act': ''}`} onClick={()=>setTabHeader(item.id)}>
+					{loadbetMT.map((item,index)=>(
+						<div key={index} className={`col-md-2 kd ${watch('kieuDanh') === item.id ? 'act': ''}`}
+							 onClick={()=>setTabHeader(item.id)}>
 							<div className="btn-checkbox">
-						 <span className="circle">
-							<span className="circle-dots"/>
-						 </span>
+					 <span className="circle">
+						<span className="circle-dots"/>
+					 </span>
 								{item.name}
 							</div>
 						</div>

@@ -14,7 +14,6 @@ const LoXien = () => {
 		setArrrayPicker(update);
 	},[]);
 	const {watch} = useFormContext()
-	console.log(watch())
 	const [tabst, setTabst] = useState(1);
 	return (
 		<div className={"lo-xien"}>

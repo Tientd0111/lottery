@@ -7,6 +7,7 @@ const Constant = {
 	DAI_MN: 'MN',
 	DANH_LO: 'DL',
 	BA_CANG: 'BC',
+	BA_CANG_MT: 'BC_MT',
 	BA_CANG_DAU: 'BC_DAU',
 	BA_CANG_DUOI: 'BC_DUOI',
 	BA_CANG_DAU_DUOI: 'BC_DAU_DUOI',

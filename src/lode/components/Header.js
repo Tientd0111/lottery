@@ -136,7 +136,7 @@ const Header = () => {
 										</li>
 										<li className="nav-item dropdown">
 											<a className="nav-link dropdown-toggle"
-											   href="#" role="button"
+											   href="/#" role="button"
 											   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 												{'Lô đề'}
 												<div className="mr-hover-effect" />
