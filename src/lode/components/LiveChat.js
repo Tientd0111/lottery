@@ -42,7 +42,7 @@ const LiveChat = () => {
 			</div>
 			<div className={"chat-content"}>
 				{messages.map((it)=>(
-					<div className={"line-chat"}>
+					<div key={it._id} className={"line-chat"}>
 						<span className={"user-name"}>{it?.display_name}</span>
 						<span className={"chat"}>{it?.message}</span>
 					</div>
