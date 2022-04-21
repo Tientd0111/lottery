@@ -15,35 +15,13 @@ const Header = () => {
 
 	const lotterys = [
 		{
-			name: 'Miền bắc',
-			link: '?name=mienbac'
-		},
-		{
-			name: 'Miền trung',
-			link: '?name=mientrung'
-		},
-		{
-			name: 'Miền nam',
-			link: '?name=miennam'
+			name: 'Lô đề truyền thống',
+			link: '?name=lotery'
 		},
 		{
 			name: 'Lô đề siêu tốc',
 			link: '?name=sieutoc'
 		}
-	]
-	const pays  =[
-		{
-			name: 'Nạp tiền',
-			link:'?name=naptien'
-		},
-		{
-			name: 'Rút tiền',
-			link:'?name=ruttien'
-		},
-		{
-			name: 'Lịch sử nạp',
-			link:'?name=historyPay'
-		},
 	]
 
 	const {user, setUser,reload} = useUserStore(state =>({

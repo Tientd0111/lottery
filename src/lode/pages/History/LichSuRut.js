@@ -47,7 +47,7 @@ const LichSuRut = () => {
 									<td>Số tiền</td>
 									<td>Trạng thái</td>
 								</tr>
-								{loading && pageNumber === 0?<AppLoading/>:
+								{
 									histories?.map((item, index)=>(
 										<tr key={index} style={{textAlign:'center'}}>
 											<td>{formatDate(item.created_at,"DD/MM/YYYY")}</td>
@@ -59,11 +59,11 @@ const LichSuRut = () => {
 											<td>{item.created_by}</td>
 										</tr>
 									))}
-								<ButtonBase
-									onClick={loadMore}
-									isLoading={pageNumber>0?loading:false} text={'Xem thêm'} />
 								</tbody>
 							</table>
+							<ButtonBase
+								onClick={loadMore}
+								isLoading={pageNumber>0?loading:false} text={'Xem thêm'} />
 						</div>
 					</div>
 					<div className={"col-md-3"}><Support/></div>
