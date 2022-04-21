@@ -1,5 +1,8 @@
 import React, {useState} from 'react';
 import ArrayNumberPicker from "../../../components/ArrayNumberPicker";
+import {useFormContext} from "react-hook-form";
+import TabKieuChoi from "../../../components/TabKieuChoi";
+import Constant from "../../../../contants/constant";
 
 const DauDuoi = () => {
 	const [tabst, setTabst] = useState(1);
@@ -14,15 +17,13 @@ const DauDuoi = () => {
 		}
 		setArrrayPicker(update);
 	},[]);
+	const {watch} = useFormContext()
 
 	return (
 		<div className={"dauduoi"}>
 			<div id="tabBetType" className="bb-1">
-				<div className={tabst === 1?"kd1 act":"kd1"}  onClick={()=>toggleTab(1)}>Đầu
-				</div>
-				<div className={tabst === 2?"kd1 act":"kd1"}  onClick={()=>toggleTab(2)} >Đuôi
-				</div>
-				<div className="clearfix"/>
+				<TabKieuChoi value={Constant.DAU_DUOI_DAU} name={"Đầu"}/>
+				<TabKieuChoi value={Constant.DAU_DUOI_DUOI} name={"Đuôi"}/>
 			</div>
 			<div className="table row">
 				<div className="col-md-12">
@@ -51,7 +52,7 @@ const DauDuoi = () => {
 							</tbody>
 						</table>
 						<div className={"role"}>
-							{tabst === 1? <p>
+							{watch('kieuChoi') === 'DI_DAU'? <p>
 								Đánh 1 chữ số ở hàng chục của giải ĐB. Thắng gấp 9.5 lần. Ví dụ: đánh 1k cho số 7. Tổng thanh toán: 1K. Nếu giải ĐB là xxx7x thì Tiền thắng: 1k x 9.5 = 9.5k
 							</p>:<p>
 								Đánh 1 chữ số cuối của giải ĐB. Thắng gấp 9.5 lần. Ví dụ: đánh 1k cho số 7. Tổng thanh toán: 1K. Nếu giải ĐB là xxxx7 thì Tiền thắng: 1k x 9.5 = 9.5k

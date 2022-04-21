@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import ArrayNumberPicker from "../../../components/ArrayNumberPicker";
 import {useFormContext} from "react-hook-form";
 import Constant from "../../../../contants/constant";
+import TabKieuChoi from "../../../components/TabKieuChoi";
 
 const DanhLo = () => {
 
@@ -38,7 +39,7 @@ const DanhLo = () => {
 		}
 	];
 
-	const {setValue, register, watch} = useFormContext()
+	const {register, watch} = useFormContext()
 
 	useEffect(()=>{
 		register('kieuChoi',{value: Constant.LO_2_SO})
@@ -58,37 +59,17 @@ const DanhLo = () => {
 		setArrrayPicker(update);
 	},[]);
 
-	const setTab = (code) => {
-		if(watch('kieuChoi') !== code) {
-			setValue('soDanh', [])
-		}
-		setValue('kieuChoi', code)
-	}
 
 	return (
 		<div className={"danh-lo"}>
 			{watch('mien') === 'MN'?
 				<div id="tabBetType" className="bb-1">
-					<div className={`kd1 ${watchKieuChoi === Constant.LO_2_SO && 'act'}`} id="loto_type_info"
-						 onClick={()=>setTab(Constant.LO_2_SO)}>
-						{'Lô 2 số'}
-					</div>
-					<div className={`kd1 ${watchKieuChoi === Constant.LO_3_SO && 'act'}`}
-						 onClick={()=>setTab(Constant.LO_3_SO)} id="loto_type_info">
-						{'Lô 3 số'}
-					</div>
-					<div className="clearfix"/>
+					<TabKieuChoi name={"Lô 2 Số"} value={Constant.LO_2_SO}/>
+					<TabKieuChoi name={"Lô 3 Số"} value={Constant.LO_3_SO}/>
 				</div>:
 				<div id="tabBetType" className="bb-1">
-					<div className={`kd1 ${watchKieuChoi === Constant.LO_2_SO && 'act'}`} id="loto_type_info"
-						 onClick={()=>setTab(Constant.LO_2_SO)}>
-						{'Lô 2 số'}
-					</div>
-					<div className={`kd1 ${watchKieuChoi === Constant.LO_3_SO && 'act'}`}
-						 onClick={()=>setTab(Constant.LO_3_SO)} id="loto_type_info">
-						{'Lô 3 số'}
-					</div>
-					<div className="clearfix"/>
+					<TabKieuChoi name={"Lô 2 Số"} value={Constant.LO_2_SO}/>
+					<TabKieuChoi name={"Lô 3 Số"} value={Constant.LO_3_SO}/>
 				</div>
 			}
 
@@ -127,7 +108,7 @@ const DanhLo = () => {
 					</div>
 				</div>
 				<div className={"role"}>
-					{watchKieuChoi===Constant.LO_2_SO?<p>
+					{watch('kieuChoi')===Constant.LO_2_SO?<p>
 						Đánh 2 chữ số cuối trong lô 27 giải. Thắng gấp 99.4 lần, nếu số đó về N lần thì tính kết quả x N lần. Ví dụ: đánh lô 79 - 1 con 1k, Tổng thanh toán: 1k x 27 = 27k. Nếu trong lô có 2 chữ số cuối là 79 thì Tiền thắng: 1k x 99.4 = 99.4k, nếu có N lần 2 chữ số cuối là 79 thì Tiền thắng là: 1k x 99.4 x N
 					</p>:<p>
 						Đánh 3 chữ số cuối trong lô 23 giải. Thắng gấp 900 lần, nếu số đó về N lần thì tính kết quả x N lần. Ví dụ: đánh lô 789 - 1 con 1k, Tổng thanh toán: 1k x 23 = 23k. Nếu trong lô có 3 chữ số cuối là 789 thì Tiền thắng: 1k x 900 = 900k, nếu có N lần 3 chữ số cuối là 789 thì Tiền thắng là: 1k x 900 x N

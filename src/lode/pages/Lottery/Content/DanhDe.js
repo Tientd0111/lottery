@@ -13,7 +13,6 @@ const DanhDe = () => {
 		}
 		setArrrayPicker(update);
 	},[]);
-	const [tabst, setTabst] = useState(1);
 	const {watch} = useFormContext()
 
 	return (
@@ -52,7 +51,7 @@ const DanhDe = () => {
 				</div>
 			</div>
 			<div className={"role"}>
-				{tabst === 1 ? <p>
+				{watch('kieuChoi') === 'DE_DAU' ? <p>
 					Đánh lô giải 7 ( có 4 giải, thanh toán đủ ). Thắng gấp 95 lần. Ví dụ : đánh 1k cho số 79, Tổng thanh toán: 1k x 4 =4k. Nếu trong lô giải 7 có 1 số 79 thì Tiền thắng: 1k x 95 = 95k.
 				</p>:<p>
 					Đánh 2 chữ số cuối trong giải ĐB. Thắng gấp 95 lần. Ví dụ: đánh 1k cho số 79. Tổng thanh toán: 1k. Nếu giải ĐB là xxx79 thì Tiền thắng: 1k x 95 = 95k.
