@@ -17,12 +17,12 @@ const LoXien = () => {
 	const [tabst, setTabst] = useState(1);
 	return (
 		<div className={"lo-xien"}>
-			{watch().mien === 'MB'?
+			{watch('mien') === 'MB'?
 				<div id="tabBetType" className="bb-1">
 					<TabKieuChoi name={'Xiên 2'} value={Constant.LO_XIEN_2}/>
 					<TabKieuChoi name={'Xiên 3'} value={Constant.LO_XIEN_3}/>
 					<TabKieuChoi name={'Xiên 4'} value={Constant.LO_XIEN_4}/>
-				</div>:watch().mien === 'MT'?
+				</div>:watch('mien') === 'MT'?
 				<div id="tabBetType" className="bb-1">
 					<TabKieuChoi name={'Xiên 2'} value={Constant.XIEN_2}/>
 					<TabKieuChoi name={'Xiên 3'} value={Constant.XIEN_3}/>
@@ -54,9 +54,9 @@ const LoXien = () => {
 				</div>
 			</div>
 			<div className={"role"}>
-				{watch().kieuChoi === 'LX2' ? <p>
+				{watch('kieuChoi') === 'LX2' ? <p>
 					Xiên 2 của 2 chữ số cuối trong lô 27 giải. Thắng gấp 17 lần. Ví dụ : đánh 1k cho xiên 11+13, Tổng thanh toán: 1k. Nếu trong lô có "2 chữ số cuối là 11 và 2 chữ số cuối là 13" thì Tiền thắng: 1k x 17 = 17k
-				</p>:watch().kieuChoi === 'LX3'?<p>
+				</p>:watch('kieuChoi') === 'LX3'?<p>
 					Xiên 3 của 2 chữ số cuối trong lô 27 giải. Thắng gấp 65 lần. Ví dụ : đánh 1k cho xiên 11+13+15, Tổng thanh toán: 1k. Nếu trong lô có 2 chữ số cuối là 11,13,15 thì Tiền thắng: 1k x 65 = 65k
 				</p>:<p>
 					Xiên 4 của 2 chữ số cuối trong lô 27 giải. Thắng gấp 250 lần. Ví dụ : đánh 1k cho xiên 11+13+15+20, Tổng thanh toán: 1k. Nếu trong lô có 2 chữ số cuối là 11,13,15,20 thì Tiền thắng: 1k x 250 = 250k

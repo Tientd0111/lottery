@@ -66,7 +66,6 @@ const HeadLottery = ({pageCallback = () => {}}) =>{
 		return () => subscription.unsubscribe();
 	}, [watch]);
 
-
 	return(
 		<section>
 			<div className="row callback">
@@ -83,7 +82,7 @@ const HeadLottery = ({pageCallback = () => {}}) =>{
 					</div>
 				</div>
 			</div>
-			{watch().mien === 'MN'?
+			{watch('mien') === 'MN'?
 				<div className="kieu-danh row">
 					{loadbetMN.map((item,index)=>(
 						<div key={index} className={`col-md-2 kd ${watch('kieuDanh') === item.id ? 'act': ''}`}

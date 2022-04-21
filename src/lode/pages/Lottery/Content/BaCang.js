@@ -51,11 +51,11 @@ const BaCang = () => {
 	const {watch} = useFormContext()
 	return (
 		<>
-			{watch().mien === 'MB'?
+			{watch('mien') === 'MB'?
 				<div id="tabBetType" className="bb-1">
 					<TabKieuChoi name={'3 Càng'} value={Constant.BA_CANG}/>
 					<div className="clearfix"/>
-				</div>:watch().mien === 'MT'?
+				</div>:watch('mien') === 'MT'?
 				<div id="tabBetType" className="bb-1">
 					<TabKieuChoi name={'3 càng đầu'} value={Constant.BA_CANG_DAU}/>
 					<TabKieuChoi name={'3 càng đuôi'} value={Constant.BA_CANG_DUOI}/>

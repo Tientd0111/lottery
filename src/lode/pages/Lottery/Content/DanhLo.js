@@ -67,7 +67,7 @@ const DanhLo = () => {
 
 	return (
 		<div className={"danh-lo"}>
-			{watch().mien === 'MN'?
+			{watch('mien') === 'MN'?
 				<div id="tabBetType" className="bb-1">
 					<div className={`kd1 ${watchKieuChoi === Constant.LO_2_SO && 'act'}`} id="loto_type_info"
 						 onClick={()=>setTab(Constant.LO_2_SO)}>

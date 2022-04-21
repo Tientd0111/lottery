@@ -18,7 +18,7 @@ const DanhDe = () => {
 
 	return (
 		<div className={"danh-de"}>
-			{watch().mien === 'MN'?
+			{watch('mien') === 'MN'?
 				<div className="bb-1">
 					<TabKieuChoi name={'Đề đầu'} value={Constant.DE_DAU}/>
 					<TabKieuChoi name={'Đề đặc biệt'} value={Constant.DE_DAC_BIET}/>
