@@ -17,10 +17,6 @@ const Header = () => {
 		{
 			name: 'Lô đề truyền thống',
 			link: '?name=lotery'
-		},
-		{
-			name: 'Lô đề siêu tốc',
-			link: '?name=sieutoc'
 		}
 	]
 
@@ -171,10 +167,7 @@ const Header = () => {
 											</ul>
 										</li>
 
-										<li className="nav-item">
-											<a className="nav-link" href="/#">Liên hệ
-												<div className="mr-hover-effect" /></a>
-										</li>
+										
 									</ul>
 									<a href="/#" className="mybtn1" data-toggle="modal" data-target="#signin"> {'Tham gia ngay'}</a>
 								</div>

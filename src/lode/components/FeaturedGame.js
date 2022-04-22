@@ -4,6 +4,8 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import images from '../../assets/images/images';
+import PATH from "../../routes/path";
+import {Link} from "react-router-dom";
 
 library.add(fas, fab);
 
@@ -23,7 +25,7 @@ const FeaturedGame = () => {
 
 						</div>
 						<div className="row">
-							<div className="col-md-3 col-sm-6 col-xs-12">
+							<div className="col-md-4 col-sm-6 col-xs-12">
 								<div className="box photo-1">
 									<div className="bg-box mb">
 										<img src={images.mienbac} alt=""/>
@@ -38,15 +40,15 @@ const FeaturedGame = () => {
 										</h3>
 									</div>
 									{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-									<a className="cta-box">
+									<Link to={PATH.LOTTERY} className="cta-box">
 										<span className="text">Đánh đề miền bắc</span>
 										<span className="btn-box">
                   						<span className="bg-white"><i className="glyphicon glyphicon-play"/></span>
                 					</span>
-									</a>
+									</Link>
 								</div>
 							</div>
-							<div className="col-md-3 col-sm-6 col-xs-12">
+							<div className="col-md-4 col-sm-6 col-xs-12">
 								<div className="box photo-1">
 									<div className="bg-box mt" style={{backgroundImage:`url(${images.mientrung})`}}>
 										<img src={images.mientrung} alt={"mientrung"} />
@@ -60,15 +62,15 @@ const FeaturedGame = () => {
 										</h3>
 									</div>
 									{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-									<a href="" className="cta-box">
+									<Link to={PATH.LOTTERY} className="cta-box">
 										<span className="text">Đánh đề miền trung</span>
 										<span className="btn-box">
 										<span className="bg-white"><i className="glyphicon glyphicon-play"/></span>
                 					</span>
-									</a>
+									</Link>
 								</div>
 							</div>
-							<div className="col-md-3 col-sm-6 col-xs-12">
+							<div className="col-md-4 col-sm-6 col-xs-12">
 								<div className="box photo-1">
 									<div className="bg-box mn">
 										<img src={images.miennam} alt=""/>
@@ -82,34 +84,34 @@ const FeaturedGame = () => {
 										</h3>
 									</div>
 									{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-									<a href="" className="cta-box">
+									<Link to={PATH.LOTTERY} className="cta-box">
 										<span className="text">Đánh đề miền nam</span>
 										<span className="btn-box">
 									  <span className="bg-white"><i className="glyphicon glyphicon-play"/></span>
 									</span>
-									</a>
+									</Link>
 								</div>
 							</div>
-							<div className="col-md-3 col-sm-6 col-xs-12">
-								<div className="box photo-1">
-									<div className="bg-box" style={{backgroundImage:`url(${images.mienbac})`}}/>
-									<div className="info-box">
-										<div className="bg-blur" style={{backgroundImage:`url(${images.mienbac})`}}/>
-										<p>Tổng cược trong ngày</p>
-										<h3>
-											<span>$</span>
-											<span>3,000,000,000</span>
-										</h3>
-									</div>
-									{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-									<a href="" className="cta-box">
-										<span className="text">Lô tô siêu tốc</span>
-										<span className="btn-box">
-									  <span className="bg-white"><i className="glyphicon glyphicon-play"/></span>
-									</span>
-									</a>
-								</div>
-							</div>
+							{/*<div className="col-md-3 col-sm-6 col-xs-12">*/}
+							{/*	<div className="box photo-1">*/}
+							{/*		<div className="bg-box" style={{backgroundImage:`url(${images.mienbac})`}}/>*/}
+							{/*		<div className="info-box">*/}
+							{/*			<div className="bg-blur" style={{backgroundImage:`url(${images.mienbac})`}}/>*/}
+							{/*			<p>Tổng cược trong ngày</p>*/}
+							{/*			<h3>*/}
+							{/*				<span>$</span>*/}
+							{/*				<span>3,000,000,000</span>*/}
+							{/*			</h3>*/}
+							{/*		</div>*/}
+							{/*		/!* eslint-disable-next-line jsx-a11y/anchor-is-valid *!/*/}
+							{/*		<a href="" className="cta-box">*/}
+							{/*			<span className="text">Lô tô siêu tốc</span>*/}
+							{/*			<span className="btn-box">*/}
+							{/*		  <span className="bg-white"><i className="glyphicon glyphicon-play"/></span>*/}
+							{/*		</span>*/}
+							{/*		</a>*/}
+							{/*	</div>*/}
+							{/*</div>*/}
 						</div>
 					</div>
 				</div>

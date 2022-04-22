@@ -2,6 +2,8 @@ import React from 'react';
 import images from '../../assets/images/images';
 import CommonMain from "../CommonMain";
 import FeaturedGame from '../components/FeaturedGame';
+import {Link} from "react-router-dom";
+import PATH from '../../routes/path';
 const HomePage = () => {
 	return (
 		<CommonMain>
@@ -22,7 +24,7 @@ const HomePage = () => {
 										cuộc thi với phần thưởng cao tại ...!
 									</p>
 									<div className="links">
-										<a href="/#" className="mybtn1 link1">Bắt đầu ngay nào !</a>
+										<Link to={PATH.LOTTERY} className="mybtn1 link1">Bắt đầu ngay nào !</Link>
 									</div>
 								</div>
 							</div>

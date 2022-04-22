@@ -7,10 +7,10 @@ import {toast} from "react-toastify";
 import Picker from "emoji-picker-react";
 import {AndroidOutlined} from "@ant-design/icons"
 import formatDate from "../../hooks/formatDate";
+import ScrollableFeed from "react-scrollable-feed";
 
 const LiveChat = () => {
 	const [messages, setMessages] = useState([]);
-	const [chosenEmoji, setChosenEmoji] = useState(null);
 	const [visitableEmoji, setVisitableEmoji] = useState(false);
 
 	const {socket} = useSocket(state => ({socket: state.socket}));
@@ -48,17 +48,19 @@ const LiveChat = () => {
 				Góc bàn đề
 			</div>
 			<div className={"chat-content"}>
-				{messages.map((it)=>(
-					user?.name !== it?.display_name?
-						<div key={it._id} className={"line-chat"}>
-							<span className={"user-name"}>{it?.display_name}</span>
-							<span className={"chat"}>{it?.message}</span><span className={"time"}>{formatDate(it?.created_at,'h:m')}</span>
-						</div>:
-						<div key={it._id} className={"line-chat-user"} style={{textAlign:'right'}}>
-							<span className={"chat-user"}>{it?.message} </span>
-							<span className={"time-user"}>{formatDate(it?.created_at,'h:m')}</span>
-						</div>
-				))}
+				<ScrollableFeed>
+					{messages.map((it)=>(
+						user?.name !== it?.display_name?
+							<div key={it._id} className={"line-chat"}>
+								<span className={"user-name"}>{it?.display_name}</span>
+								<span className={"chat"}>{it?.message}</span><span className={"time"}>{formatDate(it?.created_at,'h:m')}</span>
+							</div>:
+							<div key={it._id} className={"line-chat-user"} style={{textAlign:'right'}}>
+								<span className={"chat-user"} style={{textAlign:'left'}}>{it?.message} </span>
+								<span className={"time-user"}>{formatDate(it?.created_at,'h:m')}</span>
+							</div>
+					))}
+				</ScrollableFeed>
 
 			</div>
 			<div className={"box-send"} style={{marginBottom:'20px'}}>
