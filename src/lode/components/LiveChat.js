@@ -53,7 +53,7 @@ const LiveChat = () => {
 					user.name !== it.display_name?
 						<div key={it._id} className={"line-chat"}>
 							<span className={"user-name"}>{it?.display_name}</span>
-							<span className={"chat"}>{it?.message}<span className={"time"}>{formatDate(it.created_at,'h:m')}</span></span>
+							<span className={"chat"}>{it?.message}</span><span className={"time"}>{formatDate(it.created_at,'h:m')}</span>
 						</div>:
 						<div key={it._id} className={"line-chat-user"} style={{textAlign:'right'}}>
 							<span className={"chat-user"}>{it?.message} </span>
