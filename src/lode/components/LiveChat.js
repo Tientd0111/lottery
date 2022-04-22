@@ -9,14 +9,13 @@ import {AndroidOutlined} from "@ant-design/icons"
 import formatDate from "../../hooks/formatDate";
 
 const LiveChat = () => {
-	console.log(new Date())
 	const [messages, setMessages] = useState([]);
 	const [chosenEmoji, setChosenEmoji] = useState(null);
 	const [visitableEmoji, setVisitableEmoji] = useState(false);
 
 	const {socket} = useSocket(state => ({socket: state.socket}));
 	const {user} = useUserStore(state => ({user: state.user}));
-	console.log('XXXXx',user)
+
 	const msgRef = useRef()
 
 	useEffect(()=>{

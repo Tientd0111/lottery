@@ -39,7 +39,7 @@ export async function callService(uri, method, bodyParameters, hasToken) {
 	// console.log(hasToken);
 	// console.log(uri);
 	let url = `${environmentConfig.API_ENVIRONMENT_URL}${uri}`;
-	console.log(url)
+
 	try {
 		let authen_token
 		if (hasToken) {
@@ -55,7 +55,7 @@ export async function callService(uri, method, bodyParameters, hasToken) {
 			timeout: environmentConfig.TIME_OUT
 		}
 
-		console.log('config, axios',configAxios);
+
 
 		return new Promise((resolve, reject) => {
 			axios(configAxios)
