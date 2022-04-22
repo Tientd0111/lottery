@@ -5288,7 +5288,6 @@ label.label-cus {
   position: relative;
 }
 .btn-send {
-  position: relative;
   cursor: pointer;
   background: #4CDB79;
   border-radius: 50%;
@@ -5300,13 +5299,19 @@ label.label-cus {
 }
 .line-chat{
   padding: 12px 25px;
-  display: flex;
+  display: grid;
   flex-wrap: wrap;
+  position: relative;
+}
+.line-chat-user{
+  padding: 12px 25px;
+  flex-wrap: wrap;
+  position: relative;
 }
 .user-name{
   color: #191F36;
   flex: 0 0 50%;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 700;
 }
 .chat{
@@ -5314,8 +5319,29 @@ label.label-cus {
   margin-top: 9px;
   font-size: 14px;
 }
+.chat-user{
+  color: white;
+  padding: 1px 7px 5px 7px;
+  font-size: 14px;
+  border-radius: 10px;
+  background: #ef2f47;
+}
 .chat-content{
   max-height: 235px;
   overflow: auto;
+}
+.time{
+  font-size: 10px;
+  position: absolute;
+  margin-left: 5px;
+  margin-top: 4px;
+  color: #8d8585;
+}
+.time-user{
+  font-size: 10px;
+  position: absolute;
+  margin-left: 5px;
+  margin-top: 7px;
+  color: #8d8585;
 }
 /*liveChat end*/

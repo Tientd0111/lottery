@@ -69,22 +69,23 @@ const BaCang = () => {
 					<div className="clearfix"/>
 				</div>
 			}
+			<div className={"tabs-main"} style={{marginTop:'20px'}}>
+				<ul className="nav nav-tabs tab-bet">
+					{load.map((item, index)=>(
+						<li key={index} onClick={()=>{
+							setTabThreeNumber(index.toString())
+						}} className="nav-item card butt">
+							<a href="/#" data-toggle="pill"
+							   className={`btn btn-link card-nav tab-num-bet ${tabThreeNumber === index ? 'active': ''}`}>{item.name}
+							</a>
+						</li>
+					))}
+				</ul>
+			</div>
 			<div className="table row">
 				<div className="col-md-12">
 					<div className="info-box">
-						<div className={"tabs-main"}>
-							<ul className="nav nav-tabs tab-bet">
-								{load.map((item, index)=>(
-									<li key={index} onClick={()=>{
-										setTabThreeNumber(index.toString())
-									}} className="nav-item card butt">
-										<a href="/#" data-toggle="pill"
-										   className={`btn btn-link card-nav tab-num-bet ${tabThreeNumber === index ? 'active': ''}`}>{item.name}
-										</a>
-									</li>
-								))}
-							</ul>
-						</div>
+
 						<table style={{width: '100%', height: '100%'}}>
 							<tbody>
 							<tr>

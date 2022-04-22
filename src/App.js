@@ -4,6 +4,8 @@ import {toast, ToastContainer} from "react-toastify";
 import React, {useEffect, useRef} from "react";
 import {useSocket} from "./stores/useSocket";
 import {useUserStore} from "./stores/useUserStore";
+import {useCookies} from "react-cookie";
+import Path from "./routes/path";
 
 function App() {
 
@@ -12,10 +14,18 @@ function App() {
 	}));
 	const toastId = useRef(null);
 
-	const {user} = useUserStore(state => ({
-		user: state.user
+	const {user, setUser , logout} = useUserStore(state =>({
+		user: state.user,
+		setUser: state.setUser,
+		logout: state.logout,
 	}))
-
+	const [cookies, removeCookie] = useCookies(['cookie-user']);
+	const logoutSection = async () => {
+		await logout();
+		removeCookie("cookie-user");
+		localStorage.removeItem("key");
+		setUser(undefined);
+	}
 	useEffect(()=> {
 		if(user) {
 			socket.on('message-to-user', (res)=>{
@@ -25,8 +35,13 @@ function App() {
 					}
 				}
 			})
+			socket.on('block-user', (res)=>{
+				if(res.user === user.username) {
+					logoutSection();
+				}
+			})
 		}
-	},[socket, user])
+	},[ user])
 
 	return (
 		<>

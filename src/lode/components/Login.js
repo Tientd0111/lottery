@@ -21,7 +21,6 @@ const Login = () => {
 		user: state.user,
 		login: state.login
 	}))
-	console.log(user)
 	const onSubmit = async data => {
 		await login(data)
 	};
@@ -36,7 +35,7 @@ const Login = () => {
 				path: "/",
 			})
 		}
-	},[setCookie, user])
+	},[user])
 
 	const closeRef = useRef()
 
