@@ -1,8 +1,8 @@
 {
-  "name": "lottery",
+  "name": "winclub24",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://hqltech.github.io/lottery/",
+  "homepage": "https://winclub24.herokuapp.com/",
   "engines": {
     "node": "16.x",
     "npm": "8.x",
