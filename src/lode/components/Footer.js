@@ -12,7 +12,7 @@ const Footer = () => {
 			<div className="footer-dev ">
 				<div className="row marg">
 					<div className="col-md-3">
-						<h3 className="about-title">Về Loto79</h3>
+						<h3 className="about-title">Về Winclub24</h3>
 						<p className="about-detail">Loto79 tự hào là nhà cái cung cấp các dịch vụ lô đề, số đề, soi cầu
 							lô đề hàng đầu tại Việt Nam. Loto79 đã đặt bước đi tiên phong trong lĩnh vực đánh đề trực
 							tuyến.</p>
@@ -39,7 +39,7 @@ const Footer = () => {
 						</a>
 						<a href="/#" className="btn-icons">
 							<FontAwesomeIcon className="bg-orange" icon={['fas','envelope']}/>
-							<span className="bg-orange">hqltech@gmail.com</span>
+							<span className="bg-orange">HqltechCompany@gmail.com</span>
 						</a>
 					</div>
 				</div>
