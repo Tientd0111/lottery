@@ -26,7 +26,7 @@ function App() {
 				}
 			})
 		}
-	},[user])
+	},[socket, user])
 
 	return (
 		<>

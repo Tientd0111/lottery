@@ -49,6 +49,7 @@ const HeadLottery = ({pageCallback = () => {}}) =>{
 	useEffect(() => {
 		const subscription = watch((value, { name, type }) => {
 			if(name === 'mien') {
+				// eslint-disable-next-line default-case
 				switch (watch('mien')) {
 					case Constant.DAI_MB:
 						reset(resetValue(Constant.DAI_MB))
@@ -63,7 +64,7 @@ const HeadLottery = ({pageCallback = () => {}}) =>{
 			}
 		})
 		return () => subscription.unsubscribe();
-	}, [watch]);
+	}, []);
 
 	return(
 		<section>

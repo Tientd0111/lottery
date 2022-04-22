@@ -43,7 +43,7 @@ const DanhLo = () => {
 
 	useEffect(()=>{
 		register('kieuChoi',{value: Constant.LO_2_SO})
-	},[])
+	},[register])
 
 	const watchKieuChoi = watch('kieuChoi')
 
@@ -83,7 +83,7 @@ const DanhLo = () => {
 										setTabThreeNumber(index.toString())
 									}} className="nav-item card butt">
 										<a href="/#" data-toggle="pill"
-										   className={`btn btn-link card-nav tab-num-bet ${tabThreeNumber == index ? 'active': ''}`}>{item.name}
+										   className={`btn btn-link card-nav tab-num-bet ${tabThreeNumber === index ? 'active': ''}`}>{item.name}
 										</a>
 									</li>
 								)): null}

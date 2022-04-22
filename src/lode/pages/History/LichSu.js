@@ -20,7 +20,7 @@ const LichSu = () => {
 			await hisBet()
 		}
 		fetchData()
-	},[]);
+	},[hisBet]);
 
 	const [pageNumber, setPageNumber] = useState(0);
 

@@ -36,7 +36,7 @@ const Login = () => {
 				path: "/",
 			})
 		}
-	},[user])
+	},[setCookie, user])
 
 	const closeRef = useRef()
 

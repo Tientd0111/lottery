@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import ArrayNumberPicker from "../../../components/ArrayNumberPicker";
 import TabKieuChoi from "../../../components/TabKieuChoi";
 import Constant from "../../../../contants/constant";

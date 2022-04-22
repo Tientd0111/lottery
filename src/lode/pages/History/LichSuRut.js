@@ -3,7 +3,6 @@ import CommonMain from "../../CommonMain";
 import HeadHistory from "../../components/HeadHistory";
 import Support from "../../components/Support";
 import {useHistoryStores} from "../../../stores/useHistoryStores";
-import AppLoading from "../../components/AppLoading";
 import formatDate from "../../../hooks/formatDate";
 import formatNumber from "../../../hooks/formatNumber";
 import ButtonBase from "../../components/ButtonBase";
@@ -20,7 +19,7 @@ const LichSuRut = () => {
 			await transferRut()
 		}
 		fetchData()
-	},[]);
+	},[transferRut]);
 
 	const [pageNumber, setPageNumber] = useState(0);
 

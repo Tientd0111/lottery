@@ -29,7 +29,7 @@ const Header = () => {
 		setUser: state.setUser,
 		reload:state.reload
 	}))
-	const [cookies, removeCookie] = useCookies(['cookie-user']);
+	const [cookies] = useCookies(['cookie-user']);
 
 	useEffect(()=>{
 		setUser(cookies['cookie-user'])
@@ -94,10 +94,6 @@ const Header = () => {
 					<div className="row">
 						<div className="col-lg-12">
 							<nav className="navbar navbar-expand-lg navbar-light">
-								<a className="navbar-brand" href="/#"/>
-								<a className="navbar-brand" href="#">
-									{/* <img src="https://hqltech.vn/assets/images/logo.svg" alt="" /> */}
-								</a>
 								<button className="navbar-toggler" type="button"
 										data-toggle="collapse" data-target="#main_menu"
 										aria-controls="main_menu" aria-expanded="false"
@@ -131,7 +127,7 @@ const Header = () => {
 										</li>
 										<li className="nav-item dropdown">
 											<a className="nav-link dropdown-toggle"
-											   href="#" role="button"
+											   href="/#" role="button"
 											   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 												{'Ví'}
 												<div className="mr-hover-effect" />
@@ -151,7 +147,7 @@ const Header = () => {
 										</li>
 										<li className="nav-item dropdown">
 											<a className="nav-link dropdown-toggle"
-											   href="#" role="button"
+											   href="/#" role="button"
 											   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 												{'Lịch sử'}
 												<div className="mr-hover-effect" />

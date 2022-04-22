@@ -21,7 +21,7 @@ const LiveChat = () => {
 		return () => {
 			socket.off('message', addMessage);
 		}
-	},[])
+	})
 
 	const sendMessage = async () => {
 		if(user?.username === undefined) {

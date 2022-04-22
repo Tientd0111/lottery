@@ -1,14 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import ArrayNumberPicker from "../../../components/ArrayNumberPicker";
 import {useFormContext} from "react-hook-form";
 import TabKieuChoi from "../../../components/TabKieuChoi";
 import Constant from "../../../../contants/constant";
 
 const DauDuoi = () => {
-	const [tabst, setTabst] = useState(1);
-	const  toggleTab=(index)=>{
-		setTabst(index);
-	}
 	const [arrayPicker, setArrrayPicker] = React.useState([])
 	React.useEffect(()=>{
 		let update = [];

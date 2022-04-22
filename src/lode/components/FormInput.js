@@ -5,7 +5,7 @@ const FormInput = props => {
 
 	const {name, placeholder, label, rules, control, defaultValue = '', ...inputProps} = props
 
-	const {field, fieldState} = useController({name, control: control, rules, defaultValue})
+	const {field} = useController({name, control: control, rules, defaultValue})
 
 	return (
 		<div className="form-group">

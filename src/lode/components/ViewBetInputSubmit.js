@@ -60,12 +60,12 @@ const ViewBetInputSubmit = ({
 
 				<div className="content-panel">
 					<div className={"cat-lode"}>
-						{loadbet.map((item,index)=>{
+						{loadbet.map((item,index)=>(
 							<p key={index} className={`
 								${watch('mien') === item.id ? (first = item.name): ''} && 
 								${watch('kieuDanh') === item.id ? (last = item.name): ''} && 
 							 	${watch('kieuChoi') === item.id ? (end = item.name): ''}`}/>
-						})}
+						))}
 						<p className={"subtitile"}>{first +'/'+ last+'/'+ end}</p>
 					</div>
 

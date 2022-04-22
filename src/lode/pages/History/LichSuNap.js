@@ -6,7 +6,6 @@ import {useHistoryStores} from "../../../stores/useHistoryStores";
 import formatNumber from "../../../hooks/formatNumber";
 import formatDate from "../../../hooks/formatDate";
 import ButtonBase from "../../components/ButtonBase";
-import AppLoading from "../../components/AppLoading";
 
 const LichSuNap = () => {
 	const {transferNap, histories, loading} = useHistoryStores(state => ({
@@ -20,7 +19,7 @@ const LichSuNap = () => {
 			await transferNap()
 		}
 		fetchData()
-	},[]);
+	},[transferNap]);
 
 	const [pageNumber, setPageNumber] = useState(0);
 
@@ -46,7 +45,7 @@ const LichSuNap = () => {
 									<td>Số tiền</td>
 									<td>Trạng thái</td>
 								</tr>
-								{loading && pageNumber === 0?<AppLoading/>:
+								{
 									histories?.map((item, index)=>(
 									<tr key={index} style={{textAlign:'center'}}>
 										<td>{formatDate(item.created_at,"DD/MM/YYYY")}</td>
@@ -56,11 +55,12 @@ const LichSuNap = () => {
 										<td>{item.created_by}</td>
 									</tr>
 								))}
-								<ButtonBase
-									onClick={loadMore}
-									isLoading={pageNumber>0?loading:false} text={'Xem thêm'} />
+
 								</tbody>
 							</table>
+							<ButtonBase
+								onClick={loadMore}
+								isLoading={pageNumber>0?loading:false} text={'Xem thêm'} />
 						</div>
 					</div>
 					<div className={"col-md-3"}><Support/></div>

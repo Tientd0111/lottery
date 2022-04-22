@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback} from 'react';
 import CommonMain from '../../CommonMain';
 import HeadLottery from "./HeadLottery";
 import Constant from "../../../contants/constant";
@@ -57,8 +57,7 @@ const LotteryPage = () => {
 				break
 		}
 	}, [form, initValue])
-	const {loading, bet} = useBetLotteryStore(state => ({
-		loading: state.loading,
+	const { bet} = useBetLotteryStore(state => ({
 		bet: state.bet
 	}))
 	const {user} = useUserStore(state => ({
@@ -68,9 +67,9 @@ const LotteryPage = () => {
 		if(user?.username !== undefined){
 				if(Array.isArray(data.soDanh)){
 					let number = []
-					data.soDanh.map((item) => {
+					data.soDanh.map((item) => (
 						number.push(item.so)
-					})
+					))
 					data.soDanh = number
 				}
 				await bet(data)
