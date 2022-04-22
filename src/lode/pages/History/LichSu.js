@@ -46,7 +46,7 @@ const LichSu = () => {
 									<td>Số đánh</td>
 									<td>Số tiền</td>
 								</tr>
-								{loading && pageNumber === 0?<AppLoading/>:
+								{
 									histories?.map((item, index)=>(
 										<tr key={index} style={{textAlign:'center'}}>
 											<td>{formatDate(item.created_at,"DD/MM/YYYY")}</td>
@@ -57,12 +57,12 @@ const LichSu = () => {
 											<td>{formatNumber(item.soTienCuoc)}</td>
 										</tr>
 									))}
-								<ButtonBase
-									onClick={loadMore}
-									isLoading={pageNumber>0?loading:false} text={'Xem thêm'} />
 								</tbody>
 							</table>
 						</div>
+						<ButtonBase
+							onClick={loadMore}
+							isLoading={pageNumber>0?loading:false} text={'Xem thêm'} />
 					</div>
 					<div className={"col-md-3"}><Support/></div>
 				</div>

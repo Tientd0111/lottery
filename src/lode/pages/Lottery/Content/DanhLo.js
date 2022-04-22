@@ -72,7 +72,7 @@ const DanhLo = () => {
 					<TabKieuChoi name={"Lô 3 Số"} value={Constant.LO_3_SO}/>
 				</div>
 			}
-			<div className={"tabs-main"}>
+			<div className={"tabs-main tab-head"}>
 				<ul className="nav nav-tabs tab-bet">
 					{watchKieuChoi === Constant.LO_3_SO ? load3so.map((item, index)=>(
 						<li key={index} onClick={()=>{

@@ -2,6 +2,8 @@ import React from 'react';
 import {useFormContext} from "react-hook-form";
 import Constant from "../../contants/constant";
 import LiveChat from "./LiveChat";
+import ButtonBase from "./ButtonBase";
+import {useBetLotteryStore} from "../../stores/useBetLotteryStore";
 
 const ViewBetInputSubmit = ({
 	bigTitle = '',
@@ -9,6 +11,9 @@ const ViewBetInputSubmit = ({
 	betInLength = '',
 	winnerBet = ''
 }) => {
+	const {loading} = useBetLotteryStore(state => ({
+		loading: state.loading,
+	}))
 	const {watch,register} = useFormContext()
 	const loadbet = [
 		{id: Constant.DAI_MB, name: 'Miền Bắc'},
@@ -76,8 +81,8 @@ const ViewBetInputSubmit = ({
 						<input {...register('soTienCuoc', {valueAsNumber: true})} type="number" placeholder="0"
 							   className="format_currency tongtiendanh form-new-2"/>
 					</div>
-
-					<input type="submit" value="Đặt cược" className="btn-danhde"/>
+					<ButtonBase isloading={loading} text={'Đặt Cược'}/>
+					{/*<input type="submit" value="Đặt cược" className="btn-danhde"/>*/}
 				</div>
 			</div>
 			<LiveChat/>

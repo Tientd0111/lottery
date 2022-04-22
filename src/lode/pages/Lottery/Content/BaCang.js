@@ -69,7 +69,7 @@ const BaCang = () => {
 					<div className="clearfix"/>
 				</div>
 			}
-			<div className={"tabs-main"} >
+			<div className={"tabs-main tab-head"} >
 				<ul className="nav nav-tabs tab-bet">
 					{load.map((item, index)=>(
 						<li key={index} onClick={()=>{

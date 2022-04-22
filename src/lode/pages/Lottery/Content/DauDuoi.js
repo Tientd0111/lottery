@@ -21,7 +21,7 @@ const DauDuoi = () => {
 				<TabKieuChoi value={Constant.DAU_DUOI_DAU} name={"Đầu"}/>
 				<TabKieuChoi value={Constant.DAU_DUOI_DUOI} name={"Đuôi"}/>
 			</div>
-			<div className={"tabs-main"} style={{float:"left"}}>
+			<div className={"tabs-main tab-head"} style={{float:"left"}}>
 				<ul className="nav nav-tabs tab-bet">
 
 					<li className="nav-item card butt">

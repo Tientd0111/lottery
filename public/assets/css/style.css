@@ -4748,6 +4748,9 @@ body{
 .content-panel .form-group {
   padding: 0 15px;
 }
+.content-panel button{
+  width: 100%;
+}
 .form-new-2 {
   height: 34px;
   border-radius: 4px;
@@ -4858,7 +4861,7 @@ body{
 .butt .active {
   background-color: #D01C2D;
 }
-.tabs-main{
+.tab-head{
   margin-top: 20px;
 }
 .tab-bet{

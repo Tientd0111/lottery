@@ -58,10 +58,10 @@ const LichSuNap = () => {
 
 								</tbody>
 							</table>
-							<ButtonBase
-								onClick={loadMore}
-								isLoading={pageNumber>0?loading:false} text={'Xem thêm'} />
 						</div>
+						<ButtonBase
+							onClick={loadMore}
+							isLoading={pageNumber>0?loading:false} text={'Xem thêm'} />
 					</div>
 					<div className={"col-md-3"}><Support/></div>
 				</div>
