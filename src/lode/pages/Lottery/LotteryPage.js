@@ -32,7 +32,7 @@ const LotteryPage = () => {
 				form.reset(initValue(code, Constant.LO_2_SO))
 				break
 			case Constant.BAO_LO:
-				form.reset(initValue(code, Constant.BAO_LO_2))
+				form.reset(initValue(code, Constant.LO_2_SO))
 				break
 			case Constant.BA_CANG:
 				form.reset(initValue(code, form.watch('mien') === 'MB' ? Constant.BA_CANG : Constant.BA_CANG_DAU))
