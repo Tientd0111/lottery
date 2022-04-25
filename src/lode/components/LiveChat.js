@@ -20,7 +20,9 @@ const LiveChat = () => {
 
 	useEffect(()=>{
 		callService('messages', 'GET', {}).then((res)=>{setMessages(res)})
-		const addMessage = (msg) => setMessages(prevMessages => [...prevMessages, msg]);
+		const addMessage = (msg) => {
+			setMessages(prevMessages => [...prevMessages, msg]);
+		}
 		socket.on('message', addMessage)
 		return () => {
 			socket.off('message', addMessage);
@@ -33,8 +35,9 @@ const LiveChat = () => {
 		} else {
 			const message = msgRef.current.value
 			if(message) {
-				await callService('messages/send', 'POST', {message: message}, true)
 				msgRef.current.value = ''
+				if(visitableEmoji) setVisitableEmoji(false)
+				await callService('messages/send', 'POST', {message: message}, true)
 			}
 		}
 	}
