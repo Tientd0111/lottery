@@ -6,6 +6,7 @@ import {useSocket} from "./stores/useSocket";
 import {useUserStore} from "./stores/useUserStore";
 import {useCookies} from "react-cookie";
 import Path from "./routes/path";
+import {Toaster, toast as ts} from "react-hot-toast";
 
 function App() {
 
@@ -27,13 +28,14 @@ function App() {
 		setUser(undefined);
 	}
 	useEffect(()=> {
-		const showToast = (msg) => toastId.current = toast(msg)
+		const showToast = (msg) => ts(msg)
 
 		if(user) {
 			socket.on('message-to-user', (res)=>{
 				if(res.user === user.username) {
 					if(!toast.isActive(toastId.current)) {
 						showToast(res.msg)
+						console.log(res.msg)
 					}
 				}
 			})
@@ -59,7 +61,12 @@ function App() {
 		<>
 			{/*<BigSmall/>*/}
 			<RootRoutes/>
+			<Toaster/>
 			<ToastContainer
+				hideProgressBar={false}
+				newestOnTop={false}
+				rtl={false}
+				draggable
 				autoClose={1500}
 			/>
 		</>
