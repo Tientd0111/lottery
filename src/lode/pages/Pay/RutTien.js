@@ -149,7 +149,7 @@ const RutTien = () => {
 														</div>
 														<div className="col-md-8">
 															<div className="col-md-8" style={{maxWidth:"100%"}}>
-																<ButtonBase text={"Rút tiền"} isloading={loading}/>
+																<ButtonBase text={"Rút tiền"} isLoading={loading}/>
 															</div>
 														</div>
 

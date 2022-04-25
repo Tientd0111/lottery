@@ -81,7 +81,7 @@ const ViewBetInputSubmit = ({
 						<input {...register('soTienCuoc', {valueAsNumber: true})} type="number" placeholder="0"
 							   className="format_currency tongtiendanh form-new-2"/>
 					</div>
-					<ButtonBase isloading={loading} text={'Đặt Cược'}/>
+					<ButtonBase isLoading={loading} text={'Đặt Cược'}/>
 					{/*<input type="submit" value="Đặt cược" className="btn-danhde"/>*/}
 				</div>
 			</div>
