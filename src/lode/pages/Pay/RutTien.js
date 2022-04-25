@@ -7,6 +7,7 @@ import {UsePayStores} from "../../../stores/usePayStores";
 import Support from "../../components/Support";
 import {useUserStore} from "../../../stores/useUserStore";
 import {toast} from "react-toastify";
+import ButtonBase from "../../components/ButtonBase";
 
 const RutTien = () => {
 	const bank_name  = [
@@ -28,7 +29,8 @@ const RutTien = () => {
 		{val:'5000'},
 	]
 	const {handleSubmit, register,formState: { errors }} = useForm();
-	const {withdraw} = UsePayStores(state => ({
+	const {withdraw, loading} = UsePayStores(state => ({
+		loading: state.loading,
 		withdraw: state.withdraw,
 	}))
 
@@ -147,8 +149,7 @@ const RutTien = () => {
 														</div>
 														<div className="col-md-8">
 															<div className="col-md-8" style={{maxWidth:"100%"}}>
-																<input className="btn btn-signin form-control but"
-																	   type="submit" value="Rút tiền"/>
+																<ButtonBase text={"Rút tiền"} isloading={loading}/>
 															</div>
 														</div>
 

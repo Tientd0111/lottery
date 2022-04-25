@@ -20,6 +20,7 @@ export const UsePayStores = create(set => ({
 		set({loading: true})
 		callService(apis.withdraw.uri, 'POST', bodyParameters, true)
 			.then(response => {
+				set({loading:false})
 				toast.success(response.msg)
 			})
 			.catch(error=>{
