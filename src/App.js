@@ -29,14 +29,11 @@ function App() {
 	}
 	useEffect(()=> {
 		const showToast = (msg) => ts(msg)
-
+		if (socket == null || user == null) return;
 		if(user) {
 			socket.on('message-to-user', (res)=>{
 				if(res.user === user.username) {
-					if(!toast.isActive(toastId.current)) {
-						showToast(res.msg)
-						console.log(res.msg)
-					}
+					showToast(res.msg)
 				}
 			})
 			socket.on('block-user', (res)=>{
@@ -47,9 +44,7 @@ function App() {
 			return () => {
 				socket.off('message-to-user', (res)=>{
 					if(res.user === user.username) {
-						if(!toast.isActive(toastId.current)) {
-							showToast(res.msg)
-						}
+						showToast(res.msg)
 					}
 				});
 			}
@@ -61,7 +56,9 @@ function App() {
 		<>
 			{/*<BigSmall/>*/}
 			<RootRoutes/>
-			<Toaster/>
+			<Toaster
+				position="top-right"
+			/>
 			<ToastContainer
 				hideProgressBar={false}
 				newestOnTop={false}
