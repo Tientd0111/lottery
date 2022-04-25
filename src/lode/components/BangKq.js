@@ -94,14 +94,14 @@ const BangKq = () => {
 				<div className={'title-dai'}>Kết quả sổ xố đài
 					<span className={"name-dai"}> {nameDai}</span>
 					<span className={"dot"}/>
-					<span className={"ngay"}>Hôm nay</span>
+					<span className={"ngay"}>{data?.ngay}</span>
 				</div>
 			</div>
 			<div>
 				<table className={"table table-bordered bootstrap-datatable datatable"} style={{width:"100%",border:"none",marginTop:'auto'}}>
 					<tbody className={"table-kq"}>
-					{/* eslint-disable-next-line array-callback-return */}
-					{data.map((item, index) => {
+					{/* es.lint-disable-next-line array-callback-return */}
+					{data?.giaiResult?.map((item, index) => {
 						if(item.value !== '') return (
 							<tr key={item.name} className={`${index % 2 && ('alt')}`}>
 								<td className={"td|first"}>{mappingGiai(item.name)}</td>
