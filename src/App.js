@@ -1,19 +1,16 @@
 import './App.css';
 import RootRoutes from "./routes";
 import {toast, ToastContainer} from "react-toastify";
-import React, {useEffect, useRef} from "react";
+import React, {useEffect} from "react";
 import {useSocket} from "./stores/useSocket";
 import {useUserStore} from "./stores/useUserStore";
 import {useCookies} from "react-cookie";
-import Path from "./routes/path";
-import {Toaster, toast as ts} from "react-hot-toast";
 
 function App() {
 
 	const {socket} = useSocket(state => ({
 		socket: state.socket
 	}));
-	const toastId = useRef(null);
 
 	const {user, setUser , logout} = useUserStore(state =>({
 		user: state.user,
@@ -28,27 +25,18 @@ function App() {
 		setUser(undefined);
 	}
 	useEffect(()=> {
-		const showToast = (msg) => ts(msg)
-		if (socket == null || user == null) return;
-		if(user) {
-			socket.on('message-to-user', (res)=>{
-				if(res.user === user.username) {
-					showToast(res.msg)
-				}
-			})
-			socket.on('block-user', (res)=>{
-				if(res.user === user.username) {
-					logoutSection();
-				}
-			});
-			return () => {
-				socket.off('message-to-user', (res)=>{
-					if(res.user === user.username) {
-						showToast(res.msg)
-					}
-				});
+		if(user === undefined || user == null) return;
+		const showToast = (msg) => {
+			if(msg.user === user.username) toast(msg.msg)
+		}
+		socket.on('message-to-user', showToast)
+		socket.on('block-user', (res)=>{
+			if(res.user === user.username) {
+				logoutSection();
 			}
-
+		});
+		return () => {
+			socket.off('message-to-user', showToast);
 		}
 	},[user])
 
@@ -56,9 +44,6 @@ function App() {
 		<>
 			{/*<BigSmall/>*/}
 			<RootRoutes/>
-			<Toaster
-				position="top-right"
-			/>
 			<ToastContainer
 				hideProgressBar={false}
 				newestOnTop={false}
