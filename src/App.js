@@ -27,11 +27,13 @@ function App() {
 		setUser(undefined);
 	}
 	useEffect(()=> {
+		const showToast = (msg) => toastId.current = toast(msg)
+
 		if(user) {
 			socket.on('message-to-user', (res)=>{
 				if(res.user === user.username) {
 					if(!toast.isActive(toastId.current)) {
-						toastId.current = toast(res.msg)
+						showToast(res.msg)
 					}
 				}
 			})
@@ -39,9 +41,19 @@ function App() {
 				if(res.user === user.username) {
 					logoutSection();
 				}
-			})
+			});
+			return () => {
+				socket.off('message-to-user', (res)=>{
+					if(res.user === user.username) {
+						if(!toast.isActive(toastId.current)) {
+							showToast(res.msg)
+						}
+					}
+				});
+			}
+
 		}
-	},[ user])
+	},[user])
 
 	return (
 		<>
