@@ -5355,3 +5355,82 @@ label.label-cus {
   color: #8d8585;
 }
 /*liveChat end*/
+/* bảng kết quả start*/
+.alt{
+  border: none;
+  background: #D5D3D3FF;
+}
+.table-kq td:first-child {
+  border: none;
+  font-size: 17px;
+  align-items: center;
+  line-height: 1;
+  max-width: 105px;
+}
+ .table-kq td:last-child {
+  border: none;
+   font-size: 20px;
+  max-width: 100%;
+}
+.table-kq td{
+  font-family: monospace;
+  border: none;
+  font-size: 17px;
+  font-weight: 900;
+  color: #000;
+  padding: 14.9px 8px;
+  text-align: center;
+}
+.table-kq .forcus{
+  color: red;
+}
+
+.head {
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  height: 80px;
+  background: #ef2f47;
+}
+.box-pink-result {
+  height: 69px;
+  background-color: #fff4f4;
+}
+.box-pink-result .name-dai {
+  text-transform: uppercase;
+  font-family: monospace;
+}
+.box-pink-result .dot {
+  background-color: #d01c2d;
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.box-pink-result .name-ngay {
+  font-weight: 900;
+  text-transform: uppercase;
+  font-family: monospace;
+}
+
+
+.box-pink-result .title-dai {
+  font-size: 20px;
+  color: #d01c2d;
+  padding: 10px 0px 10px 0px;
+  text-align: center;
+}
+.select-head {
+  height: 40px;
+  border-radius: 19.5px;
+  background-color: rgba(0, 0, 0, 0.3);
+  font-family: monospace;
+  font-size: 14px;
+  border: none;
+  color: #fff;
+  text-transform: uppercase;
+}
+/* bảng kết quả end*/

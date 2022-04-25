@@ -72,6 +72,43 @@ export async function callService(uri, method, bodyParameters, hasToken) {
 		console.log('Error :' + error);
 	}
 }
+export async function serviceTable(uri, method, bodyParameters, hasToken) {
+	// console.log(hasToken);
+	// console.log(uri);
+	let url = `${environmentConfig.API_KQ_URL}${uri}`;
+
+	try {
+		let authen_token
+		if (hasToken) {
+			authen_token = localStorage.getItem('key');
+		}
+		let headers = !hasToken ? { 'Content-Type': 'application/json;charset=UTF-8' } : { 'Content-Type': 'application/json;charset=UTF-8', Authorization: `Bearer ${authen_token}` }
+		let configAxios
+		configAxios = {
+			url,
+			method,
+			headers,
+			data: bodyParameters,
+			timeout: environmentConfig.TIME_OUT
+		}
+
+
+
+		return new Promise((resolve, reject) => {
+			axios(configAxios)
+				.then((response) => {
+					if (response.status === responseStatus.SUCCESS && response.data === '') {
+						return handleResponseSuccess({ status: 200, data: { statusRequest: 200 } }, resolve);
+					}
+					return handleResponseSuccess(response, resolve);
+				}).catch((error) => {
+				return handleResponseFail(error, reject);
+			});
+		});
+	} catch (error) {
+		console.log('Error :' + error);
+	}
+}
 
 
 const handleResponseSuccess = (response, resolve) => {

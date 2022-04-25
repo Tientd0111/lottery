@@ -32,7 +32,10 @@ const apis = {
 	},
 	hisBet:{
 		uri:'billLottery/history'
-	}
+	},
+	kqxs:{
+		uri:'billLottery/kqsx/'
+	},
 
 }
 export default apis

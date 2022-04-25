@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
@@ -6,10 +6,14 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 import images from '../../assets/images/images';
 import PATH from "../../routes/path";
 import {Link} from "react-router-dom";
+import Constant from "../../contants/constant";
+import ButtonBase from "./ButtonBase";
+import BangKq from "./BangKq";
 
 library.add(fas, fab);
 
 const FeaturedGame = () => {
+
     return (
         <section>
 			<div className="container-fluid">
@@ -139,8 +143,7 @@ const FeaturedGame = () => {
 								<a href=""><img src={"assets/images/lode/l1.png"} alt="" width="100%"/></a>
 							</div>
 						</div>
-						<div className="col-md-8">
-						</div>
+						<BangKq/>
 						<div className="col-md-2">
 							<div>
 								{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
