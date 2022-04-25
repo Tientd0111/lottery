@@ -148,12 +148,8 @@ const NapTien = () => {
 												Nội dung chuyển khoản:
 												<span style={{color:"red"}}> {dataResult.description_bank}</span>
 											</label>
-											<button
-												className="btn btn-signin form-control but"
-												onClick={()=>{
-													confirmData({id: dataResult.id})
-												}
-												}>Xác nhận đã chuyển</button>
+											<ButtonBase text={"Xác nhận đã chuyển"} isLoading={loading}
+														onClick={()=>{confirmData({id: dataResult.id})}}/>
 										</div>
 									}
 								</div>
