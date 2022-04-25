@@ -6,6 +6,7 @@ import formatNumber from '../../../hooks/formatNumber'
 import Support from "../../components/Support";
 import {useUserStore} from "../../../stores/useUserStore";
 import {toast} from "react-toastify";
+import ButtonBase from "../../components/ButtonBase";
 const NapTien = () => {
 
 	const money=[
@@ -19,8 +20,9 @@ const NapTien = () => {
 		{val:'3000'},
 		{val:'5000'},
 	]
-	const {tranf, dataResult,confirmData} = UsePayStores(state => ({
+	const {tranf, dataResult,confirmData,loading} = UsePayStores(state => ({
 		tranf: state.tranf,
+		loading: state.loading,
 		dataResult: state.dataResult,
 		confirmData: state.confirmData,
 	}))
@@ -121,9 +123,7 @@ const NapTien = () => {
 													<div className="col-md-4">
 													</div>
 													<div className="col-md-8">
-														<input
-															className="btn btn-signin form-control but"
-															   type="submit" value="Nạp tiền"/>
+														<ButtonBase text={"Nạp tiền"} isLoading={loading}/>
 													</div>
 												</div>
 											</div>
