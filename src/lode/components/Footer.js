@@ -13,14 +13,14 @@ const Footer = () => {
 				<div className="row marg">
 					<div className="col-md-3">
 						<h3 className="about-title">Về Winclub24</h3>
-						<p className="about-detail">Loto79 tự hào là nhà cái cung cấp các dịch vụ lô đề, số đề, soi cầu
-							lô đề hàng đầu tại Việt Nam. Loto79 đã đặt bước đi tiên phong trong lĩnh vực đánh đề trực
+						<p className="about-detail">Winbet24 tự hào là nhà cái cung cấp các dịch vụ lô đề, số đề, soi cầu
+							lô đề hàng đầu tại Việt Nam. Winbet24 đã đặt bước đi tiên phong trong lĩnh vực đánh đề trực
 							tuyến.</p>
 					</div>
 					<div className="col-md-3">
 						<h3 className="about-title">Trách nhiệm</h3>
-						<p className="about-detail">Loto79 tự hào là nhà cái cung cấp các dịch vụ lô đề, số đề, soi cầu
-							lô đề hàng đầu tại Việt Nam. Loto79 đã đặt bước đi tiên phong trong lĩnh vực đánh đề trực
+						<p className="about-detail">Winbet24 tự hào là nhà cái cung cấp các dịch vụ lô đề, số đề, soi cầu
+							lô đề hàng đầu tại Việt Nam. Winbet24 đã đặt bước đi tiên phong trong lĩnh vực đánh đề trực
 							tuyến.</p>
 					</div>
 					<div className="col-md-3">
