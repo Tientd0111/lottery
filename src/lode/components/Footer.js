@@ -35,11 +35,11 @@ const Footer = () => {
 					<div className="col-md-3">
 						<a href="/#" className="btn-icons">
 							<FontAwesomeIcon className="bg-red" icon={['fas','phone']}/>
-							<span className="bg-red">123445665</span>
+							<span className="bg-red">0796191047</span>
 						</a>
 						<a href="/#" className="btn-icons">
 							<FontAwesomeIcon className="bg-orange" icon={['fas','envelope']}/>
-							<span className="bg-orange">HqltechCompany@gmail.com</span>
+							<span className="bg-orange">quantaidich</span>
 						</a>
 					</div>
 				</div>
