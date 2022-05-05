@@ -1,8 +1,7 @@
 {
-  "name": "winclub24",
+  "name": "winclub24h",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://winclub24.herokuapp.com/",
   "engines": {
     "node": "16.x",
     "npm": "8.x",
