@@ -148,10 +148,9 @@ const LotteryPage = () => {
 					<div className={"row footer_content"}>
 						<div className={"col-12"}>
 							<div className={"header-title block"}>
-								<p>Lô đề miền Bắc của nhà cái Lode88 có lô 2 số, lô 3 số. Có đầy đủ lô 3 càng, đề đầu,
-									đề đặc biệt, đánh đề đầu đuôi, lô xiên 2, lô xiên 3, lô xiên 4, lô trượt xiên 4,
-									lô trượt xiên 8, lô trược xiên 10. Tỷ lệ thắng lô đề miền Bắc cực kì cao, lô 2 số
-									miền Bắc tỷ lệ ăn là 1 ăn 99.4 lần, lô 3 số miền Bắc tỷ lệ ăn là 1 ăn 900 lần,
+								<p>Lô đề của nhà cái Winclub24h có lô 2 số, lô 3 số. Có đầy đủ lô 3 càng, đề đầu,
+									đề đặc biệt, đánh đề đầu đuôi, lô xiên 2, lô xiên 3, lô xiên 4. Tỷ lệ thắng lô đề cực kì cao, lô 2 số
+									 tỷ lệ ăn là 1 ăn 99.4 lần, lô 3 số tỷ lệ ăn là 1 ăn 900 lần,
 									lô xiên 2 ăn gấp 17 lần, lô xiên 3 ăn gấp 65 lần, lô xiên 4 ăn gấp 250 lần
 								</p>
 							</div>
