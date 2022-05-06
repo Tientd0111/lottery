@@ -37,7 +37,7 @@ const Footer = () => {
 							<FontAwesomeIcon className="bg-red" icon={['fas','phone']}/>
 							<span className="bg-red">0796191047</span>
 						</a>
-						<a href="/#" className="btn-icons">
+						<a href="https://web.telegram.org/z/#5136906405" className="btn-icons">
 							<FontAwesomeIcon className="bg-orange" icon={['fas','paper-plane']}/>
 							<span className="bg-orange">@taitienty</span>
 						</a>
