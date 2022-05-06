@@ -38,7 +38,7 @@ const Footer = () => {
 							<span className="bg-red">0796191047</span>
 						</a>
 						<a href="/#" className="btn-icons">
-							<FontAwesomeIcon className="bg-orange" icon={['fas','telegram']}/>
+							<FontAwesomeIcon className="bg-orange" icon={['fas','paper-plane']}/>
 							<span className="bg-orange">@taitienty</span>
 						</a>
 					</div>
