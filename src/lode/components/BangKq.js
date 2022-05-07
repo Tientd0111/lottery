@@ -24,8 +24,8 @@ const BangKq = () => {
 		load: state.load,
 		data: state.data,
 		loading: state.loading,
+		
 	}));
-
 	const [nameDai, setNameDai] = useState('')
 
 	const mappingGiai = (id) => {

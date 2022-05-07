@@ -39,7 +39,7 @@ const Footer = () => {
 						</a>
 						<a href="https://web.telegram.org/z/#5136906405" className="btn-icons">
 							<FontAwesomeIcon className="bg-orange" icon={['fas','paper-plane']}/>
-							<span className="bg-orange">@taitienty</span>
+							<span className="bg-orange">@taitienty1</span>
 						</a>
 					</div>
 				</div>

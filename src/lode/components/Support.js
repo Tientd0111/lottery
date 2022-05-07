@@ -32,7 +32,7 @@ const Support = () => {
 					<div className={"col-md-9 block-center"}>
 						<p className={"txt-top clr-red"}>Gửi ngay</p>
 						<p className={"txt-bottom clr-red"}>
-							<a href="https://web.telegram.org/z/#5136906405">@taitienty</a>
+							<a href="https://web.telegram.org/z/#5136906405">@taitienty1</a>
 						</p>
 					</div>
 				</div>
