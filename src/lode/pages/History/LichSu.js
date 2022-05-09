@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import HeadHistory from "../../components/HeadHistory";
 import Support from "../../components/Support";
 import CommonMain from "../../CommonMain";
 import {useHistoryStores} from "../../../stores/useHistoryStores";
-import AppLoading from "../../components/AppLoading";
 import formatDate from "../../../hooks/formatDate";
 import formatNumber from "../../../hooks/formatNumber";
 import ButtonBase from "../../components/ButtonBase";
+import DetailBillBet from "../../components/DetailBillBet";
 
 const LichSu = () => {
 	const {hisBet, histories, loading} = useHistoryStores(state => ({
@@ -28,9 +28,14 @@ const LichSu = () => {
 		setPageNumber(pageNumber + 1)
 		await hisBet({pageNumber: pageNumber + 1, addItem: true})
 	}
+
+	const [billId, setBillId] = useState(null);
+
+	const detailRef = useRef()
+
 	return (
 		<CommonMain>
-			<section style={{marginTop:"180px"}}>
+			<section id={'history'} style={{marginTop:"180px"}}>
 				<div className={"row"}>
 					<div className="tabs-main main-content-member lsgd-tabs--content tab-pane col-md-9">
 						<HeadHistory title={'Lịch sử cá cược'}/>
@@ -45,6 +50,7 @@ const LichSu = () => {
 									<td>kiểu chơi</td>
 									<td>Số đánh</td>
 									<td>Số tiền</td>
+									<td>Trạng thái</td>
 								</tr>
 								{
 									histories?.map((item, index)=>(
@@ -55,6 +61,12 @@ const LichSu = () => {
 											<td>{item.kieuChoi}</td>
 											<td>{item.soDanh?.toString()}</td>
 											<td>{formatNumber(item.soTienCuoc)}</td>
+											<td>{item.daDuyet?
+											<a style={{cursor: 'pointer', textDecoration: 'underline', color: 'blue'}} onClick={()=>{
+												setBillId(item._id)
+												detailRef.current?.open()
+											}
+											}>Đã trả điểm</a>: <p style={{color: 'red'}}>Chưa trả điểm</p>}</td>
 										</tr>
 									))}
 								</tbody>
@@ -65,6 +77,7 @@ const LichSu = () => {
 							isLoading={pageNumber>0?loading:false} text={'Xem thêm'} />
 					</div>
 					<div className={"col-md-3"}><Support/></div>
+					<DetailBillBet ref={detailRef} billId={billId}/>
 				</div>
 			</section>
 		</CommonMain>

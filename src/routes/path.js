@@ -3,8 +3,8 @@ const PATH = {
     LOTTERY: '/lottery',
     NAP:'/nap',
     RUT:'/rut',
-    HISTORYRUT:'/historyrut',
-    HISTORYNAP:'/historyNap',
+    HISTORYRUT:'/history-rut',
+    HISTORYNAP:'/history-nap',
     HISTORYBET:'/history',
     INFO:'/info',
 }

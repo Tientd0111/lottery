@@ -36,6 +36,8 @@ const apis = {
 	kqxs:{
 		uri:'billLottery/kqsx/'
 	},
-
+	historyWinner:{
+		uri:'billLottery/history-winner'
+	},
 }
 export default apis
