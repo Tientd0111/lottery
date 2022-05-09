@@ -1101,7 +1101,6 @@ select:focus {
   color: #676767;
 }
 .footer-dev .btn-icons {
-  height: 53px;
   line-height: 30px;
   font-size: 16px;
   font-weight: bold;
@@ -1113,11 +1112,8 @@ select:focus {
 }
 .footer-dev .btn-icons svg{
   padding: 15px;
-  background-color: #88bd06;
   color: #fff;
   float: left;
-  height: 50px;
-  width: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
