@@ -51,7 +51,7 @@ const Header = () => {
 									<ul className="right-list">
 										<li>
 											<div className="cart-icon tm-dropdown">
-												<p>Ví: <span>{formatNumber(user?.balance)}</span></p>
+												<p>Ví: <span>{formatNumber(user?.balance===undefined?'':user?.balance)}</span></p>
 											</div>
 										</li>
 										<li className={"nav-item dropdown li_cha"}>

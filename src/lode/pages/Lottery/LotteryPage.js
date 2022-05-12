@@ -63,16 +63,17 @@ const LotteryPage = () => {
 	const {user} = useUserStore(state => ({
 		user: state.user
 	}))
+	console.log(user)
 	const handleSubmit = async (data) => {
 		if(user?.username !== undefined){
-				if(Array.isArray(data.soDanh)){
-					let number = []
-					data.soDanh.map((item) => (
-						number.push(item.so)
-					))
-					data.soDanh = number
-				}
-				await bet(data)
+					if(Array.isArray(data.soDanh)){
+						let number = []
+						data.soDanh.map((item) => (
+							number.push(item.so)
+						))
+						data.soDanh = number
+					}
+					await bet(data)
 		}else {
 			toast('Vui lòng đăng nhập')
 		}
