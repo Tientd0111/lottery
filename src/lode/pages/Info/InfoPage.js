@@ -53,7 +53,7 @@ const InfoPage = () => {
 										<InfoUserRow name={'Email'} value={user?.email}/>
 										<InfoUserRow name={'Số điện thoại'} value={user?.phone_number}/>
 										<InfoUserRow name={'Tên đăng nhập'} value={user?.username}/>
-										<InfoUserRow name={'Số dư'} value={formatNumber(user?.balance)}/>
+										{/*<InfoUserRow name={'Số dư'} value={formatNumber(user?.balance)}/>*/}
 										<div className="form-group">
 											<div className="row">
 												<div className="col-md-4">

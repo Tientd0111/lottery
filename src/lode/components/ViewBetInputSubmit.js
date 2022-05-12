@@ -4,12 +4,10 @@ import Constant from "../../contants/constant";
 import LiveChat from "./LiveChat";
 import ButtonBase from "./ButtonBase";
 import {useBetLotteryStore} from "../../stores/useBetLotteryStore";
+import getText from "../../hooks/getText";
 
 const ViewBetInputSubmit = ({
 	bigTitle = '',
-	minBet = '',
-	betInLength = '',
-	winnerBet = ''
 }) => {
 	const {loading} = useBetLotteryStore(state => ({
 		loading: state.loading,
@@ -73,16 +71,29 @@ const ViewBetInputSubmit = ({
 						))}
 						<p className={"subtitile"}>{first +'/'+ last+'/'+ end}</p>
 					</div>
-
-
-					<div id="sodanh"/>
+					{watch('soDanh')?.length>0?
+						<div style={{margin: 0, gap: 4, padding: '0 15px'}} className={'row'}>{watch('soDanh')?.map((it, index)=>(<div className={'col-xs-2'} key={index}><p style={{
+							width: '100%',
+							height: '30px',
+							borderRadius: '15px',
+							backgroundColor: '#95b811',
+							display: 'flex',
+							justifyContent: 'center',
+							alignItems: 'center',
+							fontFamily: 'Muli-Bold-Extra',
+							fontSize: '13px',
+							fontWeight: 800,
+							padding: '10px',
+							color: '#ffffff',
+						}}>{it.so}</p></div>))}</div>
+					:null}
 					<div className="form-group">
-						<div className="info-amount">Tổng tiền đánh(k)</div>
-						<input {...register('soTienCuoc', {valueAsNumber: true})} type="number" placeholder="0"
+						<div className="info-amount">Tổng tiền đánh (VNĐ)</div>
+						<input min={0} {...register('soTienCuoc', {valueAsNumber: true})} type="number" placeholder="0"
 							   className="format_currency tongtiendanh form-new-2"/>
+						<div style={{fontSize: 12, color: 'red'}} className="info-amount">{getText(watch('soTienCuoc')?watch('soTienCuoc'):0)} (vnđ)</div>
 					</div>
 					<ButtonBase isLoading={loading} text={'Đặt Cược'}/>
-					{/*<input type="submit" value="Đặt cược" className="btn-danhde"/>*/}
 				</div>
 			</div>
 			<LiveChat/>

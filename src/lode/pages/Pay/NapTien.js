@@ -10,15 +10,15 @@ import ButtonBase from "../../components/ButtonBase";
 const NapTien = () => {
 
 	const money=[
-		{val:'10'},
-		{val:'20'},
-		{val:'50'},
-		{val:'100'},
-		{val:'200'},
-		{val:'500'},
-		{val:'1000'},
-		{val:'3000'},
-		{val:'5000'},
+		{val:'10000'},
+		{val:'20000'},
+		{val:'50000'},
+		{val:'100000'},
+		{val:'200000'},
+		{val:'500000'},
+		{val:'1000000'},
+		{val:'3000000'},
+		{val:'5000000'},
 	]
 	const {tranf, dataResult,confirmData,loading} = UsePayStores(state => ({
 		tranf: state.tranf,

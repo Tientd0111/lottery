@@ -18,15 +18,15 @@ const RutTien = () => {
 		{id: constant.TP,name:constant.TP,stk:'1234123656'}
 	]
 	const money=[
-		{val:'10'},
-		{val:'20'},
-		{val:'50'},
-		{val:'100'},
-		{val:'200'},
-		{val:'500'},
-		{val:'1000'},
-		{val:'3000'},
-		{val:'5000'},
+		{val:'10000'},
+		{val:'20000'},
+		{val:'50000'},
+		{val:'100000'},
+		{val:'200000'},
+		{val:'500000'},
+		{val:'1000000'},
+		{val:'3000000'},
+		{val:'5000000'},
 	]
 	const {handleSubmit, register,formState: { errors }} = useForm();
 	const {withdraw, loading} = UsePayStores(state => ({

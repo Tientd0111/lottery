@@ -6,6 +6,7 @@ import AppLoading from "./AppLoading";
 import formatNumber from "../../hooks/formatNumber";
 import formatDate from "../../hooks/formatDate";
 import useMounted from "../../hooks/useMounted";
+import getText from "../../hooks/getText";
 const customStyles = {
 	content: {
 		top: '50%',
@@ -63,7 +64,8 @@ const DetailBillBet = forwardRef((props, ref) => {
 				<div>
 					<p>Danh sách các số trúng: {data?.winnerList?.toString()}</p>
 					<p>Số tiền nhận được: {formatNumber(data?.balanceWinner)}</p>
-					<p>Duyệt lúc: {formatDate(data?.created_at, 'h [giờ] : m [phút] [ngày] DD/MM/YYYY')}</p>
+					<p>Bằng chữ: {getText(data?.balanceWinner?data?.balanceWinner:0)} (vnđ)}</p>
+					{/*<p>Duyệt lúc: {formatDate(data?.created_at, 'h [giờ] : m [phút] [ngày] DD/MM/YYYY')}</p>*/}
 				</div>
 			}
 		</Modal>
