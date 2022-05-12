@@ -13,6 +13,7 @@ export const useBetLotteryStore = create(set => ({
 			})
 			.catch(error=>{
 				set({loading: false})
+				toast.error(error.response.msg)
 			})
 	},
 	loading: false,
