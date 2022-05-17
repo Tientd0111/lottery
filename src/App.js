@@ -5,6 +5,7 @@ import React, {useEffect} from "react";
 import {useSocket} from "./stores/useSocket";
 import {useUserStore} from "./stores/useUserStore";
 import {useCookies} from "react-cookie";
+import BigSmall from "./lode/minigame/BigSmall";
 
 function App() {
 
@@ -42,7 +43,7 @@ function App() {
 
 	return (
 		<>
-			{/*<BigSmall/>*/}
+			<BigSmall/>
 			<RootRoutes/>
 			<ToastContainer
 				hideProgressBar={false}

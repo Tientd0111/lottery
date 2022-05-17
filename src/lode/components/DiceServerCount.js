@@ -1,30 +1,42 @@
 import React, {useEffect, useState} from 'react';
 import {useSocket} from "../../stores/useSocket";
+import {useTxStore} from "../../stores/useTxStore";
+import images from "../../assets/images/images";
 
 const DiceServerCount = () => {
 
 	const {socket} = useSocket(state => ({socket: state.socket}));
 
-	const [count, setCount] = useState(0);
+	const {countDownDice, setCountDownDice} = useTxStore(state => ({
+		countDownDice: state.countDownDice,
+		setCountDownDice: state.setCountDownDice
+	}))
 
 	useEffect(()=>{
 		socket.on('countDownDiceServer', (count)=> {
-			setCount(count)
+			setCountDownDice(count)
 		})
 	},[])
 
 	return (
 		<div style={{
-			alignSelf: 'center',
+			// alignSelf: 'center',
 			animation: 'ease-in-out',
-			display: count === 0 ? 'none' : 'flex'
+			display: countDownDice === 0 ? 'none' : 'flex',
+			position: 'relative',
+			width: 160,
+			justifyContent: 'center',
+			alignItems: 'center'
 		}}>
+
+			<img className={'route_image'} draggable={"false"} alt={'ro'} src={images.loop_i}/>
 			<p style={{
-				fontSize: '110px',
-				color: count> 5?'white':'red',
+				fontSize: '80px',
+				color: countDownDice> 5?'white':'red',
 				animation: 'ease-in',
+				margin: 0
 			}}>
-				{count>=10?count:"0"+count}
+				{countDownDice>=10?countDownDice:"0"+countDownDice}
 			</p>
 		</div>
 	);

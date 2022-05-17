@@ -22,8 +22,8 @@ const Dice = ({num}) => {
 		<div>
 			<img style={{
 				pointerEvents: 'none',
-				width: '96px',
-				height: '96px'
+				width: '48px',
+				height: '48px'
 			}} alt={'num'+num} src={resultImage(num)}/>
 		</div>
 	);

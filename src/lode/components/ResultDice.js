@@ -2,13 +2,18 @@ import React, {useEffect, useState} from 'react';
 import {useSocket} from "../../stores/useSocket";
 import Dice from "./Dice";
 import useMounted from "../../hooks/useMounted";
-import images from "../../assets/images/images";
+import {useTxStore} from "../../stores/useTxStore";
 
 const ResultDice = () => {
 
 	const {socket} = useSocket(state => ({socket: state.socket}));
 
-	const [timeOpen, setTimeOpen] = useState(0);
+	const { timeOpen, setTimeOpen, setStrResult } = useTxStore(state => ({
+		timeOpen: state.timeOpen,
+		setTimeOpen: state.setTimeOpen,
+		strResult: state.strResult,
+		setStrResult: state.setStrResult,
+	}))
 
 	const [dices, setDices] = useState([]);
 
@@ -20,20 +25,24 @@ const ResultDice = () => {
 		});
 
 		socket.on('diceResults', (res)=> {
-			if(mounted()) setDices([res.taiXiuRs.xx1, res.taiXiuRs.xx2, res.taiXiuRs.xx3])
+			if(mounted()) {
+				setDices([res.taiXiuRs.xx1, res.taiXiuRs.xx2, res.taiXiuRs.xx3])
+			}
+			setStrResult(res.taiXiuRs.resultStr)
 		})
 	},[])
 
 	return (
 		<div
 			style={{
-				// display: timeOpen > 0 ? 'flex' : 'none',
-				alignSelf: 'center'
+				display: timeOpen > 0 ? 'flex' : 'none',
+				flexDirection: 'column',
+				justifyContent: 'center',
+				alignItems: 'center',
 			}}
 		>
 			{/*<div className={'dice_an'}/>*/}
-			<img className={'route_image'} alt={'ro'} src={images.loop_i}/>
-			<div style={styles.style_div_wrapper_dice}>
+			<div className={'fade-in-image'} style={styles.style_div_wrapper_dice}>
 				{dices.map((it, index)=>(
 					<Dice num={it} key={index}/>
 				))}
@@ -58,7 +67,7 @@ const styles = {
 	},
 	style_div_wrapper_dice: {
 		flexWrap: 'wrap',
-		width: '192px',
+		width: '96px',
 		alignItems: 'center',
 		justifyContent: 'center',
 		display: 'flex',

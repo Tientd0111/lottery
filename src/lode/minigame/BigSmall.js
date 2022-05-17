@@ -1,15 +1,32 @@
-import React, {useEffect} from 'react';
+import React, {useCallback, useState} from 'react';
 import Draggable from 'react-draggable'
 import images from "../../assets/images/images";
-import {useSocket} from "../../stores/useSocket";
 import DiceServerCount from "../components/DiceServerCount";
 import ResultDice from "../components/ResultDice";
+import TextResultAnimation from "../components/TextResultAnimation";
+import {useTxStore} from "../../stores/useTxStore";
+import BtnBet from "../components/BtnBet";
+import CoinBet from "../components/CoinBet";
+
+const money = [
+	{val: '10000'},
+	{val: '50000'},
+	{val: '500000'},
+	{val: '1000000'},
+	{val: '5000000'},
+]
+
 const BigSmall = () => {
 
-	const {socket} = useSocket(state => ({socket: state.socket}));
+	const {timeOpen, strResult} = useTxStore(state => ({
+		timeOpen: state.timeOpen,
+		strResult: state.strResult
+	}));
 
-	useEffect(()=>{
+	const [activeValue, setActiveValue] = useState(0)
 
+	const onActiveValue = useCallback((index) => {
+		setActiveValue(index)
 	},[])
 
 	return (
@@ -27,13 +44,21 @@ const BigSmall = () => {
 				<div style={{
 					backgroundImage: `url(${images.bgTx})`,
 					backgroundRepeat: "no-repeat",
-					width: '800px',
-					height: '400px',
+					width: '400px',
+					height: '200px',
 					backgroundSize: 'cover',
 					display: 'flex',
 					justifyContent: 'center',
+					position: 'relative',
 				}}>
-					{/*<DiceServerCount/>*/}
+					<TextResultAnimation text={'Tài'} isWin={timeOpen>0&&strResult=='Tài'}/>
+					<TextResultAnimation isRight={true} text={'Xỉu'} isWin={timeOpen>0&&strResult=='Xỉu'}/>
+					<div style={{position: 'absolute', display: 'flex', gap: 10, bottom: 0}}>
+						{money.map((el, index)=>(<CoinBet onClick={onActiveValue} isActive={activeValue===index} index={index}/>))}
+					</div>
+					<BtnBet/>
+					<BtnBet right={true}/>
+					<DiceServerCount/>
 					<ResultDice/>
 				</div>
 			</div>
