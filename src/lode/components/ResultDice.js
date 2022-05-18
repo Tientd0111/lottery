@@ -9,11 +9,12 @@ const ResultDice = () => {
 
 	const {socket} = useSocket(state => ({socket: state.socket}));
 
-	const { timeOpen, setTimeOpen, setStrResult } = useTxStore(state => ({
+	const { timeOpen, setTimeOpen, setStrResult, setFlowDraggable} = useTxStore(state => ({
 		timeOpen: state.timeOpen,
 		setTimeOpen: state.setTimeOpen,
 		strResult: state.strResult,
 		setStrResult: state.setStrResult,
+		setFlowDraggable: state.setFlowDraggable
 	}))
 
 	const [dices, setDices] = useState([]);
@@ -23,13 +24,19 @@ const ResultDice = () => {
 	useEffect(()=>{
 		socket.on('timeOpen', (time)=>{
 			setTimeOpen(time)
+			if(time === 5) {
+				setFlowDraggable(false)
+			}
 		});
 
 		socket.on('diceResults', (res)=> {
-			if(mounted()) {
-				setDices([res.taiXiuRs.xx1, res.taiXiuRs.xx2, res.taiXiuRs.xx3])
-			}
 			setStrResult(res.taiXiuRs.resultStr)
+			setFlowDraggable(true)
+			setTimeout(()=>{
+				if(mounted()) {
+					setDices([res.taiXiuRs.xx1, res.taiXiuRs.xx2, res.taiXiuRs.xx3])
+				}
+			},1500)
 		})
 	},[])
 
@@ -47,8 +54,8 @@ const ResultDice = () => {
 				position: 'relative'
 			}}
 		>
-			{/*<FlowDrag/>*/}
-			<div className={'dice_an'}/>
+			<FlowDrag/>
+			{/*<div className={'dice_an'}/>*/}
 			{/*<div className={'dice_an'}/>*/}
 			<div className={'fade-in-image'} style={styles.style_div_wrapper_dice}>
 				{dices.map((it, index)=>(

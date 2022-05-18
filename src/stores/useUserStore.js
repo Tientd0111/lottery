@@ -2,6 +2,7 @@ import create from 'zustand';
 import {callService} from "../apis/baseRequest";
 import apis from "../apis/definesApi";
 import {toast} from "react-toastify";
+import cookies from "../contants/cookie";
 
 export const useUserStore = create(set => ({
 	login: async (bodyParameters) => {
@@ -11,6 +12,7 @@ export const useUserStore = create(set => ({
 				toast.success(response?.msg)
 				set({user: response.user, loading: false});
 				localStorage.setItem('key', response.accessToken)
+				cookies.set('refreshToken', response.refreshToken, { path: '/' });
 			})
 			.catch(error=>{
 				toast.error(error.response?.data.msg)

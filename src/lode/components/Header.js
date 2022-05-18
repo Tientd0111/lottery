@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useLayoutEffect} from 'react';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -6,8 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from 'react-router-dom';
 import PATH from '../../routes/path';
 import {useUserStore} from "../../stores/useUserStore";
-import {useCookies} from "react-cookie";
 import formatNumber from '../../hooks/formatNumber'
+import cookies from "../../contants/cookie";
 
 library.add(fas, fab);
 
@@ -20,16 +20,16 @@ const Header = () => {
 		}
 	]
 
-	const {user, setUser,reload} = useUserStore(state =>({
+	const {user, reload} = useUserStore(state =>({
 		user: state.user,
-		setUser: state.setUser,
 		reload:state.reload
 	}))
-	const [cookies] = useCookies(['cookie-user']);
 
-	useEffect(()=>{
-		setUser(cookies['cookie-user'])
-	},[])
+	useLayoutEffect(()=>{
+		if(localStorage.getItem('key') && cookies.get('refreshToken'))
+			reload()
+	},[]);
+
 	return (
 		<header className="header">
 			{/* Top Header Area Start */}
@@ -51,31 +51,30 @@ const Header = () => {
 									<ul className="right-list">
 										<li>
 											<div className="cart-icon tm-dropdown">
-												<p>Ví: <span>{formatNumber(user?.balance===undefined?'':user?.balance)}</span></p>
+												<p>{user&&(<span>Số dư: {formatNumber(user.balance)}</span>)}</p>
 											</div>
 										</li>
 										<li className={"nav-item dropdown li_cha"}>
-											{/*{userCook?userCook.name*/}
-											{/*	: <a href="/#" className={"sign-in"} data-toggle={"modal"} data-target={"#login"}>Đăng nhập</a>*/}
-											{/*}*/}
-											{user?.username === undefined?(<a href="/#" className={"sign-in"} data-toggle={"modal"} data-target={"#login"}>
+											{user?.username === undefined?(
+											<a href="/#" className={"sign-in"} data-toggle={"modal"} data-target={"#login"}>
 												{'Đăng nhập'}
 											</a>): user?.username}
-											{user?.username !== undefined?<ul className={"ul1"}>
+											{user&&(
+											<ul className={"ul1"}>
 												<li className={"li1"} style={{display:""}}>
 													<Link to={PATH.INFO}>Tài khoản</Link>
 												</li>
-
-											</ul>:''}
+											</ul>)}
 										</li>
 										<li>
-											{user?.username !== undefined?
-												<a href="/#" onClick={()=>{reload()}}>
-													<FontAwesomeIcon className={"icons-spin icn-sp"} icon={['fas','spinner']}/>
-												</a>:''}
-
+											{user&&(
+												<FontAwesomeIcon
+													onClick={reload}
+													style={{cursor: 'pointer'}}
+													className={"icons-spin icn-sp"}
+													icon={['fas','spinner']}
+												/>)}
 										</li>
-
 									</ul>
 								</div>
 							</div>

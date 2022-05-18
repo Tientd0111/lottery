@@ -1,17 +1,14 @@
 import React from 'react';
 import CommonMain from "../../CommonMain";
-import {useCookies} from "react-cookie";
 import {useUserStore} from "../../../stores/useUserStore";
 import InfoUserRow from "../../components/InfoUserRow";
-import formatNumber from "../../../hooks/formatNumber";
 import Path from "../../../routes/path";
 import ButtonBase from "../../components/ButtonBase";
 import { useHistory } from 'react-router-dom'
 import Support from "../../components/Support";
+import cookies from "../../../contants/cookie";
 
 const InfoPage = () => {
-
-	const [cookies, removeCookie] = useCookies(['cookie-user']);
 	const {user, setUser , logout, loading} = useUserStore(state =>({
 		user: state.user,
 		setUser: state.setUser,
@@ -22,10 +19,10 @@ const InfoPage = () => {
 	const history = useHistory()
 
 	const logoutSection = async () => {
-		await logout();
-		removeCookie("cookie-user");
-		localStorage.removeItem("key");
-		setUser(undefined);
+		await logout()
+		setUser(undefined)
+		cookies.remove('refreshToken')
+		localStorage.removeItem('key')
 		history.push(Path.HOME);
 	}
 

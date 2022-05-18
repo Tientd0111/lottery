@@ -7,15 +7,15 @@ const CoinBet = ({
 }) => {
 	const style = {
 		// position: 'absolute'
-		fontSize: 10,
+		fontSize: 14,
 		backgroundColor: 'white',
 		color: 'red',
 		borderRadius: '50%',
 		// padding: '5px',
 		fontWeight: 700,
 		cursor: 'pointer',
-		width: '30px',
-		height: '28px',
+		width: '40px',
+		height: '40px',
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'center'

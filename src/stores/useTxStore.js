@@ -17,4 +17,14 @@ export const useTxStore = create(set => ({
 	draggable: false,
 
 	setDraggable: (data) => {set({draggable: data})},
+
+	flowDraggable: true,
+
+	setFlowDraggable: (data) => {set({flowDraggable: data})},
+
+	betT: 0,
+	betX: 0,
+
+	setBetT: (data) => {set({betT: data})},
+	setBetX: (data) => {set({betX: data})},
 }))

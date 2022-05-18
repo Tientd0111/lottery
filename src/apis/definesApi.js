@@ -39,5 +39,8 @@ const apis = {
 	historyWinner:{
 		uri:'billLottery/history-winner'
 	},
+	refresh_token: {
+		uri: 'auth/refresh'
+	}
 }
 export default apis

@@ -134,6 +134,7 @@
 .fade-in-image {
   animation: fadeIn 3s;
   -webkit-animation: fadeIn 3s;
+  animation-duration: 3s;
 }
 
 .active_bet {
@@ -186,13 +187,13 @@
 
 .dice_an{
   position: absolute;
-  width: 130px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   z-index: 99999;
   background-position: center;
   background-repeat: no-repeat;
-  -webkit-animation: test 2s linear;
-  animation: test 2s linear;
+  -webkit-animation: test;
+  animation: test;
   -webkit-animation-timing-function: steps(1, end);
   animation-timing-function: steps(1, end);
 }

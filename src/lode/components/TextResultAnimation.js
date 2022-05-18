@@ -8,7 +8,7 @@ const TextResultAnimation = ({
 
 	let style = {
 		position: 'absolute',
-		top: '60px',
+		top: '50px',
 	}
 
 	if(isRight) style.right = '60px'

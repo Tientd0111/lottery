@@ -4,8 +4,8 @@ import {toast, ToastContainer} from "react-toastify";
 import React, {useEffect} from "react";
 import {useSocket} from "./stores/useSocket";
 import {useUserStore} from "./stores/useUserStore";
-import {useCookies} from "react-cookie";
 import BigSmall from "./lode/minigame/BigSmall";
+import cookies from "./contants/cookie";
 
 function App() {
 
@@ -17,28 +17,31 @@ function App() {
 		user: state.user,
 		setUser: state.setUser,
 		logout: state.logout,
+		reload: state.reload
 	}))
-	const [cookies, removeCookie] = useCookies(['cookie-user']);
+
 	const logoutSection = async () => {
 		await logout();
-		removeCookie("cookie-user");
-		localStorage.removeItem("key");
-		setUser(undefined);
+		await logout()
+		setUser(undefined)
+		cookies.remove('refreshToken')
+		localStorage.removeItem('key')
 	}
 	useEffect(()=> {
 		if(user === undefined || user == null) return;
-		const showToast = (msg) => {
-			if(msg.user === user.username) toast(msg.msg)
+		const showToast = (response) => {
+			if(response?.msg) toast(response.msg)
+			if(response?.user) setUser(response.user)
 		}
-		socket.on('message-to-user', showToast)
-		socket.on('block-user', (res)=>{
-			if(res.user === user.username) {
-				logoutSection();
-			}
+
+		socket.on(`message-to-user-${user.username}`, showToast)
+		socket.on(`block-user-${user.username}`, ()=>{
+			logoutSection();
 		});
 		return () => {
-			socket.off('message-to-user', showToast);
+			socket.off(`message-to-user-${user.username}`, showToast);
 		}
+
 	},[user])
 
 	return (
