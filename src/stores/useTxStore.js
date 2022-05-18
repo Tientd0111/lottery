@@ -12,5 +12,9 @@ export const useTxStore = create(set => ({
 
 	strResult: '',
 
-	setStrResult :(data) => {set({strResult: data})},
+	setStrResult: (data) => {set({strResult: data})},
+
+	draggable: false,
+
+	setDraggable: (data) => {set({draggable: data})},
 }))

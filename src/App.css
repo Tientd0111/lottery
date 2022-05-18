@@ -58,19 +58,20 @@
     background-image: url('./assets/images/taixiu/ani/d_6.png');
   }
   60%{
-    background-image: url('./assets/images/taixiu/ani/d_7.png');
+    background-image: url('./assets/images/taixiu/ani/d_1.png');
   }
   70%{
-    background-image: url('./assets/images/taixiu/ani/d_8.png');
+    background-image: url('./assets/images/taixiu/ani/d_2.png');
   }
   80%{
-    background-image: url('./assets/images/taixiu/ani/d_9.png');
+    background-image: url('./assets/images/taixiu/ani/d_3.png');
   }
   90%{
-    background-image: url('./assets/images/taixiu/ani/d_10.png');
+    background-image: url('./assets/images/taixiu/ani/d_4.png');
   }
   100%{
-    background-image: url('./assets/images/taixiu/ani/d_10.png');
+    background-image: url('./assets/images/taixiu/ani/d_5.png');
+    display: none;
   }
 }
 
@@ -94,19 +95,20 @@
     background-image: url('./assets/images/taixiu/ani/d_6.png');
   }
   60%{
-    background-image: url('./assets/images/taixiu/ani/d_7.png');
+    background-image: url('./assets/images/taixiu/ani/d_1.png');
   }
   70%{
-    background-image: url('./assets/images/taixiu/ani/d_8.png');
+    background-image: url('./assets/images/taixiu/ani/d_2.png');
   }
   80%{
-    background-image: url('./assets/images/taixiu/ani/d_9.png');
+    background-image: url('./assets/images/taixiu/ani/d_3.png');
   }
   90%{
-    background-image: url('./assets/images/taixiu/ani/d_10.png');
+    background-image: url('./assets/images/taixiu/ani/d_4.png');
   }
   100%{
-    background-image: url('./assets/images/taixiu/ani/d_10.png');
+    background-image: url('./assets/images/taixiu/ani/d_5.png');
+    display: none;
   }
 }
 
@@ -129,19 +131,37 @@
   /*height: 100px;*/
 }
 
-@keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
-}
-
 .fade-in-image {
-  animation: fadeIn 5s;
-  -webkit-animation: fadeIn 5s;
+  animation: fadeIn 3s;
+  -webkit-animation: fadeIn 3s;
 }
 
 .active_bet {
   background-color: red !important;
   color: white !important;
+}
+
+.animated-dice-roll {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+}
+
+@keyframes roll {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes roll {
+  0% {
+    /*background-image: url("./");*/
+  }
+  100% {opacity:1;}
+}
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
 }
 
 @-webkit-keyframes fadeIn {
@@ -165,15 +185,14 @@
 }
 
 .dice_an{
-  width: 192px;
-  height: 250px;
-  float: left;
-  background-size: contain;
-  background-position: 50% 50%;
+  position: absolute;
+  width: 130px;
+  height: 120px;
+  z-index: 99999;
+  background-position: center;
   background-repeat: no-repeat;
-  -webkit-animation: test 2s infinite;
-  animation: test 2s infinite;
+  -webkit-animation: test 2s linear;
+  animation: test 2s linear;
   -webkit-animation-timing-function: steps(1, end);
   animation-timing-function: steps(1, end);
-  /*background-image: url('./assets/images/taixiu/ani/d_10.png');*/
 }

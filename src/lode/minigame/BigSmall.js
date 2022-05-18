@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useRef, useState} from 'react';
 import Draggable from 'react-draggable'
 import images from "../../assets/images/images";
 import DiceServerCount from "../components/DiceServerCount";
@@ -18,9 +18,11 @@ const money = [
 
 const BigSmall = () => {
 
-	const {timeOpen, strResult} = useTxStore(state => ({
+	const {timeOpen, strResult, draggable, setDraggable} = useTxStore(state => ({
 		timeOpen: state.timeOpen,
-		strResult: state.strResult
+		strResult: state.strResult,
+		draggable: state.draggable,
+		setDraggable: state.setDraggable
 	}));
 
 	const [activeValue, setActiveValue] = useState(0)
@@ -29,19 +31,23 @@ const BigSmall = () => {
 		setActiveValue(index)
 	},[])
 
+	const dragRef = useRef(null);
+
 	return (
-		<Draggable>
-			<div style={{
+		<Draggable disabled={draggable} nodeRef={dragRef}>
+			<div ref={dragRef} style={{
 				position: 'absolute',
 				overflow: 'hidden',
-				zIndex: 99999,
+				zIndex: 99,
 				top: 200,
 				left: 100,
 				justifyContent: 'center',
 				display: 'flex',
 				alignItems: 'center',
 			}}>
-				<div style={{
+				<div onMouseMove={()=>{
+					if(draggable) setDraggable(false)
+				}} style={{
 					backgroundImage: `url(${images.bgTx})`,
 					backgroundRepeat: "no-repeat",
 					width: '400px',
@@ -54,7 +60,7 @@ const BigSmall = () => {
 					<TextResultAnimation text={'Tài'} isWin={timeOpen>0&&strResult=='Tài'}/>
 					<TextResultAnimation isRight={true} text={'Xỉu'} isWin={timeOpen>0&&strResult=='Xỉu'}/>
 					<div style={{position: 'absolute', display: 'flex', gap: 10, bottom: 0}}>
-						{money.map((el, index)=>(<CoinBet onClick={onActiveValue} isActive={activeValue===index} index={index}/>))}
+						{money.map((el, index)=>(<CoinBet onClick={onActiveValue} isActive={activeValue===index} key={index} index={index}/>))}
 					</div>
 					<BtnBet/>
 					<BtnBet right={true}/>

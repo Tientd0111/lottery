@@ -3,6 +3,7 @@ import {useSocket} from "../../stores/useSocket";
 import Dice from "./Dice";
 import useMounted from "../../hooks/useMounted";
 import {useTxStore} from "../../stores/useTxStore";
+import FlowDrag from "./FlowDrag";
 
 const ResultDice = () => {
 
@@ -32,15 +33,22 @@ const ResultDice = () => {
 		})
 	},[])
 
+	if(timeOpen <= 0) {
+		return (<div/>)
+	}
+
 	return (
 		<div
 			style={{
-				display: timeOpen > 0 ? 'flex' : 'none',
+				display: 'flex',
 				flexDirection: 'column',
 				justifyContent: 'center',
 				alignItems: 'center',
+				position: 'relative'
 			}}
 		>
+			{/*<FlowDrag/>*/}
+			<div className={'dice_an'}/>
 			{/*<div className={'dice_an'}/>*/}
 			<div className={'fade-in-image'} style={styles.style_div_wrapper_dice}>
 				{dices.map((it, index)=>(

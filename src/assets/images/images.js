@@ -33,6 +33,7 @@ import loop_o from './taixiu/loop_o.png'
 import back from './rectangle-sp.png'
 import icon_pick_emoji from './chatbox/icon-chat.svg'
 import icon_send from './chatbox/send.svg'
+import flowdraggable from './taixiu/flowdraggable.png'
 
 const images = {
 	//lode
@@ -73,6 +74,7 @@ const images = {
 	d_5: d_5,
 	d_6: d_6,
 	loop_o: loop_o,
-	loop_i: loop_i
+	loop_i: loop_i,
+	flowdraggable
 };
 export default images;

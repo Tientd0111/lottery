@@ -42,7 +42,7 @@ function App() {
 	},[user])
 
 	return (
-		<>
+		<div style={{position: 'relative'}}>
 			<BigSmall/>
 			<RootRoutes/>
 			<ToastContainer
@@ -52,7 +52,7 @@ function App() {
 				draggable
 				autoClose={1500}
 			/>
-		</>
+		</div>
 	);
 }
 
