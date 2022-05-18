@@ -9,12 +9,14 @@ const ResultDice = () => {
 
 	const {socket} = useSocket(state => ({socket: state.socket}));
 
-	const { timeOpen, setTimeOpen, setStrResult, setFlowDraggable} = useTxStore(state => ({
+	const { timeOpen, setTimeOpen, setStrResult, setFlowDraggable, setBetT, setBetX} = useTxStore(state => ({
 		timeOpen: state.timeOpen,
 		setTimeOpen: state.setTimeOpen,
 		strResult: state.strResult,
 		setStrResult: state.setStrResult,
-		setFlowDraggable: state.setFlowDraggable
+		setFlowDraggable: state.setFlowDraggable,
+		setBetT: state.setBetT,
+		setBetX: state.setBetX
 	}))
 
 	const [dices, setDices] = useState([]);
@@ -26,6 +28,8 @@ const ResultDice = () => {
 			setTimeOpen(time)
 			if(time === 5) {
 				setFlowDraggable(false)
+				setBetT(0)
+				setBetX(0)
 			}
 		});
 

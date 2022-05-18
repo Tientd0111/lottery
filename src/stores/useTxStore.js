@@ -27,4 +27,7 @@ export const useTxStore = create(set => ({
 
 	setBetT: (data) => {set({betT: data})},
 	setBetX: (data) => {set({betX: data})},
+
+	phien: undefined,
+	setPhien: (data) => {set({phien: data})},
 }))

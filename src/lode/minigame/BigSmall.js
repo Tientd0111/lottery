@@ -10,13 +10,17 @@ import CoinBet from "../components/CoinBet";
 import TextBet from "../components/TextBet";
 import {toast} from "react-toastify";
 import ServerBet from "../components/ServerBet";
+import {useUserStore} from "../../stores/useUserStore";
+import {useSocket} from "../../stores/useSocket";
+import TextPhien from "../components/TextPhien";
 
 const money = [
-	{val: '10000'},
-	{val: '50000'},
-	{val: '500000'},
-	{val: '1000000'},
-	{val: '5000000'},
+	{val: 10000},
+	{val: 50000},
+	{val: 100000},
+	{val: 500000},
+	{val: 1000000},
+	{val: 5000000},
 ]
 
 const BigSmall = () => {
@@ -35,6 +39,12 @@ const BigSmall = () => {
 		countDownDice: state.countDownDice
 	}));
 
+	const {socket} = useSocket(state => ({socket: state.socket}))
+
+	const {user} = useUserStore(state => ({
+		user: state.user
+	}))
+
 	const [activeValue, setActiveValue] = useState(0)
 
 	const onActiveValue = useCallback((index) => {
@@ -48,6 +58,16 @@ const BigSmall = () => {
 	}
 
 	const betGame = (e) => {
+		const value = money[activeValue].val
+		if (user?.username === undefined) {
+			toast.error('Vui lòng đăng nhập')
+			return;
+		}
+		if(user.balance < value) {
+			toast.error('K đủ tiền, vui lòng nạp thêm')
+			return;
+		}
+
 		if(e) {
 			if(betT > 0) {
 				toast.error('Chỉ cược 1 bên!')
@@ -57,7 +77,8 @@ const BigSmall = () => {
 				toast.error('Hết thời gian cược!')
 				return;
 			}
-			setBetX(money[activeValue])
+			setBetX(betX+value)
+			socket.emit('betDiceX', {bet: value, username: user.username})
 		} else {
 			if(betX > 0) {
 				toast.error('Chỉ cược 1 bên!')
@@ -67,13 +88,10 @@ const BigSmall = () => {
 				toast.error('Hết thời gian cược!')
 				return;
 			}
-			setBetT(money[activeValue])
+			setBetT(betT+value)
+			socket.emit('betDiceT', {bet: value, username: user.username})
 		}
 	}
-
-	useEffect(()=>{
-
-	},[])
 
 	return (
 		<Draggable disabled={draggable} nodeRef={dragRef}>
@@ -101,6 +119,7 @@ const BigSmall = () => {
 					justifyContent: 'center',
 					position: 'relative',
 				}}>
+					<TextPhien/>
 					<TextResultAnimation text={'Tài'} isWin={timeOpen>0&&!flowDraggable&&strResult=='Tài'}/>
 					<TextResultAnimation isRight={true} text={'Xỉu'} isWin={timeOpen>0&&!flowDraggable&&strResult=='Xỉu'}/>
 					<TextBet text={betT}/>

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import formatNumber from "../../hooks/formatNumber";
+import {useSocket} from "../../stores/useSocket";
 
 const ServerBet = ({
 	right = false,
-	text
 }) => {
 	let style = {
 		position: 'absolute',
@@ -21,11 +21,21 @@ const ServerBet = ({
 	if(right) style.right = '26px'
 	else style.left = '26px'
 
+	const {socket} = useSocket(state => ({socket: state.socket}))
+
+	const [bet, setBet] = useState(0)
+
+	useEffect(()=>{
+		socket.on(`betDice${right?'X':'T'}`, (data)=>{
+			setBet(data)
+		})
+	},[])
+
 	return (
 		<div style={style}>
-			{formatNumber(text, '')}
+			{formatNumber(bet, '')}
 		</div>
 	);
 };
 
-export default ServerBet;
+export default React.memo(ServerBet);
