@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import React, {useCallback, useRef, useState} from 'react';
 import Draggable from 'react-draggable'
 import images from "../../assets/images/images";
 import DiceServerCount from "../components/DiceServerCount";
@@ -13,6 +13,10 @@ import ServerBet from "../components/ServerBet";
 import {useUserStore} from "../../stores/useUserStore";
 import {useSocket} from "../../stores/useSocket";
 import TextPhien from "../components/TextPhien";
+import WrapperCircle from "../components/WrapperCircle";
+import CloseMiniGame from "../components/CloseMiniGame";
+import AnimateTextPlusCoin from "../components/AnimateTextPlusCoin";
+import FlowDrag from "../components/FlowDrag";
 
 const money = [
 	{val: 10000},
@@ -25,7 +29,7 @@ const money = [
 
 const BigSmall = () => {
 
-	const {timeOpen, strResult, draggable, setDraggable, flowDraggable, setBetT, setBetX, betT, betX, countDownDice} =
+	const {timeOpen, strResult, draggable, setDraggable, flowDraggable, setBetT, setBetX, betT, betX, countDownDice, visitableTx} =
 	useTxStore(state => ({
 		timeOpen: state.timeOpen,
 		strResult: state.strResult,
@@ -36,7 +40,8 @@ const BigSmall = () => {
 		setBetX: state.setBetX,
 		betX: state.betX,
 		betT: state.betT,
-		countDownDice: state.countDownDice
+		countDownDice: state.countDownDice,
+		visitableTx: state.visitableTx
 	}));
 
 	const {socket} = useSocket(state => ({socket: state.socket}))
@@ -96,13 +101,13 @@ const BigSmall = () => {
 	return (
 		<Draggable disabled={draggable} nodeRef={dragRef}>
 			<div ref={dragRef} style={{
-				position: 'absolute',
+				position: 'fixed',
 				overflow: 'hidden',
 				zIndex: 99,
-				top: 200,
-				left: 100,
+				top: 'calc(50vh - (/* height */200px / 2))',
+				left: 'calc(50vw - (/* width */400px / 2))',
 				justifyContent: 'center',
-				display: 'flex',
+				display: visitableTx?'flex':'none',
 				alignItems: 'center',
 				flexDirection: 'column'
 			}}>
@@ -119,7 +124,11 @@ const BigSmall = () => {
 					justifyContent: 'center',
 					position: 'relative',
 				}}>
+					<AnimateTextPlusCoin/>
+					<CloseMiniGame/>
+					<WrapperCircle/>
 					<TextPhien/>
+					<FlowDrag/>
 					<TextResultAnimation text={'Tài'} isWin={timeOpen>0&&!flowDraggable&&strResult=='Tài'}/>
 					<TextResultAnimation isRight={true} text={'Xỉu'} isWin={timeOpen>0&&!flowDraggable&&strResult=='Xỉu'}/>
 					<TextBet text={betT}/>

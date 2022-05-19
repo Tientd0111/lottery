@@ -132,9 +132,9 @@
 }
 
 .fade-in-image {
-  animation: fadeIn 3s;
-  -webkit-animation: fadeIn 3s;
-  animation-duration: 3s;
+  animation: fadeIn 1s;
+  -webkit-animation: fadeIn 1s;
+  animation-duration: 1s;
 }
 
 .active_bet {

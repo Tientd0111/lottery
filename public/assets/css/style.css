@@ -5430,3 +5430,54 @@ label.label-cus {
   text-transform: uppercase;
 }
 /* bảng kết quả end*/
+
+.wrapper-circle-span {
+  position: absolute;
+  width: 230px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  bottom: 10px;
+}
+
+.cricle-span {
+  background-color: whitesmoke;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.jump {
+  animation: jump 0.2s linear alternate infinite;
+}
+
+@keyframes jump {
+  0% { transform: translateY(-50%)}
+  100% { transform: translateY(0%)}
+}
+
+.wrapper_plus_coin {
+  position: absolute;
+  color: yellow;
+  font-weight: bold;
+  font-size: 18px;
+  bottom: 0;
+  z-index: 9999;
+  display: none;
+}
+
+.animate-plus-coin {
+  animation: plus-coin 2s linear;
+  display: block !important;
+}
+
+@keyframes plus-coin {
+  0% { bottom: 10px; opacity: 1}
+  10% { bottom: 20px; opacity: 0.9}
+  20% { bottom: 30px; opacity: 0.8}
+  40% { bottom: 50px; opacity: 0.7}
+  40% {bottom: 60px; opacity: 0.6}
+  60% { bottom: 70px;opacity: 0.5}
+  80% { bottom: 80px; opacity: 0.3}
+  100% { bottom: 100px;opacity: 0}
+}

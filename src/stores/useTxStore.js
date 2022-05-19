@@ -18,7 +18,7 @@ export const useTxStore = create(set => ({
 
 	setDraggable: (data) => {set({draggable: data})},
 
-	flowDraggable: true,
+	flowDraggable: false,
 
 	setFlowDraggable: (data) => {set({flowDraggable: data})},
 
@@ -30,4 +30,9 @@ export const useTxStore = create(set => ({
 
 	phien: undefined,
 	setPhien: (data) => {set({phien: data})},
+
+	arrResultDice: [],
+	setArrResultDice: (data) => {set({arrResultDice: data})},
+	visitableTx: false,
+	setVisitableTx: (data) => {set({visitableTx: data})},
 }))

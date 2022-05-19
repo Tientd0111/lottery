@@ -4,19 +4,25 @@ import Dice from "./Dice";
 import useMounted from "../../hooks/useMounted";
 import {useTxStore} from "../../stores/useTxStore";
 import FlowDrag from "./FlowDrag";
+import {useUserStore} from "../../stores/useUserStore";
 
 const ResultDice = () => {
 
 	const {socket} = useSocket(state => ({socket: state.socket}));
 
-	const { timeOpen, setTimeOpen, setStrResult, setFlowDraggable, setBetT, setBetX} = useTxStore(state => ({
+	const { timeOpen, setTimeOpen, setStrResult, setFlowDraggable, setBetT, setBetX, setArrResultDice} = useTxStore(state => ({
 		timeOpen: state.timeOpen,
 		setTimeOpen: state.setTimeOpen,
 		strResult: state.strResult,
 		setStrResult: state.setStrResult,
 		setFlowDraggable: state.setFlowDraggable,
 		setBetT: state.setBetT,
-		setBetX: state.setBetX
+		setBetX: state.setBetX,
+		setArrResultDice: state.setArrResultDice
+	}));
+
+	const {reload} = useUserStore(state => ({
+		reload: state.reload
 	}))
 
 	const [dices, setDices] = useState([]);
@@ -30,17 +36,18 @@ const ResultDice = () => {
 				setFlowDraggable(false)
 				setBetT(0)
 				setBetX(0)
+				reload()
 			}
 		});
 
 		socket.on('diceResults', (res)=> {
 			setStrResult(res.taiXiuRs.resultStr)
 			setFlowDraggable(true)
+			if(mounted()) setDices([res.taiXiuRs.xx1, res.taiXiuRs.xx2, res.taiXiuRs.xx3])
+
 			setTimeout(()=>{
-				if(mounted()) {
-					setDices([res.taiXiuRs.xx1, res.taiXiuRs.xx2, res.taiXiuRs.xx3])
-				}
-			},1500)
+				setArrResultDice(res.arrResultDice)
+			}, 10000)
 		})
 	},[])
 
@@ -58,7 +65,6 @@ const ResultDice = () => {
 				position: 'relative'
 			}}
 		>
-			<FlowDrag/>
 			{/*<div className={'dice_an'}/>*/}
 			{/*<div className={'dice_an'}/>*/}
 			<div className={'fade-in-image'} style={styles.style_div_wrapper_dice}>

@@ -32,12 +32,13 @@ const CoinBet = ({
 		}
 	}
 
+	const onBet = (e) => {
+		e.preventDefault()
+		onClick(index)
+	}
+
 	return (
-		<span onClick={(e)=> {
-			e.preventDefault()
-			onClick(index)
-		}
-		} style={style} className={isActive?'active_bet':''}>
+		<span onClick={onBet} onTouchStart={onBet} style={style} className={isActive?'active_bet':''}>
 			{mappingIndex(index)}
 		</span>
 	);

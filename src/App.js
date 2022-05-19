@@ -6,6 +6,7 @@ import {useSocket} from "./stores/useSocket";
 import {useUserStore} from "./stores/useUserStore";
 import BigSmall from "./lode/minigame/BigSmall";
 import cookies from "./contants/cookie";
+import MiniGame from "./lode/components/MiniGame";
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
 	return (
 		<div style={{position: 'relative'}}>
 			<BigSmall/>
+			<MiniGame/>
 			<RootRoutes/>
 			<ToastContainer
 				hideProgressBar={false}

@@ -66,7 +66,7 @@ export async function callService(uri, method, bodyParameters, hasToken) {
 					return handleResponseSuccess(response, resolve);
 				}).catch((error) => {
 				const res = error.response
-				if(res.status === 401) {
+				if(res?.status === 401) {
 					if(res.data.msg === 'Token not verified!' && res.data.status === 401) {
 						let newConfig = {
 							url: environmentConfig.API_ENVIRONMENT_URL + definesApi.refresh_token.uri,
