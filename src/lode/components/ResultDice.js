@@ -5,6 +5,7 @@ import useMounted from "../../hooks/useMounted";
 import {useTxStore} from "../../stores/useTxStore";
 import FlowDrag from "./FlowDrag";
 import {useUserStore} from "../../stores/useUserStore";
+import cookies from "../../contants/cookie";
 
 const ResultDice = () => {
 
@@ -22,8 +23,9 @@ const ResultDice = () => {
 		setCountTaiXiu: state.setCountTaiXiu
 	}));
 
-	const {reload} = useUserStore(state => ({
-		reload: state.reload
+	const {reload,user} = useUserStore(state => ({
+		reload: state.reload,
+		user: state.user
 	}))
 
 	const [dices, setDices] = useState([]);
@@ -37,7 +39,8 @@ const ResultDice = () => {
 				setFlowDraggable(false)
 				setBetT(0)
 				setBetX(0)
-				reload()
+				if(user !== undefined && localStorage.getItem('key') && cookies.get('refreshToken'))
+					reload()
 			}
 		});
 

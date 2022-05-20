@@ -1,21 +1,25 @@
 import {
 	HashRouter as Router,
 } from "react-router-dom";
-import React from 'react';
+import React, {Fragment} from 'react';
 import HomeRoutes from "./HomeRoutes";
 import LotteryRoutes from "./LotteryRoutes";
 import NapRoutes from "./NapRoutes";
 import HistoryRoutes from "./HistoryRoutes";
 import InfoRoutes from "./InfoRoutes";
+import ScrollToTop from "../hooks/ScrollToTop";
 
 const RootRoutes = () => {
 	return (
 		<Router>
-			<HomeRoutes/>
-			<LotteryRoutes/>
-			<NapRoutes/>
-			<HistoryRoutes/>
-			<InfoRoutes/>
+			<Fragment>
+				<ScrollToTop/>
+				<HomeRoutes/>
+				<LotteryRoutes/>
+				<NapRoutes/>
+				<HistoryRoutes/>
+				<InfoRoutes/>
+			</Fragment>
 		</Router>
 	);
 };

@@ -7,5 +7,6 @@ const PATH = {
     HISTORYNAP:'/history-nap',
     HISTORYBET:'/history',
     INFO:'/info',
+    SPORT: 'sport'
 }
 export default PATH;

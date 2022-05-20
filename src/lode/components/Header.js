@@ -8,6 +8,8 @@ import PATH from '../../routes/path';
 import {useUserStore} from "../../stores/useUserStore";
 import formatNumber from '../../hooks/formatNumber'
 import cookies from "../../contants/cookie";
+import {useTxStore} from "../../stores/useTxStore";
+import CsLink from "./CsLink";
 
 library.add(fas, fab);
 
@@ -23,6 +25,9 @@ const Header = () => {
 	const {user, reload} = useUserStore(state =>({
 		user: state.user,
 		reload:state.reload
+	}))
+	const {setVisitableTx} = useTxStore(state => ({
+		setVisitableTx: state.setVisitableTx,
 	}))
 
 	useLayoutEffect(()=>{
@@ -51,7 +56,7 @@ const Header = () => {
 									<ul className="right-list">
 										<li>
 											<div className="cart-icon tm-dropdown">
-												<p>{user&&(<span>Số dư: {formatNumber(user.balance)}</span>)}</p>
+												<p>{user?<span>Số dư: {formatNumber(user.balance)}</span>:<span style={{opacity: 0}}>a</span>}</p>
 											</div>
 										</li>
 										<li className={"nav-item dropdown li_cha"}>
@@ -97,29 +102,10 @@ const Header = () => {
 								</button>
 								<div className="collapse navbar-collapse fixed-height" id="main_menu">
 									<ul className="navbar-nav ml-auto">
-										<li className="nav-item">
-											<Link className="nav-link active" to={PATH.HOME}>
-												{'Trang chủ'}
-												<div className="mr-hover-effect"/>
-											</Link>
-										</li>
-										<li className="nav-item dropdown">
-											<a className="nav-link dropdown-toggle"
-											   href="/#" role="button"
-											   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-												{'Lô đề'}
-												<div className="mr-hover-effect" />
-											</a>
-											<ul className="dropdown-menu">
-												{lotterys.map((item,index)=>(
-													<li key={index}>
-														<Link className="dropdown-item" to={`${PATH.LOTTERY}${item.link}`}>
-															<FontAwesomeIcon icon={['fas','angle-double-right']} /> {item.name}
-														</Link>
-													</li>
-												))}
-											</ul>
-										</li>
+										<CsLink to={PATH.HOME}>{'Trang chủ'}</CsLink>
+										<CsLink to={null}>{'Thể thao'}</CsLink>
+										<CsLink onClick={()=>{setVisitableTx(true)}} to={null}>{'Game'}</CsLink>
+										<CsLink to={PATH.LOTTERY}>{'Lô đề'}</CsLink>
 										<li className="nav-item dropdown">
 											<a className="nav-link dropdown-toggle"
 											   href="/#" role="button"
@@ -165,8 +151,6 @@ const Header = () => {
 												</li>
 											</ul>
 										</li>
-
-										
 									</ul>
 									<a href="/#" className="mybtn1" data-toggle="modal" data-target="#signin"> {'Tham gia ngay'}</a>
 								</div>
