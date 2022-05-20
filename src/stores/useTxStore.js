@@ -35,4 +35,10 @@ export const useTxStore = create(set => ({
 	setArrResultDice: (data) => {set({arrResultDice: data})},
 	visitableTx: false,
 	setVisitableTx: (data) => {set({visitableTx: data})},
+
+	openHistory: false,
+	setOpenHistory: (data) => {set({openHistory: data})},
+
+	countTaiXiu: {t: 0, x: 0},
+	setCountTaiXiu: (data) => {set({countTaiXiu: data})}
 }))

@@ -36,6 +36,9 @@ import icon_send from './chatbox/send.svg'
 import flowdraggable from './taixiu/flowdraggable.png'
 import minigame from './lode/game/icon1.png'
 import ic_close from './taixiu/ic_close.png'
+import ic_history from './taixiu/ic_history.png'
+import bg_history from './taixiu/bg_history.png'
+import ic_close_popup from './taixiu/ic_close_popup.png'
 
 const images = {
 	//lode
@@ -79,6 +82,9 @@ const images = {
 	loop_o: loop_o,
 	loop_i: loop_i,
 	flowdraggable,
+	ic_history,
 	ic_close,
+	bg_history,
+	ic_close_popup
 };
 export default images;

@@ -17,6 +17,8 @@ import WrapperCircle from "../components/WrapperCircle";
 import CloseMiniGame from "../components/CloseMiniGame";
 import AnimateTextPlusCoin from "../components/AnimateTextPlusCoin";
 import FlowDrag from "../components/FlowDrag";
+import IcOpenHistory from "../components/IcOpenHistory";
+import CountTx from "../components/CountTx";
 
 const money = [
 	{val: 10000},
@@ -126,7 +128,10 @@ const BigSmall = () => {
 				}}>
 					<AnimateTextPlusCoin/>
 					<CloseMiniGame/>
+					<IcOpenHistory/>
 					<WrapperCircle/>
+					<CountTx/>
+					<CountTx right={true}/>
 					<TextPhien/>
 					<FlowDrag/>
 					<TextResultAnimation text={'Tài'} isWin={timeOpen>0&&!flowDraggable&&strResult=='Tài'}/>

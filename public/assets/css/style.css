@@ -5481,3 +5481,25 @@ label.label-cus {
   80% { bottom: 80px; opacity: 0.3}
   100% { bottom: 100px;opacity: 0}
 }
+
+.table_history_tx {
+  border-collapse: collapse;
+  width: 100%;
+  position: absolute;
+  top: 50px;
+  overflow: scroll;
+}
+
+.table_history_tx > thead > tr > th {
+  text-transform: uppercase;
+  font-size: 12px;
+  text-align: center;
+  font-weight: 700;
+  color: white;
+}
+
+.table_history_tx > tbody > tr > td {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+}

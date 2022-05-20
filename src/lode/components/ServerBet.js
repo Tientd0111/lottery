@@ -33,7 +33,7 @@ const ServerBet = ({
 
 	return (
 		<div style={style}>
-			{formatNumber(bet, '')}
+			{formatNumber(bet, ' ')}
 		</div>
 	);
 };

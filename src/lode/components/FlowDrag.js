@@ -19,7 +19,7 @@ const FlowDrag = () => {
 
 	useEffect(()=>{
 		if(timeOpen == 5) {
-
+			setPosition({x: 0, y: 0})
 		}
 	},[timeOpen])
 

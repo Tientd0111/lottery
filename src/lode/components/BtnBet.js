@@ -28,7 +28,7 @@ const BtnBet = ({
 		<div
 			style={style}
 			onClick={onClick}
-			onTouchStart={onClick}
+			onTouchEnd={onClick}
 		>
 			{'Cược'}
 		</div>

@@ -10,7 +10,7 @@ const ResultDice = () => {
 
 	const {socket} = useSocket(state => ({socket: state.socket}));
 
-	const { timeOpen, setTimeOpen, setStrResult, setFlowDraggable, setBetT, setBetX, setArrResultDice} = useTxStore(state => ({
+	const { timeOpen, setTimeOpen, setStrResult, setFlowDraggable, setBetT, setBetX, setArrResultDice, setCountTaiXiu} = useTxStore(state => ({
 		timeOpen: state.timeOpen,
 		setTimeOpen: state.setTimeOpen,
 		strResult: state.strResult,
@@ -18,7 +18,8 @@ const ResultDice = () => {
 		setFlowDraggable: state.setFlowDraggable,
 		setBetT: state.setBetT,
 		setBetX: state.setBetX,
-		setArrResultDice: state.setArrResultDice
+		setArrResultDice: state.setArrResultDice,
+		setCountTaiXiu: state.setCountTaiXiu
 	}));
 
 	const {reload} = useUserStore(state => ({
@@ -47,6 +48,7 @@ const ResultDice = () => {
 
 			setTimeout(()=>{
 				setArrResultDice(res.arrResultDice)
+				setCountTaiXiu(res.countTaiXiu)
 			}, 10000)
 		})
 	},[])

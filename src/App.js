@@ -7,6 +7,7 @@ import {useUserStore} from "./stores/useUserStore";
 import BigSmall from "./lode/minigame/BigSmall";
 import cookies from "./contants/cookie";
 import MiniGame from "./lode/components/MiniGame";
+import HistoryTx from "./lode/components/HistoryTx";
 
 function App() {
 
@@ -48,6 +49,7 @@ function App() {
 	return (
 		<div style={{position: 'relative'}}>
 			<BigSmall/>
+			<HistoryTx/>
 			<MiniGame/>
 			<RootRoutes/>
 			<ToastContainer

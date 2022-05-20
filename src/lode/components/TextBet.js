@@ -23,7 +23,7 @@ const TextBet = ({
 
 	return (
 		<div style={style}>
-			{formatNumber(text, '')}
+			{formatNumber(text, ' ')}
 		</div>
 	);
 };

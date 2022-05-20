@@ -19,7 +19,7 @@ const CloseMiniGame = () => {
 	}
 
 	return (
-		<div onClick={onPress} onTouchStart={onPress} style={style}>
+		<div onClick={onPress} onTouchEnd={onPress} style={style}>
 			<img src={images.ic_close} alt={'close.png'}/>
 		</div>
 	);
