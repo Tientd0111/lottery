@@ -50,15 +50,19 @@ const HistoryTx = () => {
 					backgroundPosition: 'center',
 					alignItems: 'center',
 					backgroundRepeat: 'no-repeat',
+					width: '400px',
 				}}
 			>
 				<div
 					style={{
-						width: '400px',
+						width: '100%',
 						height: '320px',
 						backgroundImage: `url(${images.bg_history})`,
 						backgroundSize: 'cover',
-						position: 'relative'
+						position: 'relative',
+						display: 'flex',
+						justifyContent: 'center',
+						alignItems: 'center'
 					}}
 				>
 					<ClosePopupHistoryTx/>

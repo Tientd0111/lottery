@@ -19,6 +19,7 @@ import AnimateTextPlusCoin from "../components/AnimateTextPlusCoin";
 import FlowDrag from "../components/FlowDrag";
 import IcOpenHistory from "../components/IcOpenHistory";
 import CountTx from "../components/CountTx";
+import CountUserBetTx from "../components/CountUserBetTx";
 
 const money = [
 	{val: 10000},
@@ -140,6 +141,8 @@ const BigSmall = () => {
 					<TextBet text={betX} right={true}/>
 					<ServerBet/>
 					<ServerBet right={true}/>
+					<CountUserBetTx/>
+					<CountUserBetTx right={true}/>
 					<BtnBet onClick={()=>betGame()}/>
 					<BtnBet onClick={()=>betGame(true)} right={true}/>
 					<DiceServerCount/>
