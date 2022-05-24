@@ -25,7 +25,7 @@ const AboutUs = () => {
 						</div>
 					</div>
 					<div className="col-md-9" >
-						<div className="block right-content">
+						<div className="block right-content abo">
 							<div className="tab-content">
 								<div className="tab-pane container active" id="home">
 									<h3>Tự giới thiệu</h3>
