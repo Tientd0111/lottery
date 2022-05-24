@@ -9,11 +9,14 @@ import {Link} from "react-router-dom";
 import Constant from "../../contants/constant";
 import ButtonBase from "./ButtonBase";
 import BangKq from "./BangKq";
+import {useLoadTable} from "../../stores/useLoadTable";
+import formatDate from "../../hooks/formatDate";
+import formatNumber from "../../hooks/formatNumber";
 
 library.add(fas, fab);
 
 const FeaturedGame = () => {
-
+	let date = new Date();
     return (
         <section>
 			<div className="container-fluid">
@@ -38,18 +41,17 @@ const FeaturedGame = () => {
 										<div className="bg-blur mb" style={{backgroundImage:`url(${images.mienbac})`}}/>
 										<p>Tổng cược trong ngày</p>
 										<h3>
-											<span>$</span>
-											<span>3,000,000,000</span>
-											<p>18:05 - <span>Thứ 4, 16/03/2022</span></p>
+											<span className={"MB"}>$</span>
+											<p>18:05 - <span>{formatDate(date,'DD/MM/YYYY')}</span></p>
 										</h3>
 									</div>
 									{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
 									<Link to={PATH.LOTTERY} className="cta-box">
-										<span className="text">Đánh đề miền bắc</span>
+										<span className="text">Miền Bắc</span>
 										<span className="btn-box">
                   						<span className="bg-white"><i className="glyphicon glyphicon-play"/></span>
                 					</span>
-									</Link>
+									</Link>..
 								</div>
 							</div>
 							<div className="col-md-4 col-sm-6 col-xs-12">
@@ -61,13 +63,13 @@ const FeaturedGame = () => {
 										<div className="bg-blur mt" style={{backgroundImage:`url(${images.mientrung})`}}/>
 										<p>Tổng cược trong ngày</p>
 										<h3>
-											<span>$</span>
-											<span>3,000,000,000</span>
+											<span  className={"MT"}>$</span>
+											<p>17:05 - <span>{formatDate(date,'DD/MM/YYYY')}</span></p>
 										</h3>
 									</div>
 									{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
 									<Link to={PATH.LOTTERY} className="cta-box">
-										<span className="text">Đánh đề miền trung</span>
+										<span className="text">Miền Trung</span>
 										<span className="btn-box">
 										<span className="bg-white"><i className="glyphicon glyphicon-play"/></span>
                 					</span>
@@ -83,13 +85,13 @@ const FeaturedGame = () => {
 										<div className="bg-blur mn" style={{backgroundImage:`url(${images.miennam})`}}/>
 										<p>Tổng cược trong ngày</p>
 										<h3>
-											<span>$</span>
-											<span>3,000,000,000</span>
+											<span className={"MN"}>$</span>
+											<p>16:05 - <span>{formatDate(date,'DD/MM/YYYY')}</span></p>
 										</h3>
 									</div>
 									{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
 									<Link to={PATH.LOTTERY} className="cta-box">
-										<span className="text">Đánh đề miền nam</span>
+										<span className="text">Miền Nam</span>
 										<span className="btn-box">
 									  <span className="bg-white"><i className="glyphicon glyphicon-play"/></span>
 									</span>
