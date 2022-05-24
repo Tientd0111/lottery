@@ -10,7 +10,7 @@ export const useUserStore = create(set => ({
 		let param = bodyParameters
 		axios.get('https://api.ipify.org/')
 			.then(ip =>{
-				param.ip = ip
+				param.ip = ip.data
 				set({loading: true})
 				callService(apis.login.uri, 'POST', param)
 					.then(response => {
