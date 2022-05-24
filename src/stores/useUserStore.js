@@ -3,21 +3,29 @@ import {callService} from "../apis/baseRequest";
 import apis from "../apis/definesApi";
 import {toast} from "react-toastify";
 import cookies from "../contants/cookie";
+import axios from "axios";
 
 export const useUserStore = create(set => ({
 	login: async (bodyParameters) => {
-		set({loading: true})
-		callService(apis.login.uri, 'POST', bodyParameters)
-			.then(response => {
-				toast.success(response?.msg)
-				set({user: response.user, loading: false});
-				localStorage.setItem('key', response.accessToken)
-				cookies.set('refreshToken', response.refreshToken, { path: '/' });
+		let param = bodyParameters
+		axios.get('https://api.ipify.org/')
+			.then(ip =>{
+				param.ip = ip
+				set({loading: true})
+				callService(apis.login.uri, 'POST', param)
+					.then(response => {
+						toast.success(response?.msg)
+						set({user: response.user, loading: false});
+						localStorage.setItem('key', response.accessToken)
+						cookies.set('refreshToken', response.refreshToken, { path: '/' });
+					})
+					.catch(error=>{
+						toast.error(error.response?.data.msg)
+						set({loading: false})
+					})
 			})
-			.catch(error=>{
-				toast.error(error.response?.data.msg)
-				set({loading: false})
-			})
+
+
 	},
 
 	setUser: (data) => {set({user: data})},
