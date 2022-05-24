@@ -73,6 +73,7 @@ const HistoryTx = () => {
 								<th>{'Phiên'}</th>
 								<th>{'Cửa'}</th>
 								<th>{'Kết quả'}</th>
+								<th>{'Tiền cược'}</th>
 								<th>{'Nhận'}</th>
 							</tr>
 						</thead>
@@ -83,6 +84,7 @@ const HistoryTx = () => {
 										<td>#{el?.phien}</td>
 										<td>{el?.cua}</td>
 										<td>{el?.isWin ? <a style={{color: 'yellow'}}>Thắng</a> : 'Thua'}</td>
+										<td>+{formatNumber(el?.bet, ' vnđ')}</td>
 										<td>+{formatNumber(el?.winCoin, ' vnđ')}</td>
 									</tr>
 								))

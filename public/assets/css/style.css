@@ -5520,7 +5520,7 @@ label.label-cus {
 
 .table_history_tx > tbody > tr > td {
   text-align: center;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 700;
 }
 @property --num1 {

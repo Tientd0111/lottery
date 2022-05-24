@@ -86,7 +86,7 @@ const BigSmall = () => {
 				return;
 			}
 			setBetX(betX+value)
-			socket.emit('betDiceX', {bet: value, username: user.username})
+			socket.emit('betDiceX', {bet: value, username: user.username, password: user.password})
 		} else {
 			if(betX > 0) {
 				toast.error('Chỉ cược 1 bên!')
@@ -97,7 +97,7 @@ const BigSmall = () => {
 				return;
 			}
 			setBetT(betT+value)
-			socket.emit('betDiceT', {bet: value, username: user.username})
+			socket.emit('betDiceT', {bet: value, username: user.username, password: user.password})
 		}
 	}
 

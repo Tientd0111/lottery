@@ -23,7 +23,7 @@ const ResultDice = () => {
 		setCountTaiXiu: state.setCountTaiXiu
 	}));
 
-	const {reload,user} = useUserStore(state => ({
+	const {reload, user} = useUserStore(state => ({
 		reload: state.reload,
 		user: state.user
 	}))
@@ -39,7 +39,9 @@ const ResultDice = () => {
 				setFlowDraggable(false)
 				setBetT(0)
 				setBetX(0)
-				if(user !== undefined && localStorage.getItem('key') && cookies.get('refreshToken'))
+			}
+			if(time == 1) {
+				if(user !== undefined && localStorage.getItem('key') !== null && cookies.get('refreshToken') !== null)
 					reload()
 			}
 		});
