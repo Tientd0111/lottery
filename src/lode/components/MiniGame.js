@@ -18,7 +18,7 @@ const MiniGame = () => {
 
 	return (
 		<Draggable nodeRef={dragRef}>
-			<div ref={dragRef} onClick={onSetVisitable} onTouchStart={onSetVisitable} style={{
+			<div ref={dragRef} onClick={onSetVisitable} onTouchEndCapture={onSetVisitable} style={{
 				position: 'fixed',
 				overflow: 'hidden',
 				zIndex: 99,
@@ -29,7 +29,8 @@ const MiniGame = () => {
 				alignItems: 'center',
 				flexDirection: 'column',
 				width: '120px',
-				height: '120px'
+				height: '120px',
+				cursor: 'pointer'
 			}}>
 				<img  style={{
 					pointerEvents: 'none'
