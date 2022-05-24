@@ -8,6 +8,7 @@ import NapRoutes from "./NapRoutes";
 import HistoryRoutes from "./HistoryRoutes";
 import InfoRoutes from "./InfoRoutes";
 import ScrollToTop from "../hooks/ScrollToTop";
+import AboutRouter from "./AboutRouter";
 
 const RootRoutes = () => {
 	return (
@@ -15,6 +16,7 @@ const RootRoutes = () => {
 			<Fragment>
 				<ScrollToTop/>
 				<HomeRoutes/>
+				<AboutRouter/>
 				<LotteryRoutes/>
 				<NapRoutes/>
 				<HistoryRoutes/>

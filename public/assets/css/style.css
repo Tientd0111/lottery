@@ -1061,6 +1061,26 @@ select:focus {
   display: block; }
 
 /* Footer Area Start */
+.read-more a{
+  color: #d01c2d;
+}
+.read-more a:hover{
+  color: #f2a511;
+}
+.cate-about a{
+  color: #0b0b0b;
+}
+.right-content p{
+  font-size: 16px;
+  color: #6b6b6b;
+}
+.right-content h3{
+  color: #6b6b6b;
+}
+.text-block{
+  padding: 20px;
+  text-align: justify;
+}
 .footer {
   padding-top: 120px;
   overflow: hidden;

@@ -39,7 +39,9 @@ import ic_close from './taixiu/ic_close.png'
 import ic_history from './taixiu/ic_history.png'
 import bg_history from './taixiu/bg_history.png'
 import ic_close_popup from './taixiu/ic_close_popup.png'
-
+import about from "./about/gt1.png";
+import baomat from "./about/images.png"
+import security from "./about/6ZaZM9F.jpg"
 const images = {
 	//lode
 	logo : logo,
@@ -68,6 +70,9 @@ const images = {
 	back: back,
 	icon_pick_emoji: icon_pick_emoji,
 	icon_send: icon_send,
+	about: about,
+	baomat:baomat,
+	security:security,
 	minigame,
 
 
