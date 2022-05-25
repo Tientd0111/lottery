@@ -4,7 +4,6 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import {useUserStore} from "../../stores/useUserStore";
 import 'react-toastify/dist/ReactToastify.css';
-import {useCookies} from "react-cookie";
 import FormInput from "./FormInput";
 import ButtonBase from "./ButtonBase";
 import {useForm} from "react-hook-form";
@@ -13,8 +12,6 @@ library.add(fas, fab);
 
 const Login = () => {
 	const { handleSubmit, control } = useForm({ shouldUseNativeValidation: true });
-
-	const [cookies, setCookie] = useCookies(['cookie-user']);
 
 	const {loading, user, login} = useUserStore(state => ({
 		loading: state.loading,
@@ -29,11 +26,6 @@ const Login = () => {
 		if(user) {
 			closeRef.current?.click()
 			let d = new Date();
-			d.setTime(d.getTime() + (1440*60*1000));
-			setCookie('cookie-user', user, {
-				expires: d,
-				path: "/",
-			})
 		}
 	},[user])
 
