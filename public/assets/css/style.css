@@ -1131,7 +1131,9 @@ select:focus {
   margin-bottom: 5px;
 }
 .footer-dev .btn-icons svg{
-  padding: 15px;
+  padding: 10px;
+  width: 45px;
+  height: 45px;
   color: #fff;
   float: left;
   display: flex;
