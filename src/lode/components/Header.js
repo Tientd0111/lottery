@@ -104,6 +104,7 @@ const Header = () => {
 									<ul className="navbar-nav ml-auto">
 										<CsLink to={PATH.HOME}>{'Trang chủ'}</CsLink>
 										<CsLink to={null}>{'Thể thao'}</CsLink>
+										<CsLink to={null}>{'Xác minh'}</CsLink>
 										<CsLink onClick={()=>{setVisitableTx(true)}} to={null}>{'Game'}</CsLink>
 										<CsLink to={PATH.LOTTERY}>{'Lô đề'}</CsLink>
 										<li className="nav-item dropdown">
