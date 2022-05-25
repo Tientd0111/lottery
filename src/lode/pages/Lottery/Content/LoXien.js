@@ -42,7 +42,7 @@ const LoXien = () => {
 								<td colSpan="10" style={{border:'none'}}>
 									<table style={{width: '100%', height: '100%',overflow:"hidden"}}>
 										<tbody className="table_bet_pick">
-										<ArrayNumberPicker arrays={arrayPicker} indexPlus={"0"} t={false}/>
+										<ArrayNumberPicker arrays={arrayPicker} indexPlus={"0"} t={false} tab={Constant.LO_XIEN}/>
 										</tbody>
 									</table>
 								</td>

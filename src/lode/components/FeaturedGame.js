@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
@@ -12,6 +12,7 @@ import BangKq from "./BangKq";
 import {useLoadTable} from "../../stores/useLoadTable";
 import formatDate from "../../hooks/formatDate";
 import formatNumber from "../../hooks/formatNumber";
+import CountUp, {useCountUp} from "react-countup";
 
 library.add(fas, fab);
 
@@ -41,7 +42,22 @@ const FeaturedGame = () => {
 										<div className="bg-blur mb" style={{backgroundImage:`url(${images.mienbac})`}}/>
 										<p>Tổng cược trong ngày</p>
 										<h3>
-											<span className={"MB"}>$</span>
+											<span className={"MB"}>
+												<CountUp
+													start={10000000}
+													end={35090000}
+													delay={0}
+													duration={3}
+													separator=","
+													prefix="$"
+												>
+												  {({ countUpRef }) => (
+													  <div>
+														  <span ref={countUpRef} />
+													  </div>
+												  )}
+												</CountUp>
+											</span>
 											<p>18:05 - <span>{formatDate(date,'DD/MM/YYYY')}</span></p>
 										</h3>
 									</div>
@@ -63,7 +79,22 @@ const FeaturedGame = () => {
 										<div className="bg-blur mt" style={{backgroundImage:`url(${images.mientrung})`}}/>
 										<p>Tổng cược trong ngày</p>
 										<h3>
-											<span  className={"MT"}>$</span>
+											<span  className={"MT"}>
+												<CountUp
+													start={19002}
+													end={16527000}
+													delay={0}
+													duration={3}
+													separator=","
+													prefix="$"
+												>
+												  {({ countUpRef }) => (
+													  <div>
+														  <span ref={countUpRef} />
+													  </div>
+												  )}
+												</CountUp>
+											</span>
 											<p>17:05 - <span>{formatDate(date,'DD/MM/YYYY')}</span></p>
 										</h3>
 									</div>
@@ -85,7 +116,22 @@ const FeaturedGame = () => {
 										<div className="bg-blur mn" style={{backgroundImage:`url(${images.miennam})`}}/>
 										<p>Tổng cược trong ngày</p>
 										<h3>
-											<span className={"MN"}>$</span>
+											<span className={"MN"}>
+												<CountUp
+													start={19002}
+													end={25674000}
+													delay={0}
+													duration={3}
+													separator=","
+													prefix="$"
+												>
+												  {({ countUpRef }) => (
+													  <div>
+														  <span ref={countUpRef} />
+													  </div>
+												  )}
+												</CountUp>
+											</span>
 											<p>16:05 - <span>{formatDate(date,'DD/MM/YYYY')}</span></p>
 										</h3>
 									</div>
