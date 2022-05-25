@@ -41,6 +41,9 @@ const apis = {
 	},
 	refresh_token: {
 		uri: 'auth/refresh'
+	},
+	kyc: {
+		uri: 'user/kyc'
 	}
 }
 export default apis

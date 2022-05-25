@@ -1,14 +1,15 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import FormInput from "./FormInput";
 import {useForm} from "react-hook-form";
 import {useUserStore} from "../../stores/useUserStore";
 import ButtonBase from "./ButtonBase";
 
 const SignUp = () => {
-
+	const closeRef = useRef()
 	const {handleSubmit, control } = useForm();
 	const onSubmit = async data => {
 		await register(data)
+		closeRef.current?.click()
 	};
 	const {loading, register} = useUserStore(state => ({
 		loading: state.loading,
@@ -19,7 +20,12 @@ const SignUp = () => {
 		<div className="modal fade login-modal sign-in" id="signin" tabIndex={-1} role="dialog" aria-labelledby="signin" aria-hidden="true">
 			<div className="modal-dialog modal-dialog-centered " role="document">
 				<div className="modal-content">
-					<button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+					{/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
+					<div className="modal-header" style={{borderBottom:"none"}}>
+						<button onClick={()=>closeRef.current?.click()} type="button" className="close" data-dismiss="modal" aria-label="Close" ref={closeRef} style={{padding:"4px 16px"}}>
+							<span style={{color:"#fff"}} aria-hidden="true">&times;</span>
+						</button>
+					</div>
 					<div className="modal-body">
 						<div className="header-area">
 							<h4 className="title">{'Đăng ký ngay !'}</h4>

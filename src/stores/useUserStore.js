@@ -65,6 +65,18 @@ export const useUserStore = create(set => ({
 				set({loading:false})
 			})
 	},
+	kyc: async ()=>{
+		set({loading:true})
+		callService(apis.kyc.uri,'POST', {}, true)
+			.then(response => {
+				toast.success(response?.msg)
+				set({loading:false});
+			})
+			.catch(error => {
+				toast.error(error)
+				set({loading:false})
+			})
+	},
 
 	user: undefined,
 	loading: false,

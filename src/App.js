@@ -27,6 +27,7 @@ function App() {
 		await logout()
 		setUser(undefined)
 		cookies.remove('refreshToken')
+		window.location.reload()
 		localStorage.removeItem('key')
 	}
 	useEffect(()=> {

@@ -3,7 +3,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import PATH from '../../routes/path';
 import {useUserStore} from "../../stores/useUserStore";
 import formatNumber from '../../hooks/formatNumber'
@@ -22,9 +22,10 @@ const Header = () => {
 		}
 	]
 
-	const {user, reload} = useUserStore(state =>({
+	const {user, reload,kyc} = useUserStore(state =>({
 		user: state.user,
-		reload:state.reload
+		reload:state.reload,
+		kyc: state.kyc
 	}))
 	const {setVisitableTx} = useTxStore(state => ({
 		setVisitableTx: state.setVisitableTx,
@@ -103,8 +104,15 @@ const Header = () => {
 								<div className="collapse navbar-collapse fixed-height" id="main_menu">
 									<ul className="navbar-nav ml-auto">
 										<CsLink to={PATH.HOME}>{'Trang chủ'}</CsLink>
+										{user?.kyc === false ?
+											<li className="nav-item">
+												<a href={"/#"} className={'nav-link'} data-toggle="modal" data-target="#kyc">
+													Xác minh
+													<div className="mr-hover-effect"/>
+												</a>
+											</li>:''
+										}
 										<CsLink to={null}>{'Thể thao'}</CsLink>
-										<CsLink to={null}>{'Xác minh'}</CsLink>
 										<CsLink onClick={()=>{setVisitableTx(true)}} to={null}>{'Game'}</CsLink>
 										<CsLink to={PATH.LOTTERY}>{'Lô đề'}</CsLink>
 										<li className="nav-item dropdown">

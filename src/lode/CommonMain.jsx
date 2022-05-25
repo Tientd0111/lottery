@@ -3,6 +3,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import Login from './components/Login';
 import SignUp from "./components/SignUp";
+import Kyc from "./components/Kyc";
 const CommonMain = ({children}) => {
 	return (
 		<>
@@ -11,6 +12,7 @@ const CommonMain = ({children}) => {
 				{children}
 			</main>
 			<Login/>
+			<Kyc/>
 			<SignUp/>
 			<Footer/>
 		</>

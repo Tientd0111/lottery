@@ -23,7 +23,8 @@ const InfoPage = () => {
 		setUser(undefined)
 		cookies.remove('refreshToken')
 		localStorage.removeItem('key')
-		history.push(Path.HOME);
+		history.push(Path.HOME)
+		window.location.reload()
 	}
 
 	return (

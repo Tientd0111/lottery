@@ -48,9 +48,11 @@ const Login = () => {
 		<div className="modal fade login-modal" id="login" tabIndex={-1} role="dialog" aria-labelledby="login" aria-hidden="true">
 			<div className="modal-dialog modal-dialog-centered" role="document">
 				<div className="modal-content">
-					<button ref={closeRef} type="button" className="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">×</span>
-					</button>
+					<div className="modal-header" style={{borderBottom:"none"}}>
+						<button onClick={()=>closeRef.current?.click()} ref={closeRef} type="button" className="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">×</span>
+						</button>
+					</div>
 					<div className="modal-body">
 						<div className="header-area">
 							<h4 className="title">Chào mừng bạn trở lại</h4>
