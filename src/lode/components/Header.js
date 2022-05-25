@@ -3,29 +3,25 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {Link, NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import PATH from '../../routes/path';
 import {useUserStore} from "../../stores/useUserStore";
 import formatNumber from '../../hooks/formatNumber'
 import cookies from "../../contants/cookie";
 import {useTxStore} from "../../stores/useTxStore";
 import CsLink from "./CsLink";
+import FormInput from "./FormInput";
+import {useForm} from "react-hook-form";
+import {callService} from "../../apis/baseRequest";
+import {toast} from "react-toastify";
 
 library.add(fas, fab);
 
 const Header = () => {
 
-	const lotterys = [
-		{
-			name: 'Lô đề truyền thống',
-			link: '?name=lotery'
-		}
-	]
-
-	const {user, reload,kyc} = useUserStore(state =>({
+	const {user, reload} = useUserStore(state =>({
 		user: state.user,
 		reload:state.reload,
-		kyc: state.kyc
 	}))
 	const {setVisitableTx} = useTxStore(state => ({
 		setVisitableTx: state.setVisitableTx,
@@ -35,6 +31,19 @@ const Header = () => {
 		if(localStorage.getItem('key') && cookies.get('refreshToken'))
 			reload()
 	},[]);
+	const {control,handleSubmit, getValues, reset} = useForm()
+
+	const claimCode = () => {
+		callService('gift-code/claim-code', 'POST', {code: getValues('code')},true)
+			.then((res)=> {
+				toast.success(res.msg)
+				reset({code: ''})
+			})
+			.catch((err)=> {
+				toast.error(err.response.data?.msg)
+				reset({code: ''})
+			})
+	}
 
 	return (
 		<header className="header">
@@ -47,9 +56,18 @@ const Header = () => {
 								<div className="left-content">
 									<ul className="left-list">
 										<li>
-											<p>
-												<FontAwesomeIcon icon={['fas','headset']} />{' Hỗ trợ'}
-											</p>
+											{user&&(
+												<form onSubmit={handleSubmit()}>
+													<div style={{position: 'relative', display: 'flex', alignItems: 'center'}}>
+														<FormInput name={'code'} placeholder={'Nhập gift code...'} control={control}/>
+														<FontAwesomeIcon
+															onClick={claimCode}
+															style={{cursor: 'pointer', position: 'absolute', top: '8px', right: '6px'}}
+															icon={['fas','gift']}
+														/>
+													</div>
+												</form>
+											)}
 										</li>
 									</ul>
 								</div>
