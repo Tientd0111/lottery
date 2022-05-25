@@ -21,14 +21,12 @@ const Footer = () => {
 					</div>
 					<div className="col-md-3">
 						<h3 className="about-title">Trách nhiệm</h3>
-						<p className="about-detail">Winclub24h tự hào là nhà cái cung cấp các dịch vụ lô đề, số đề, soi cầu
-							lô đề hàng đầu tại Việt Nam. Winclub24h đã đặt bước đi tiên phong trong lĩnh vực đánh đề trực
-							tuyến.</p>
+						<p className="about-detail">Winclub24H là website Đánh Đề Trực Tuyến lớn nhất dành cho người chơi tại Châu Á.
+							Chúng tôi tuân thủ các nguyên tắc tối cao của dịch vụ khách hàng và giải quyết nhanh chóng và xử lý hiệu quả bất kỳ vấn đề.</p>
 					</div>
 					<div className="col-md-3">
 						<h3 className="about-title">Trợ giúp</h3>
 						<ul className="list-help">
-							<li><a href="/#">Hướng dẫn đánh đề</a></li>
 							<li><a href="/#">Soi cầu</a></li>
 							<li><a href="/#">Giải mã giấc mơ</a></li>
 							<li><a href="/#">Mẹo chơi game</a></li>
