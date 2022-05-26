@@ -1,7 +1,7 @@
 import './App.css';
 import RootRoutes from "./routes";
 import {ToastContainer} from "react-toastify";
-import React, {useEffect} from "react";
+import React, {useCallback, useEffect} from "react";
 import {useSocket} from "./stores/useSocket";
 import {useUserStore} from "./stores/useUserStore";
 import BigSmall from "./lode/minigame/BigSmall";
@@ -29,10 +29,28 @@ function App() {
 		window.location.reload()
 		localStorage.removeItem('key')
 	}
+
+	const keyDisable = useCallback((event) => {
+		if (event.key === 'F12' || event.ctrlKey || event === 'Shift') {
+			event.preventDefault()
+		}
+	}, []);
+
+	const mouseDisable = useCallback((event) => {
+		event.preventDefault()
+	}, []);
+
 	useEffect(()=> {
+		document.addEventListener("keydown", keyDisable, false);
+		document.addEventListener("contextmenu", mouseDisable, false);
+
 		if(user === undefined || user == null) return;
 		socket.on(`message-to-user-${user.username}`, reload)
 		socket.on(`block-user-${user.username}`, logoutSection);
+		return () => {
+			document.removeEventListener("keydown", keyDisable, false);
+			document.addEventListener("contextmenu", mouseDisable, false);
+		};
 	},[user])
 
 	return (
