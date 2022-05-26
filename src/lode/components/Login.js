@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useRef} from 'react';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -13,24 +13,20 @@ library.add(fas, fab);
 const Login = () => {
 	const { handleSubmit, control, reset } = useForm({ shouldUseNativeValidation: true });
 
-	const {loading, user, login} = useUserStore(state => ({
+	const {loading, login} = useUserStore(state => ({
 		loading: state.loading,
-		user: state.user,
 		login: state.login
 	}));
 
 	const onSubmit = async data => {
-		await login(data)
-		reset({username: '', password: ''})
-		closeRef.current?.click()
+		const {isAuth} = await login(data)
+		if(isAuth) {
+			reset({username: '', password: ''})
+			closeRef.current?.click()
+		}
 	};
 
 	const closeRef = useRef()
-
-	const invalidValue = () => {
-
-	}
-
 
 	return (
 		<div className="modal fade login-modal" id="login" tabIndex={-1} role="dialog" aria-labelledby="login" aria-hidden="true">
@@ -47,7 +43,7 @@ const Login = () => {
 							<p className="sub-title">Nhập thông tin đăng nhập dưới đây.</p>
 						</div>
 						<div className="form-area">
-							<form onSubmit={handleSubmit(onSubmit, invalidValue)}>
+							<form onSubmit={handleSubmit(onSubmit)}>
 								<FormInput name={'username'} rules={{required: "Vui lòng nhập tên đăng nhập."}}
 										   placeholder={'Nhập tên đăng nhập...'} label={'Tên đăng nhập'} control={control}/>
 								<FormInput name={'password'} rules={{required: "Vui lòng nhập mật khẩu."}}

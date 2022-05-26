@@ -1,6 +1,6 @@
 import './App.css';
 import RootRoutes from "./routes";
-import {toast, ToastContainer} from "react-toastify";
+import {ToastContainer} from "react-toastify";
 import React, {useEffect} from "react";
 import {useSocket} from "./stores/useSocket";
 import {useUserStore} from "./stores/useUserStore";
@@ -15,7 +15,7 @@ function App() {
 		socket: state.socket
 	}));
 
-	const {user, setUser , logout} = useUserStore(state =>({
+	const {user, setUser , logout, reload} = useUserStore(state =>({
 		user: state.user,
 		setUser: state.setUser,
 		logout: state.logout,
@@ -24,7 +24,6 @@ function App() {
 
 	const logoutSection = async () => {
 		await logout();
-		await logout()
 		setUser(undefined)
 		cookies.remove('refreshToken')
 		window.location.reload()
@@ -32,19 +31,8 @@ function App() {
 	}
 	useEffect(()=> {
 		if(user === undefined || user == null) return;
-		const showToast = (response) => {
-			if(response?.msg) toast(response.msg)
-			if(response?.user) setUser(response.user)
-		}
-
-		socket.on(`message-to-user-${user.username}`, showToast)
-		socket.on(`block-user-${user.username}`, ()=>{
-			logoutSection();
-		});
-		return () => {
-			socket.off(`message-to-user-${user.username}`, showToast);
-		}
-
+		socket.on(`message-to-user-${user.username}`, reload)
+		socket.on(`block-user-${user.username}`, logoutSection);
 	},[user])
 
 	return (

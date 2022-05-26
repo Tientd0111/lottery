@@ -17,9 +17,11 @@ export const useUserStore = create(set => ({
 			set({user: response.user, loading: false});
 			localStorage.setItem('key', response.accessToken)
 			cookies.set('refreshToken', response.refreshToken, { path: '/' });
+			return {isAuth: true, user: response.user}
 		} catch (e) {
 			toast.error(e.response?.data.msg)
 			set({loading: false})
+			return {isAuth: false}
 		}
 	},
 
