@@ -11,23 +11,19 @@ import {useForm} from "react-hook-form";
 library.add(fas, fab);
 
 const Login = () => {
-	const { handleSubmit, control } = useForm({ shouldUseNativeValidation: true });
+	const { handleSubmit, control, reset } = useForm({ shouldUseNativeValidation: true });
 
 	const {loading, user, login} = useUserStore(state => ({
 		loading: state.loading,
 		user: state.user,
 		login: state.login
-	}))
+	}));
+
 	const onSubmit = async data => {
 		await login(data)
+		reset({username: '', password: ''})
+		closeRef.current?.click()
 	};
-
-	useEffect(()=>{
-		if(user) {
-			closeRef.current?.click()
-			let d = new Date();
-		}
-	},[user])
 
 	const closeRef = useRef()
 

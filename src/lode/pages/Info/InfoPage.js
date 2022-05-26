@@ -9,7 +9,7 @@ import Support from "../../components/Support";
 import cookies from "../../../contants/cookie";
 
 const InfoPage = () => {
-	const {user, setUser , logout, loading} = useUserStore(state =>({
+	const {user, setUser, logout, loading} = useUserStore(state =>({
 		user: state.user,
 		setUser: state.setUser,
 		logout: state.logout,
@@ -24,7 +24,9 @@ const InfoPage = () => {
 		cookies.remove('refreshToken')
 		localStorage.removeItem('key')
 		history.push(Path.HOME)
-		window.location.reload()
+		setTimeout(()=>{
+			window.location.reload()
+		}, 1500)
 	}
 
 	return (

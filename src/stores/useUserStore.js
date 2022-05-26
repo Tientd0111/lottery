@@ -8,24 +8,19 @@ import axios from "axios";
 export const useUserStore = create(set => ({
 	login: async (bodyParameters) => {
 		let param = bodyParameters
-		axios.get('https://api.ipify.org/')
-			.then(ip =>{
-				param.ip = ip.data
-				set({loading: true})
-				callService(apis.login.uri, 'POST', param)
-					.then(response => {
-						toast.success(response?.msg)
-						set({user: response.user, loading: false});
-						localStorage.setItem('key', response.accessToken)
-						cookies.set('refreshToken', response.refreshToken, { path: '/' });
-					})
-					.catch(error=>{
-						toast.error(error.response?.data.msg)
-						set({loading: false})
-					})
-			})
-
-
+		try {
+			set({loading: true})
+			const ip = await axios.get('https://api.ipify.org/')
+			param.ip = ip.data
+			const response = await callService(apis.login.uri, 'POST', param)
+			toast.success(response?.msg)
+			set({user: response.user, loading: false});
+			localStorage.setItem('key', response.accessToken)
+			cookies.set('refreshToken', response.refreshToken, { path: '/' });
+		} catch (e) {
+			toast.error(e.response?.data.msg)
+			set({loading: false})
+		}
 	},
 
 	setUser: (data) => {set({user: data})},
@@ -54,16 +49,15 @@ export const useUserStore = create(set => ({
 	},
 
 	logout: async ()=>{
-		set({loading:true})
-		callService(apis.logout.uri,'POST', {}, true)
-			.then(response => {
-				toast.success(response?.msg)
-				set({loading:false});
-			})
-			.catch(error => {
-				toast.error(error)
-				set({loading:false})
-			})
+		try {
+			set({loading:true})
+			const response = await callService(apis.logout.uri,'POST', {}, true)
+			toast.success(response?.msg)
+			set({loading:false});
+		}catch (e) {
+			toast.error(e)
+			set({loading:false})
+		}
 	},
 	kyc: async ()=>{
 		set({loading:true})
