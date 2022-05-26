@@ -151,6 +151,11 @@ const Header = () => {
 														<FontAwesomeIcon icon={['fas','angle-double-right']} />Rút tiền
 													</Link>
 												</li>
+												<li>
+													<Link className="dropdown-item" to={PATH.BANK}>
+														<FontAwesomeIcon icon={['fas','angle-double-right']} />Ngân hàng
+													</Link>
+												</li>
 											</ul>
 										</li>
 										<li className="nav-item dropdown">

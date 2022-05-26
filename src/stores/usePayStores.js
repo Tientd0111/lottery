@@ -8,19 +8,7 @@ export const UsePayStores = create(set => ({
 		set({loading: true})
 		callService(apis.transfer.uri, 'POST', bodyParameters, true)
 			.then(response => {
-				set({dataResult: response.result,loading: false});
-				toast.success(response.msg)
-			})
-			.catch(error=>{
-				toast.error(error.response?.data.msg)
-				set({loading: false})
-			})
-	},
-	withdraw: async (bodyParameters) => {
-		set({loading: true})
-		callService(apis.withdraw.uri, 'POST', bodyParameters, true)
-			.then(response => {
-				set({loading:false})
+				set({loading: false});
 				toast.success(response.msg)
 			})
 			.catch(error=>{

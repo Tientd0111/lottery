@@ -35,7 +35,7 @@ const SignUp = () => {
 							<form onSubmit={handleSubmit(onSubmit)}>
 								<FormInput control={control} name={'username'} placeholder={'Nhập tên đăng nhập...'} label={'Tên đăng nhập'}/>
 								<FormInput control={control} name={'password'} placeholder={'Nhập mật khẩu...'} label={'Mật khẩu'} type={'password'}/>
-								<FormInput control={control} name={'name'} placeholder={'Nhập họ tên...'} label={'Họ tên'}/>
+								<FormInput control={control} name={'name'} placeholder={'Nhập họ tên... (vd: TRAN VAN A)'} label={'Họ tên'}/>
 								{/*<FormInput control={control} name={'email'} placeholder={'Nhập email...'} label={'Email'}/>*/}
 								<FormInput control={control} name={'phone_number'} placeholder={'Nhập số điện thoại...'} label={'Số điện thoại'}/>
 								<ButtonBase text={'Đăng ký'} isLoading={loading}/>

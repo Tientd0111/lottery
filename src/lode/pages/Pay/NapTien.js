@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import CommonMain from "../../CommonMain";
 import {useForm} from "react-hook-form";
 import {UsePayStores} from "../../../stores/usePayStores";
@@ -7,6 +7,7 @@ import Support from "../../components/Support";
 import {useUserStore} from "../../../stores/useUserStore";
 import {toast} from "react-toastify";
 import ButtonBase from "../../components/ButtonBase";
+import {useBankStore} from "../../../stores/useBankStore";
 const NapTien = () => {
 
 	const money=[
@@ -26,19 +27,42 @@ const NapTien = () => {
 		dataResult: state.dataResult,
 		confirmData: state.confirmData,
 	}))
+	const {list,load,loadAdmin,listAd} = useBankStore(state => ({
+		load: state.load,
+		list: state.dataResult,
+		loadAdmin: state.loadAdmin,
+		listAd: state.dataBankAd
+	}))
+	const [des,setDes] = useState();
+	useEffect(()=>{
+		async function fetchData(){
+			await loadAdmin()
+			await load()
+			setDes(Math.floor(Math.random()*(100-90000))+100000)
+		}
+		fetchData()
+	},[])
 	const {user} = useUserStore(state => ({
 		user: state.user
 	}))
-	const {handleSubmit, register,formState: { errors }} = useForm();
+	const {handleSubmit, register,formState: { errors },reset} = useForm();
 	const onSubmit = async data => {
 		if(user?.username !== undefined) {
+			data.bank_id_to = listAd[bankId]._id
+			data.type = "plus"
+			data.description = des
 			await tranf(data)
+			reset()
+			setDes(Math.floor(Math.random()*(100-90000))+100000)
 		}
 		else {
 			toast('Vui lòng đăng nhập')
 		}
 	};
-
+	const [bankId,setBank] = useState();
+	const onchange = value =>{
+		setBank(value)
+	}
 	return (
 		<CommonMain>
 			<section style={{marginTop:"180px"}}>
@@ -53,107 +77,129 @@ const NapTien = () => {
 						</ul>
 						<div className="tab-content bg-content" id="myTabContent">
 							<div className="form-deposit-bank ">
+								<div>
+									<h4 className="title-deposit">Nạp thủ công</h4>
+									<p className="detail-deposit">An toàn, nhanh chóng, hiệu quả,
+										bảo mật</p>
+								</div>
 								<div className="row">
-									<form onSubmit={handleSubmit(onSubmit)}>
-										<div className="col-md-10 p-20" style={{maxWidth:"100%"}}>
-											<h4 className="title-deposit">Nạp thủ công</h4>
-											<p className="detail-deposit">An toàn, nhanh chóng, hiệu quả,
-												bảo mật</p>
+										<div className="col-md-6 container" style={{padding:"6px",border:"1px solid #6b6b6b",borderRadius:'5px'}}>
 											<div className="form-group">
 												<div className="row">
 													<div className="col-md-4">
 														<label className="label-cus"
-															   htmlFor="from_overview_naptien_customer">Tên
-															người gửi (<font
-																color="red"><b>*</b></font>)</label>
-													</div>
-													<div className="col-md-8">
-														<input {...register("bank_account_name_from",{required:true})}
-															   type="text"
-															   className="form-control form-custom"/>
-														<span style={{color:"red",fontSize:"15px"}}>
-															{errors.bank_account_name_from?.type === 'required'
-																&& "Tên người gửi không được để trống"}
-														</span>
-													</div>
-												</div>
-											</div>
-											<div className="form-group">
-												<div className="row">
-													<div className="col-md-4">
-														<label className="label-cus"
-															   htmlFor="from_overview_naptien_customer">Tài khoản người gửi (<font
-															color="red"><b>*</b></font>)</label>
-													</div>
-													<div className="col-md-8">
-														<input {...register("bank_account_number_from",{required:true})}
-															   type="text"
-															   className="form-control form-custom"/>
-														<span style={{color:"red",fontSize:"15px"}}>
-															{errors.bank_account_number_from?.type === 'required'
-																&& "Stk người gửi không được để trống"}
-														</span>
-													</div>
-												</div>
-											</div>
-											<div className="form-group">
-												<div className="row">
-													<div className="col-md-4">
-														<label className="label-cus"
-															   htmlFor="from_overview_naptien_bank">Số tiền(<font
+															   htmlFor="from_overview_naptien_bank">Ngân hàng(<font
 															color="red"><b>*</b></font>)</label>
 													</div>
 													<div className="col-md-8">
 														<select
-															{...register("money_transfer")}
 															className="form-control form-custom"
-															placeholder={"Chọn mệnh giá"}>
-															{money.map((item)=>(
-																<option value={item.val} key={item.val}>
-																	{formatNumber(parseInt(item.val))}
-																</option>
+															placeholder={"Chọn mệnh giá"}
+															onChange={(e)=>{
+																onchange(e.target.value)
+															}}
+														>
+															<option value="" disabled selected hidden>Chọn ngân hàng</option>
+															{listAd.map((it,index)=>(
+																<option  key={it._id} value={index}>{`${it.bank_name} - ${it.bank_account_name}`}</option>
 															))}
 														</select>
-
 													</div>
 												</div>
 											</div>
 											<div className="form-group">
 												<div className="row">
 													<div className="col-md-4">
+														<label className="label-cus"
+															   htmlFor="from_overview_naptien_bank">Tên tài khoản</label>
 													</div>
 													<div className="col-md-8">
-														<ButtonBase text={"Nạp tiền"} isLoading={loading}/>
+														<span>{listAd[bankId]?.bank_account_name}</span>
 													</div>
 												</div>
 											</div>
+											<div className="form-group">
+												<div className="row">
+													<div className="col-md-4">
+														<label className="label-cus"
+															   htmlFor="from_overview_naptien_bank">Số tài khoản</label>
+													</div>
+													<div className="col-md-8">
+														<span>{listAd[bankId]?.bank_number}</span>
+													</div>
+												</div>
+											</div>
+											<div className="form-group">
+												<div className="row">
+													<div className="col-md-4">
+														<label className="label-cus"
+															   htmlFor="from_overview_naptien_bank">Nội dung chuyển khoản</label>
+													</div>
+													<div className="col-md-8">
+														<span>{des}</span>
+													</div>
+												</div>
+											</div>
+											<small>LƯU Ý: Để Tránh Cập Nhật Tiền Chậm! Vui Lòng điền mã số "Nội Dung Chuyển
+												Tiền" khi Chuyển Tiền Ngân Hàng tại Winclub24h</small>
 										</div>
-									</form>
-									{dataResult === undefined?'':
-										<div className="col-md-4 container-fluid" style={{marginTop:"120px"}}>
-											<h5 style={{color:"#383636"}}>Vui lòng chuyển khoản như sau</h5>
-											<label style={{color:"#000"}}>
-												Ngân hàng:
-												<span style={{color:"red"}}> {dataResult.bank_name}</span>
-											</label>
-											<label style={{color:"#000"}}>
-												Tên người nhận:
-												<span style={{color:"red"}}> {dataResult.bank_account_name}</span>
-											</label>
-											<label style={{color:"#000"}}>
-												Số tài khoản:
-												<span style={{color:"red"}}> {dataResult.bank_number}</span>
-											</label>
-											<label style={{color:"#000"}}>
-												Nội dung chuyển khoản:
-												<span style={{color:"red"}}> {dataResult.description_bank}</span>
-											</label>
-											<ButtonBase text={"Xác nhận đã chuyển"} isLoading={loading}
-														onClick={()=>{confirmData({id: dataResult.id})}}/>
+										<div className="col-md-6" style={{maxWidth:"100%"}}>
+											<form onSubmit={handleSubmit(onSubmit)}>
+												<div className="form-group">
+													<div className="row">
+														<div className="col-md-5">
+															<label className="label-cus"
+																   htmlFor="from_overview_naptien_customer">Tài khoản của bạn(<font
+																	color="red"><b>*</b></font>)</label>
+														</div>
+														<div className="col-md-7">
+															<select
+																{...register("bank_id_from")}
+																className="form-control form-custom"
+															>
+																<option value="" disabled selected hidden>Chọn tài khoản</option>
+																{list.map((it)=>(
+																	<option  key={it._id} value={it._id}>{`${it.bank_name} - ${user?.name}`}</option>
+																))}
+															</select>
+														</div>
+													</div>
+												</div>
+												<div className="form-group">
+													<div className="row">
+														<div className="col-md-5">
+															<label className="label-cus"
+																   htmlFor="from_overview_naptien_bank">Số tiền(<font
+																color="red"><b>*</b></font>)</label>
+														</div>
+														<div className="col-md-7">
+															<select
+																{...register("money")}
+																className="form-control form-custom"
+																placeholder={"Chọn mệnh giá"}>
+																{money.map((item)=>(
+																	<option value={item.val} key={item.val}>
+																		{formatNumber(parseInt(item.val))}
+																	</option>
+																))}
+															</select>
+
+														</div>
+													</div>
+												</div>
+												<div className="form-group">
+													<div className="row">
+														<div className="col-md-4">
+														</div>
+														<div className="col-md-8">
+															<ButtonBase text={"Nạp tiền"} isLoading={loading}/>
+														</div>
+													</div>
+												</div>
+											</form>
 										</div>
-									}
 								</div>
-								<div className="row mt-0-30">
+								<div className="row mt-0-30" style={{marginTop:"20px"}}>
 									<div className="col-md-12 box-border box_content">
 										<p className="guide-deposit">Hướng dẫn nhập Mã giao dịch:</p>
 										<p className="guide-help">

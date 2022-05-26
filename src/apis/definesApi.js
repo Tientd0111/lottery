@@ -14,9 +14,6 @@ const apis = {
 	confirm:{
 		uri:'transfer/confirmOrder'
 	},
-	withdraw:{
-		uri:'withdraw/create'
-	},
 
 	logout: {
 		uri: 'auth/logout'
@@ -44,6 +41,19 @@ const apis = {
 	},
 	kyc: {
 		uri: 'user/kyc'
-	}
+	},
+	add_bank: {
+		uri: 'user/create-bank'
+	},
+	load_bank: {
+		uri: 'user/list-bank'
+	},
+	del_bank:{
+		uri: '/delete-bank'
+	},
+	loadbankad:{
+		uri: 'bank/list-bank-transfer'
+	},
+
 }
 export default apis

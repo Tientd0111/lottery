@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import CommonMain from "../../CommonMain";
 import constant from "../../../contants/constant";
 import {useForm} from "react-hook-form";
@@ -8,38 +8,46 @@ import Support from "../../components/Support";
 import {useUserStore} from "../../../stores/useUserStore";
 import {toast} from "react-toastify";
 import ButtonBase from "../../components/ButtonBase";
+import {useBankStore} from "../../../stores/useBankStore";
+import AppLoading from "../../components/AppLoading";
+
+const money=[
+	{val:'10000'},
+	{val:'20000'},
+	{val:'50000'},
+	{val:'100000'},
+	{val:'200000'},
+	{val:'500000'},
+	{val:'1000000'},
+	{val:'3000000'},
+	{val:'5000000'},
+]
 
 const RutTien = () => {
-	const bank_name  = [
-		{id: constant.MB_BANK,name:constant.MB_BANK,stk:'1234123131'},
-		{id: constant.TECH,name:constant.TECH,stk:'123412323'},
-		{id: constant.VIET,name:constant.VIET,stk:'1234122341'},
-		{id: constant.BIDV,name:constant.BIDV,stk:'1234313123'},
-		{id: constant.TP,name:constant.TP,stk:'1234123656'}
-	]
-	const money=[
-		{val:'10000'},
-		{val:'20000'},
-		{val:'50000'},
-		{val:'100000'},
-		{val:'200000'},
-		{val:'500000'},
-		{val:'1000000'},
-		{val:'3000000'},
-		{val:'5000000'},
-	]
-	const {handleSubmit, register,formState: { errors }} = useForm();
-	const {withdraw, loading} = UsePayStores(state => ({
-		loading: state.loading,
-		withdraw: state.withdraw,
-	}))
 
+	const {handleSubmit, register, setValue} = useForm();
+	const {tranf, loading} = UsePayStores(state => ({
+		loading: state.loading,
+		tranf: state.tranf,
+	}))
+	const {load, list} = useBankStore(state => ({
+		load: state.load,
+		list: state.dataResult,
+	}))
+	useEffect(()=>{
+		async function fetchData(){
+			const res = await load()
+			if(res.length > 0) setValue('bank_id_to', res[0]?._id)
+		}
+		fetchData()
+	},[])
 	const {user} = useUserStore(state =>({
 		user:state.user
 	}))
 	const onSubmit = async data => {
 		if(user?.username !== undefined){
-			await withdraw(data)
+			data.type = "minus"
+			await tranf(data)
 		}else {
 			toast("Vui lòng đăng nhập")
 		}
@@ -70,57 +78,21 @@ const RutTien = () => {
 													<div className="row">
 														<div className="col-md-4">
 															<label htmlFor="from_overview_ruttien_bank"
-																   className="label-cus">Chọn ngân hàng (<font
+																   className="label-cus">Chọn tài khoản nhận (<font
 																color="red">
 																<b>*</b></font>)</label>
 														</div>
 														<div className="col-md-8">
 															<select
-																{...register("bank_name")}
+																{...register("bank_id_to")}
 																className="form-control form-custom"
-																placeholder={"Chọn ngân hàng"}>
-																{bank_name.map((item,index)=>(
-																	<option value={item.id} key={item.id}>{item.name}</option>
+																placeholder={"Chọn ngân hàng"}
+																defaultValue={list[0]?._id}
+															>
+																{list.map((it)=>(
+																	<option  key={it._id} value={it._id}>{`${it.bank_name} - ${user?.name}`}</option>
 																))}
 															</select>
-														</div>
-													</div>
-												</div>
-												<div className="form-group">
-													<div className="row">
-														<div className="col-md-4">
-															<label htmlFor="from_overview_ruttien_bank"
-																   className="label-cus">Tên người nhận (<font
-																color="red" >
-																<b>*</b></font>)</label>
-														</div>
-														<div className="col-md-8">
-															<input
-																{...register("bank_account_name_to",{required:true})}
-																type="text"
-																className="form-control form-custom" />
-																<span style={{color:"red",fontSize:"15px"}}>
-																	{errors.bank_account_name_to?.type === 'required' && "Tên người nhận không được để trống"}
-																</span>
-														</div>
-													</div>
-												</div>
-												<div className="form-group">
-													<div className="row">
-														<div className="col-md-4">
-															<label htmlFor="from_overview_ruttien_bank"
-																   className="label-cus">Số tài khoản nhận(<font
-																color="red">
-																<b>*</b></font>)</label>
-														</div>
-														<div className="col-md-8">
-															<input
-																{...register("bank_account_number_to",{required:true})}
-																type="text"
-																className="form-control form-custom"/>
-															<span style={{color:"red",fontSize:"15px"}}>
-																{errors.bank_account_number_to?.type === 'required' && "Số tài khoản không được để trống"}
-															</span>
 														</div>
 													</div>
 												</div>
@@ -133,7 +105,7 @@ const RutTien = () => {
 														</div>
 														<div className="col-md-8">
 															<select
-																{...register("money_transfer")}
+																{...register("money")}
 																className="form-control form-custom"
 																placeholder={"Chọn mệnh giá"}>
 																{money.map((item,index)=>(

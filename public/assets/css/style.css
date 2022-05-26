@@ -5150,6 +5150,13 @@ label.label-cus {
   color:#ffff;
 
 }
+.form-deposit-bank .form-group span{
+  color: red;
+  font-size: 16px;
+}
+.form-deposit-bank  small{
+  color: #6b6b6b;
+}
 .box-border {
   height: auto;
   border-radius: 4px;
@@ -5525,3 +5532,14 @@ label.label-cus {
   font-size: 10px;
   font-weight: 700;
 }
+/*bank start*/
+.rut .label-cus{
+  margin: 0;
+}
+.btn-del{
+  width: 60px!important;
+  height: 30px!important;
+  color: white;
+  background-image: linear-gradient(to left, #ff344d, #d2273c);
+}
+/*bank end*/
