@@ -22,10 +22,10 @@ const apis = {
 		uri:'user/reload'
 	},
 	hisNap:{
-		uri:'transfer/history'
+		uri:'transfer/history-plus'
 	},
 	hisRut:{
-		uri:'withdraw/history'
+		uri:'withdraw/history-minus'
 	},
 	hisBet:{
 		uri:'billLottery/history'

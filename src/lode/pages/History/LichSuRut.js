@@ -38,24 +38,24 @@ const LichSuRut = () => {
 								   style={{overflow:"auto"}}>
 								<tbody>
 								<tr style={{textAlign:'center'}}>
-									<td>Ngày tạo</td>
 									<td>Ngày GD</td>
-									<td>Ngân hàng</td>
-									<td>Tên người nhận</td>
-									<td>Stk</td>
+									<td>Tài khoản nhận</td>
 									<td>Số tiền</td>
+									<td>Lý do</td>
 									<td>Trạng thái</td>
 								</tr>
 								{
 									histories?.map((item, index)=>(
 										<tr key={index} style={{textAlign:'center'}}>
 											<td>{formatDate(item.created_at,"DD/MM/YYYY")}</td>
-											<td>{formatDate(item.updated_at,"DD/MM/YYYY")}</td>
-											<td>{item.bank_name}</td>
-											<td>{item.bank_account_name_to}</td>
-											<td>{item.bank_account_number_to}</td>
+											<td>{item.bank_id_to}</td>
 											<td>{formatNumber(item.money_transfer)}</td>
-											<td>{item.created_by}</td>
+											<td>{item.reason}</td>
+											<td>{item.status === "Xác nhận"?
+												<a style={{cursor: 'pointer', textDecoration: 'underline', color: 'blue'}} onClick={()=>{
+
+												}
+												}>Xác nhận</a>: <p style={{color: 'red'}}>Từ chối</p>}</td>
 										</tr>
 									))}
 								</tbody>

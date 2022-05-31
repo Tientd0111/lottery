@@ -9,9 +9,9 @@ export const useHistoryStores = create(set => ({
 			.then(response => {
 				set({loading: false})
 				if(bodyParameters?.addItem) {
-					set(state => ({dataHis: [...state.dataHis, ...response]}))
+					set(state => ({dataHis: [...state.dataHis, ...response.results]}))
 				} else {
-					set({dataHis: response})
+					set({dataHis: response.results})
 				}
 			})
 			.catch(error=>{
@@ -24,9 +24,9 @@ export const useHistoryStores = create(set => ({
 			.then(response => {
 				set({loading: false})
 				if(bodyParameters?.addItem) {
-					set(state => ({dataHis: [...state.dataHis, ...response]}))
+					set(state => ({dataHis: [...state.dataHis, ...response.results]}))
 				} else {
-					set({dataHis: response})
+					set({dataHis: response.results})
 				}
 			})
 			.catch(error=>{

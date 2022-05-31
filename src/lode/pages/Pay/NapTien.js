@@ -8,6 +8,8 @@ import {useUserStore} from "../../../stores/useUserStore";
 import {toast} from "react-toastify";
 import ButtonBase from "../../components/ButtonBase";
 import {useBankStore} from "../../../stores/useBankStore";
+import {Link} from "react-router-dom";
+import PATH from "../../../routes/path";
 const NapTien = () => {
 
 	const money=[
@@ -162,6 +164,7 @@ const NapTien = () => {
 																	<option  key={it._id} value={it._id}>{`${it.bank_name} - ${user?.name}`}</option>
 																))}
 															</select>
+															<small className={"m-bank"}><Link to={PATH.BANK}>Quản lý tài khoản ngân hàng</Link></small>
 														</div>
 													</div>
 												</div>

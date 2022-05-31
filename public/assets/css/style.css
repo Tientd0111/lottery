@@ -1769,6 +1769,14 @@ select:focus {
   font-weight: 700;
   text-transform: uppercase;
 }
+.m-bank a{
+  margin-top: 10px;
+  color: #000;
+  float: right;
+}
+.m-bank a:hover{
+  color: #ef2f47;
+}
 .nap{
   overflow: auto;
   margin-top: 50px;
