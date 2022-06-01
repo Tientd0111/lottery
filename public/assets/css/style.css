@@ -2275,7 +2275,10 @@ select:focus {
   z-index: 99; }
 .about-section .about-box .about-box-inner .section-heading .mybtn1 {
   margin-top: 22px; }
-
+.cate-about .nav-item .active{
+  background-color: #ef2f47;
+  color: white;
+}
 /*	About Area  End */
 /* About page section Area Start */
 .about-page-section {

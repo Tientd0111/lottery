@@ -27,6 +27,7 @@ const Footer = () => {
 					<div className="col-md-3">
 						<h3 className="about-title">Trợ giúp</h3>
 						<ul className="list-help">
+							<li><Link to={PATH.HELP}>Trợ giúp</Link></li>
 							<li><a href="/#">Soi cầu</a></li>
 							<li><a href="/#">Giải mã giấc mơ</a></li>
 							<li><a href="/#">Mẹo chơi game</a></li>

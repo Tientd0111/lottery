@@ -89,6 +89,9 @@ const ViewBetInputSubmit = ({
 					:null}
 					<div className="form-group">
 						<div className="info-amount">Tổng tiền đánh (VNĐ)</div>
+						{watch().soTienCuoc < 1000?
+							<span style={{fontSize: 12, color: 'red'}}>tối thiểu 1000 vnđ</span>:''
+						}
 						<input min={0} {...register('soTienCuoc', {valueAsNumber: true})} type="number" placeholder="0"
 							   className="format_currency tongtiendanh form-new-2"/>
 						<div style={{fontSize: 12, color: 'red'}} className="info-amount">{getText(watch('soTienCuoc')?watch('soTienCuoc'):0)} (vnđ)</div>

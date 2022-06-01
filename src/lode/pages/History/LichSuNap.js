@@ -6,6 +6,7 @@ import {useHistoryStores} from "../../../stores/useHistoryStores";
 import formatNumber from "../../../hooks/formatNumber";
 import formatDate from "../../../hooks/formatDate";
 import ButtonBase from "../../components/ButtonBase";
+import Detail from "../../components/Detail";
 
 const LichSuNap = () => {
 	const {transferNap, histories, loading} = useHistoryStores(state => ({
@@ -27,10 +28,7 @@ const LichSuNap = () => {
 		setPageNumber(pageNumber + 1)
 		await transferNap({pageNumber: pageNumber + 1, addItem: true})
 	}
-	const [napId, setNapId] = useState(null);
-
-	const detailRef = useRef()
-
+	const [id, setId] = useState(null);
 	return (
 		<CommonMain>
 			<section style={{marginTop:"180px"}}>
@@ -44,8 +42,6 @@ const LichSuNap = () => {
 								<tr style={{textAlign:'center'}}>
 									<td>Ngày tạo</td>
 									<td>Ngày GD</td>
-									<td>Tài khoản gửi</td>
-									<td>Tài khoản nhận</td>
 									<td>Số tiền</td>
 									<td>Lý do</td>
 									<td>Trạng thái</td>
@@ -55,15 +51,14 @@ const LichSuNap = () => {
 									<tr key={index} style={{textAlign:'center'}}>
 										<td>{formatDate(item.created_at,"DD/MM/YYYY")}</td>
 										<td>{formatDate(item.updated_at,"DD/MM/YYYY")}</td>
-										<td>{item.bank_name_from}</td>
-										<td>{item.bank_name_to}</td>
 										<td>{formatNumber(item.money)}</td>
 										<td>{item.reason}</td>
 										<td>{item.status === "Xác nhận"?
-											<a style={{cursor: 'pointer', textDecoration: 'underline', color: 'blue'}} onClick={()=>{
-												setNapId(item._id)
-											}
-											}>{item.status}</a>: <p style={{color: 'red'}}>{item.status}</p>}</td>
+											<a href={"/#"} className={'nav-link'} data-toggle="modal" data-target="#detail" onClick={()=>{
+												setId(item._id)
+											}}>
+												{item.status}
+											</a>: <p style={{color: 'red'}}>{item.status}</p>}</td>
 										{/*<td>{item.created_by}</td>*/}
 									</tr>
 								))}
@@ -76,6 +71,7 @@ const LichSuNap = () => {
 							isLoading={pageNumber>0?loading:false} text={'Xem thêm'} />
 					</div>
 					<div className={"col-md-3"}><Support/></div>
+					<Detail billId={id}/>
 				</div>
 			</section>
 		</CommonMain>

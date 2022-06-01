@@ -42,6 +42,11 @@ import ic_close_popup from './taixiu/ic_close_popup.png'
 import about from "./about/gt1.png";
 import baomat from "./about/images.png"
 import security from "./about/6ZaZM9F.jpg"
+import nap_help from "./help/nap_help.png"
+import nap2 from "./help/nap2.jpg"
+import rut from "./help/rut.jpg"
+import kyc from "./help/kyc.jpg"
+import confirm from "./help/confirm.jpg"
 const images = {
 	//lode
 	logo : logo,
@@ -73,6 +78,11 @@ const images = {
 	about: about,
 	baomat:baomat,
 	security:security,
+	nap_help:nap_help,
+	nap2:nap2,
+	rut:rut,
+	kyc:kyc,
+	confirm:confirm,
 	minigame,
 
 

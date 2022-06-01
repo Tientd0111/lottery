@@ -9,6 +9,7 @@ const PATH = {
     HISTORYBET:'/history',
     INFO:'/info',
     SPORT: '/sport',
-    ABOUT: '/about'
+    ABOUT: '/about',
+    HELP: '/help'
 }
 export default PATH;

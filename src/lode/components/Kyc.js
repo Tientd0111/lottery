@@ -1,27 +1,26 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import FormInput from "./FormInput";
 import {useForm} from "react-hook-form";
 import {callService} from "../../apis/baseRequest";
 import {toast} from "react-toastify";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {useUserStore} from "../../stores/useUserStore";
 
 const Kyc = () => {
 	const { handleSubmit, control } = useForm({ shouldUseNativeValidation: true });
-	const {kyc,reload} = useUserStore(state => ({
+	const {kyc,reload,ok} = useUserStore(state => ({
 		kyc: state.kyc,
+		ok: state.ok,
 		reload: state.reload
 	}))
-
 	const onSubmit = async data => {
 		callService("user/kyc-finish",'POST',data,true).then((response)=>{
 			toast.success(response?.msg)
 			reload();
-			closeRef.current?.click()
 		}).catch(error=>{
 			toast.error(error.response.data?.msg)
 		})
 	};
-
 	const closeRef = useRef()
 
 	return (
@@ -34,7 +33,9 @@ const Kyc = () => {
 						</h5>
 						<div style={{display:"flex",justifyContent:"space-between",color:"#d9d9d9",width:"100%"}}>
 							<small>(phí gửi mã: 1000đ/lần) </small>
-							<small><a style={{color:"white",padding:"4px",backgroundColor:"#28a745",borderRadius:"6px"}} onClick={()=>kyc()} href="/#">Gửi mã</a></small>
+							<small>{ok === false?<a style={{color:"white",padding:"4px",backgroundColor:"#28a745",borderRadius:"6px"}} onClick={()=>kyc()} href="/#">Gửi mã</a>:
+								<span>Đã gửi mã xác minh <FontAwesomeIcon icon={['fas','exclamation-circle']}/></span>}
+							</small>
 						</div>
 							<button onClick={()=>closeRef.current?.click()} type="button" className="close" data-dismiss="modal" aria-label="Close" ref={closeRef} style={{padding:"4px 16px"}}>
 								<span style={{color:"#fff"}} aria-hidden="true">&times;</span>

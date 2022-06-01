@@ -6,6 +6,7 @@ import {useHistoryStores} from "../../../stores/useHistoryStores";
 import formatDate from "../../../hooks/formatDate";
 import formatNumber from "../../../hooks/formatNumber";
 import ButtonBase from "../../components/ButtonBase";
+import Detail from "../../components/Detail";
 
 const LichSuRut = () => {
 	const {transferRut, histories, loading} = useHistoryStores(state => ({
@@ -27,6 +28,7 @@ const LichSuRut = () => {
 		setPageNumber(pageNumber + 1)
 		await transferRut({pageNumber: pageNumber + 1, addItem: true})
 	}
+	const [id, setId] = useState(null);
 	return (
 		<CommonMain>
 			<section style={{marginTop:"180px"}}>
@@ -49,13 +51,19 @@ const LichSuRut = () => {
 										<tr key={index} style={{textAlign:'center'}}>
 											<td>{formatDate(item.created_at,"DD/MM/YYYY")}</td>
 											<td>{item.bank_id_to}</td>
-											<td>{formatNumber(item.money_transfer)}</td>
+											<td>{formatNumber(item.money)}</td>
 											<td>{item.reason}</td>
 											<td>{item.status === "Xác nhận"?
 												<a style={{cursor: 'pointer', textDecoration: 'underline', color: 'blue'}} onClick={()=>{
-
+													setId(item._id)
 												}
-												}>Xác nhận</a>: <p style={{color: 'red'}}>Từ chối</p>}</td>
+												}>Xác nhận</a>:
+												<a style={{cursor: 'pointer', textDecoration: 'underline', color: 'blue'}} onClick={()=>{
+													setId(item._id)
+												}
+												}>{item.status}</a>
+											}
+											</td>
 										</tr>
 									))}
 								</tbody>
@@ -67,6 +75,7 @@ const LichSuRut = () => {
 							isLoading={pageNumber>0?loading:false} text={'Xem thêm'} />
 					</div>
 					<div className={"col-md-3"}><Support/></div>
+					<Detail billId={id}/>
 				</div>
 			</section>
 		</CommonMain>

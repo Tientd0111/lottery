@@ -66,14 +66,14 @@ export const useUserStore = create(set => ({
 		callService(apis.kyc.uri,'POST', {}, true)
 			.then(response => {
 				toast.success(response?.msg)
-				set({loading:false});
+				set({ok: true,loading:false});
 			})
 			.catch(error => {
 				toast.error(error)
 				set({loading:false})
 			})
 	},
-
+	ok: false,
 	user: undefined,
 	loading: false,
 }))

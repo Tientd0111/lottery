@@ -41,7 +41,6 @@ export async function callService(uri, method, bodyParameters, hasToken) {
 	// console.log(hasToken);
 	// console.log(uri);
 	let url = `${environmentConfig.API_ENVIRONMENT_URL}${uri}`;
-
 	try {
 		let authen_token
 		if (hasToken) {

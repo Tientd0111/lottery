@@ -53,7 +53,7 @@ const apis = {
 	},
 	loadbankad:{
 		uri: 'bank/list-bank-transfer'
-	},
+	}
 
 }
 export default apis
