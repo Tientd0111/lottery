@@ -53,13 +53,12 @@ const LichSuNap = () => {
 										<td>{formatDate(item.updated_at,"DD/MM/YYYY")}</td>
 										<td>{formatNumber(item.money)}</td>
 										<td>{item.reason}</td>
-										<td>{item.status === "Xác nhận"?
-											<a href={"/#"} className={'nav-link'} data-toggle="modal" data-target="#detail" onClick={()=>{
+										<td>
+											<a style={{color:"#6b6b6b",cursor: 'pointer', textDecoration: 'underline'}} href={"/#"} className={'nav-link'} data-toggle="modal" data-target="#detail" onClick={()=>{
 												setId(item._id)
 											}}>
 												{item.status}
-											</a>: <p style={{color: 'red'}}>{item.status}</p>}</td>
-										{/*<td>{item.created_by}</td>*/}
+											</a></td>
 									</tr>
 								))}
 
