@@ -19,15 +19,16 @@ const HomePage = () => {
 
 						<div className="carousel-inner">
 							<div className="carousel-item active" style={{backgroundImage: `url(${images.back_banner4})`}}>
-								<div className="row banner_1" >
-									<div className="col-lg-6 d-flex align-self-center" style={{paddingLeft:"150px"}}>
+								<div className="row banner_1" style={{marginTop:"80px"}}>
+									<div className="col-lg-6 d-flex align-self-center" style={{justifyContent:'center'}}>
 										<div className="left-content">
 											<div className="content">
 												<h5 className="subtitle">
 													Lô đề 3 miền
 												</h5>
 												<p className="text">
-													Hoàn trả cực sốc
+													Chơi, trao đổi và tham gia
+													Trả thưởng cao ...!
 												</p>
 												<div className="links">
 													<Link to={PATH.LOTTERY} className="mybtn1 link1">Chơi ngay !</Link>
@@ -44,7 +45,7 @@ const HomePage = () => {
 							</div>
 							<div className="carousel-item">
 								<div className="row" style={{height:"511px"}}>
-									<div className="col-lg-6 d-flex align-self-center" style={{paddingLeft:"50px"}}>
+									<div className="col-lg-6 d-flex align-self-center" style={{paddingLeft:"50px",marginTop:"50px"}}>
 										<div className="left-content">
 											<div className="content">
 												<h5 className="subtitle">

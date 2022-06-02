@@ -186,12 +186,6 @@
   .header .mainmenu-area .navbar {
     padding: 8px 0px;
 }
-  .hero-area {
-    padding: 189px 0px 730px;
-  }
-  .hero-area .hero-img {
-    top: 40px;
-  }
   .hero-area .hero-img .shape.man{
     -webkit-animation: unset;
     -moz-animation: unset;
@@ -609,9 +603,6 @@ div#main_menu .navbar-nav{
 .hero-img2{
   margin-top: 60px;
 }
-.hero-area {
-  padding: 189px 0px 265px;
-}
 .header .top-header .content{
   display: flow-root;
 }
@@ -760,9 +751,7 @@ div#main_menu .navbar-nav{
 
 
 @media  (max-width: 575px) {
-  .hero-area {
-    padding: 232px 0px 265px;
-  }
+
   .hero-area .left-content .content .subtitle {
     font-size: 20px;
     line-height: 30px;
@@ -1302,9 +1291,7 @@ div#main_menu .navbar-nav{
   .index2 .hero-area {
     padding: 258px 0px 264px;
 }
-.hero-area {
-  padding: 258px 0px 265px;
-}
+
 
 .breadcrumb-area.play
    {
