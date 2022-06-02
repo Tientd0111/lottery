@@ -38,6 +38,7 @@ const SignUp = () => {
 								<FormInput control={control} name={'name'} placeholder={'Nhập họ tên... (vd: TRAN VAN A)'} label={'Họ tên'}/>
 								{/*<FormInput control={control} name={'email'} placeholder={'Nhập email...'} label={'Email'}/>*/}
 								<FormInput control={control} name={'phone_number'} placeholder={'Nhập số điện thoại...'} label={'Số điện thoại'}/>
+								<small style={{color:"#fa324b"}}>Lưu ý: Nhập họ tên trùng với tên  in trên thẻ ngân hàng</small>
 								<ButtonBase text={'Đăng ký'} isLoading={loading}/>
 							</form>
 						</div>

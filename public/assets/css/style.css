@@ -1318,7 +1318,7 @@ select:focus {
 /* Hero Area Start */
 .hero-area {
   position: relative;
-  padding: 317px 0px 354px;
+  margin-top: 149px;
   position: relative;
   background: #070b28;
   overflow: hidden; }
@@ -4596,7 +4596,7 @@ select:focus {
 
 .modal-dialog .modal-content .close {
   position: absolute;
-  right: 9px;
+  right: 16px;
   z-index: 9; }
 
 .modal-dialog .modal-content .close span {

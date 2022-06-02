@@ -14,6 +14,7 @@ const Detail = forwardRef((props, ref) => {
 				setDataResult(res)
 			}).catch()
 	},[billId])
+	console.log(dataResult)
 	const {user} = useUserStore()
 	return (
 		<div className="modal fade login-modal" id="detail" tabIndex={-1} role="dialog" aria-labelledby="login" aria-hidden="true">
@@ -26,7 +27,7 @@ const Detail = forwardRef((props, ref) => {
 					</div>
 					<div className="modal-body">
 						<div className="header-area">
-							<p>Chi tiết {dataResult?.type === 'plus'? "đơn nạp":"đơn rút"}</p>
+							<h3>Chi tiết {dataResult?.type === 'plus'? "đơn nạp":"đơn rút"}</h3>
 						</div>
 						<div className="form-area">
 							{dataResult?.type === "plus"?
@@ -34,12 +35,16 @@ const Detail = forwardRef((props, ref) => {
 								''
 							}
 							<br/>
-							<span>Tài khoản nhận: {dataResult?.bank_to?.bank_name} - {dataResult?.bank_to?.bank_account_name}</span>
+							{dataResult?.type === "plus"?
+								<span>Tài khoản nhận: {dataResult?.bank_to?.bank_name} - {dataResult?.bank_to?.bank_account_name}</span>:
+								<span>Tài khoản nhận: {dataResult?.bank_to?.bank_name} - {user?.name}</span>
+							}
 							<br/>
 							<span>số tiền: {formatNumber(dataResult?.money)}</span>
 							<br/>
 							<span>Nội dung chuyển khoản: {dataResult?.description}</span>
 						</div>
+						
 					</div>
 				</div>
 			</div>

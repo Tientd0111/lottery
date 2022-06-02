@@ -25,7 +25,7 @@ const apis = {
 		uri:'transfer/history-plus'
 	},
 	hisRut:{
-		uri:'withdraw/history-minus'
+		uri:'transfer/history-minus'
 	},
 	hisBet:{
 		uri:'billLottery/history'

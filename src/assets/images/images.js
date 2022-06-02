@@ -47,10 +47,14 @@ import nap2 from "./help/nap2.jpg"
 import rut from "./help/rut.jpg"
 import kyc from "./help/kyc.jpg"
 import confirm from "./help/confirm.jpg"
+import banner_4 from "./banner/txt_hoantra_new.png"
+import back_banner4 from "./banner/background-ban-2.png"
 const images = {
 	//lode
 	logo : logo,
+	back_banner4: back_banner4,
 	banner_3: banner_3,
+	banner_4: banner_4,
 	banner_2: banner_2,
 	banner_1: banner_1,
 	mail_box: mail_box,

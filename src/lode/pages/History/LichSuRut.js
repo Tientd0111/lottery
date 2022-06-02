@@ -53,16 +53,12 @@ const LichSuRut = () => {
 											<td>{item.bank_id_to}</td>
 											<td>{formatNumber(item.money)}</td>
 											<td>{item.reason}</td>
-											<td>{item.status === "Xác nhận"?
-												<a style={{cursor: 'pointer', textDecoration: 'underline', color: 'blue'}} onClick={()=>{
+											<td>
+												<a style={{color:"#6b6b6b",cursor: 'pointer', textDecoration: 'underline'}} href={"/#"} className={'nav-link'} data-toggle="modal" data-target="#detail" onClick={()=>{
 													setId(item._id)
-												}
-												}>Xác nhận</a>:
-												<a style={{cursor: 'pointer', textDecoration: 'underline', color: 'blue'}} onClick={()=>{
-													setId(item._id)
-												}
-												}>{item.status}</a>
-											}
+												}}>
+													{item.status}
+												</a>
 											</td>
 										</tr>
 									))}
