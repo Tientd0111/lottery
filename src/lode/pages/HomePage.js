@@ -43,7 +43,7 @@ const HomePage = () => {
 								</div>
 							</div>
 							<div className="carousel-item">
-								<div className="row">
+								<div className="row" style={{height:"511px"}}>
 									<div className="col-lg-6 d-flex align-self-center" style={{paddingLeft:"50px"}}>
 										<div className="left-content">
 											<div className="content">

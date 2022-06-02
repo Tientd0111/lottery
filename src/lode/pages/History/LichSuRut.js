@@ -41,7 +41,6 @@ const LichSuRut = () => {
 								<tbody>
 								<tr style={{textAlign:'center'}}>
 									<td>Ngày GD</td>
-									<td>Tài khoản nhận</td>
 									<td>Số tiền</td>
 									<td>Lý do</td>
 									<td>Trạng thái</td>
@@ -50,7 +49,6 @@ const LichSuRut = () => {
 									histories?.map((item, index)=>(
 										<tr key={index} style={{textAlign:'center'}}>
 											<td>{formatDate(item.created_at,"DD/MM/YYYY")}</td>
-											<td>{item.bank_id_to}</td>
 											<td>{formatNumber(item.money)}</td>
 											<td>{item.reason}</td>
 											<td>
