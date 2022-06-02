@@ -1,9 +1,30 @@
 import React, {forwardRef, useEffect, useRef, useState} from 'react';
 import {useUserStore} from "../../stores/useUserStore";
+import {useBankStore} from "../../stores/useBankStore";
+import formatNumber from "../../hooks/formatNumber";
+import {useForm} from "react-hook-form";
+import {toast} from "react-toastify";
+import {UsePayStores} from "../../stores/usePayStores";
 
 const ConfirmNap = forwardRef((props, ref) => {
 	const closeRef = useRef()
-	const {data} = props
+	const {data,bankId} = props
+	const {list,load,loadAdmin,listAd} = useBankStore(state => ({
+		load: state.load,
+		list: state.dataResult,
+		loadAdmin: state.loadAdmin,
+		listAd: state.dataBankAd
+	}))
+	const {tranf} = UsePayStores(state => ({
+		tranf: state.tranf,
+	}))
+	const {handleSubmit, register,formState: { errors },reset} = useForm();
+	const [des,setDes] = useState();
+	const onSub = () => {
+		tranf(data)
+		setDes(Math.floor(Math.random()*(100-90000))+100000)
+		closeRef.current?.click()
+	};
 	const {user} = useUserStore()
 	return (
 		<div className="modal fade login-modal" id="confirm" tabIndex={-1} role="dialog" aria-labelledby="login" aria-hidden="true">
@@ -16,12 +37,15 @@ const ConfirmNap = forwardRef((props, ref) => {
 					</div>
 					<div className="modal-body">
 						<div className="header-area">
-							<h3>Xác nhận đơn nạp</h3>
+							<h3>Xác nhận đã chuyển khoản</h3>
+							<small style={{color:"red"}}>vui lòng kiểm tra thông tin và chuyển khoản trước khi nhấn xác nhận </small>
 						</div>
 						<div className="form-area">
-
+							<p>Đến tài khoản: {listAd[bankId]?.bank_name} - {listAd[bankId]?.bank_account_name}</p>
+							<p>Số tiền: {formatNumber(data?.money)}</p>
+							<p>Nội dung chuyển khoản: {data?.description}</p>
 						</div>
-
+						<div style={{display:'flex',justifyContent:"center"}}><a  href="/#" className={"mybtn1"} onClick={handleSubmit(onSub)}>xác nhận</a></div>
 					</div>
 				</div>
 			</div>

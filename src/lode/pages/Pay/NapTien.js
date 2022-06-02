@@ -10,6 +10,8 @@ import ButtonBase from "../../components/ButtonBase";
 import {useBankStore} from "../../../stores/useBankStore";
 import {Link} from "react-router-dom";
 import PATH from "../../../routes/path";
+import ConfirmNap from "../../components/ConfirmNap";
+import support from "../../components/Support";
 const NapTien = () => {
 
 	const money=[
@@ -47,13 +49,16 @@ const NapTien = () => {
 	const {user} = useUserStore(state => ({
 		user: state.user
 	}))
+	const [data,setData] = useState()
 	const {handleSubmit, register,formState: { errors },reset} = useForm();
 	const onSubmit = async data => {
 		if(user?.username !== undefined) {
-			data.bank_id_to = listAd[bankId]._id
+			data.bank_id_to = listAd[bankId]?._id
 			data.type = "plus"
 			data.description = des
-			await tranf(data)
+			// await tranf(data)
+			// setDes(Math.floor(Math.random()*(100-90000))+100000)
+			setData(data)
 			reset()
 			setDes(Math.floor(Math.random()*(100-90000))+100000)
 		}
@@ -75,7 +80,6 @@ const NapTien = () => {
 								<a className="nav-link active" data-toggle="tab" href="/#">Nạp thủ
 									công</a>
 							</li>
-
 						</ul>
 						<div className="tab-content bg-content" id="myTabContent">
 							<div className="form-deposit-bank ">
@@ -146,7 +150,7 @@ const NapTien = () => {
 												Tiền" khi Chuyển Tiền Ngân Hàng tại Winclub24h</small>
 										</div>
 										<div className="col-md-6" style={{maxWidth:"100%"}}>
-											<form onSubmit={handleSubmit(onSubmit)}>
+											<form>
 												<div className="form-group">
 													<div className="row">
 														<div className="col-md-5">
@@ -195,7 +199,7 @@ const NapTien = () => {
 														<div className="col-md-4">
 														</div>
 														<div className="col-md-8">
-															<ButtonBase text={"Nạp tiền"} isLoading={loading}/>
+															<a href="/#" onClick={handleSubmit(onSubmit)} data-toggle="modal" data-target="#confirm" className={"mybtn1"}>Xác nhận</a>
 														</div>
 													</div>
 												</div>
@@ -222,6 +226,7 @@ const NapTien = () => {
 						</div>
 					</div>
 					<div className={"col-md-3"}><Support/></div>
+					<ConfirmNap data={data} bankId={bankId}/>
 				</div>
 			</section>
 		</CommonMain>
