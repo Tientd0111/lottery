@@ -3,6 +3,7 @@ import Constant from "../../../contants/constant";
 import { useFormContext} from "react-hook-form";
 import {callService} from "../../../apis/baseRequest";
 import {toast} from "react-toastify";
+import useMounted from "../../../hooks/useMounted";
 
 const HeadLottery = ({pageCallback = () => {}}) =>{
 
@@ -43,9 +44,11 @@ const HeadLottery = ({pageCallback = () => {}}) =>{
 		pageCallback(code)
 	}
 
-	const resetValue = (mien) => {
+	const mounted = useMounted()
+
+	const resetValue = (mien, city) => {
 		let kieuDanh = mien === Constant.DAI_MN ? Constant.BAO_LO : Constant.DANH_LO
-		return {soDanh: [], mien, kieuChoi: Constant.LO_2_SO, kieuDanh,city:''}
+		return {soDanh: [], mien, kieuChoi: Constant.LO_2_SO, kieuDanh, city}
 	}
 	useEffect(() => {
 		const subscription = watch((value, { name, type }) => {
@@ -53,13 +56,25 @@ const HeadLottery = ({pageCallback = () => {}}) =>{
 				// eslint-disable-next-line default-case
 				switch (watch('mien')) {
 					case Constant.DAI_MB:
-						reset(resetValue(Constant.DAI_MB))
+						reset(resetValue(Constant.DAI_MB, ''))
 						break
 					case Constant.DAI_MN:
-						reset(resetValue(Constant.DAI_MN))
+						callService('daiLottery/find-dai-daily/'+ Constant.DAI_MN, 'GET', {})
+							.then((res)=> {
+								if(mounted()) {
+									setData(res)
+								}
+								reset(resetValue(Constant.DAI_MN, res[0].code))
+							})
 						break
 					case Constant.DAI_MT:
-						reset(resetValue(Constant.DAI_MT))
+						callService('daiLottery/find-dai-daily/'+ Constant.DAI_MT, 'GET', {})
+							.then((res)=> {
+								if(mounted()) {
+									setData(res)
+								}
+								reset(resetValue(Constant.DAI_MT, res[0].code))
+							})
 						break
 				}
 			}
@@ -67,16 +82,7 @@ const HeadLottery = ({pageCallback = () => {}}) =>{
 		return () => subscription.unsubscribe();
 	}, []);
 
-	const getDai=()=>{
-		callService('daiLottery/find-dai-daily/'+ watch('mien'), 'GET', {})
-			.then((res)=> {
-				setData(res)
-				toast.success(res.msg)
-			})
-			.catch((err)=> {
-			})
-	}
-	const [data,setData] = useState()
+	const [data, setData] = useState([])
 	return(
 		<section>
 			<div className="row callback">
@@ -85,7 +91,6 @@ const HeadLottery = ({pageCallback = () => {}}) =>{
 						<label htmlFor="commission_rate" className="label-cus">Miền</label>
 						<select {...register('mien')} id="commission_rate"
 								className="form-control form-option"
-								onClick={getDai}
 								placeholder="Chọn đài">
 							{arrDai.map((item)=>(
 								<option key={item.id} value={item.id}>{item.name}</option>
@@ -93,20 +98,22 @@ const HeadLottery = ({pageCallback = () => {}}) =>{
 						</select>
 					</div>
 				</div>
-				{watch("mien")=== "MB"?'':
+				{watch("mien") !== Constant.DAI_MB &&(
 					<div className="col-md-4">
-						<div>
-							<label htmlFor="commission_rate" className="label-cus">Đài</label>
-							<select {...register('city')} id="commission_rate"
-									 className="form-control form-option"
-									 placeholder="Chọn đài">
-								{data.map((item)=>(
-									<option key={item._id}  value={item.code}>{item.name}</option>
-								))}
-							</select>
-						</div>
+						{data.length > 0 &&(
+							<>
+								<label htmlFor="commission_rate" className="label-cus">Đài</label>
+								<select {...register('city')} id="commission_rate"
+										className="form-control form-option"
+										placeholder="Chọn đài">
+									{data.map((item)=>(
+										<option key={item._id}  value={item.code}>{item.name}</option>
+									))}
+								</select>
+							</>
+						)}
 					</div>
-				}
+				)}
 			</div>
 			{watch('mien') === 'MN'?
 				<div className="kieu-danh row">
