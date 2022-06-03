@@ -11,11 +11,24 @@ const BankPage = () => {
 	const {register, handleSubmit, formState: {errors}, reset} = useForm()
 	const {user} = useUserStore()
 	const bank_name = [
-		{id: constant.MB_BANK, name: constant.MB_BANK},
-		{id: constant.TECH, name: constant.TECH},
-		{id: constant.VIET, name: constant.VIET},
-		{id: constant.BIDV, name: constant.BIDV},
-		{id: constant.TP, name: constant.TP}
+		{id: 'Agribank', name: 'Agribank'},
+		{id: 'Ngân hàng Xây dựng', name: 'Ngân hàng Xây dựng'},
+		{id: 'Oceanbank', name: 'Oceanbank'},
+		{id: 'BIDV', name: 'BIDV'},
+		{id: 'VietinBank', name: 'VietinBank'},
+		{id: 'Vietcombank', name: 'Vietcombank'},
+		{id: 'VPBank', name: 'VPBank'},
+		{id: 'MB', name: 'MB'},
+		{id: 'Techcombank', name: 'Techcombank'},
+		{id: 'ACB', name: 'ACB'},
+		{id: 'SHB', name: 'SHB'},
+		{id: 'HDBank', name: 'HDBank'},
+		{id: 'Sacombank', name: 'Sacombank'},
+		{id: 'VIB', name: 'VIB'},
+		{id: 'TPBank', name: 'TPBank'},
+		{id: 'MSB', name: 'MSB'},
+		{id: 'OCB', name: 'OCB'},
+		{id: 'LienVietPostBank', name: 'LienVietPostBank'}
 	]
 	const {loading,addBank,load,list,del} = useBankStore(state => ({
 		addBank: state.addBank,
