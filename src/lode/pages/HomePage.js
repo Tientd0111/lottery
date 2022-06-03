@@ -19,7 +19,7 @@ const HomePage = () => {
 						</ul>
 
 						<div className="carousel-inner">
-							<div className="carousel-item active" style={{backgroundImage: `url(${images.back_banner4})`,backgroundSize:"cover"}}>
+							<div className="carousel-item active" style={{backgroundImage: `url(${images.back_banner4})`,backgroundSize:"cover",height:"491px"}}>
 								<div className="row banner_1" style={{marginTop:"80px"}}>
 									<div className="col-lg-6 d-flex align-self-center" style={{justifyContent:'center'}}>
 										<div className="left-content">
@@ -44,12 +44,12 @@ const HomePage = () => {
 									</div>
 								</div>
 							</div>
-							<div className="carousel-item">
+							<div className="carousel-item" style={{height:"491px"}}>
 								<div className="row banner_1" style={{marginTop:"80px"}}>
 									<img src={images.banner6} alt=""/>
 								</div>
 							</div>
-							<div className="carousel-item">
+							<div className="carousel-item" style={{height:"491px"}}>
 								<div className="row" style={{height:"541px",marginTop:"50px"}}>
 									<div className="col-lg-6 d-flex align-self-center" style={{paddingLeft:"50px"}}>
 										<div className="left-content">
@@ -74,7 +74,7 @@ const HomePage = () => {
 									</div>
 								</div>
 							</div>
-							<div className="carousel-item" style={{backgroundImage: `url(${images.back_banner4})`,backgroundSize:"cover"}}>
+							<div className="carousel-item" style={{backgroundImage: `url(${images.back_banner4})`,backgroundSize:"cover",height:"491px"}}>
 								<div className="row banner_1">
 									<div className="col-lg-6 d-flex align-self-center" style={{justifyContent:'center'}}>
 										<div className="left-content">

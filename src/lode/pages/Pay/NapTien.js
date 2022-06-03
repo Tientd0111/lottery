@@ -199,7 +199,7 @@ const NapTien = () => {
 														<div className="col-md-4">
 														</div>
 														<div className="col-md-8">
-															<a href="/#" onClick={handleSubmit(onSubmit)} data-toggle="modal" data-target="#confirm" className={"mybtn1"}>Xác nhận</a>
+															<a href="/#" onClick={handleSubmit(onSubmit)} data-toggle={`${user?.username !== undefined ? 'modal':''}`} data-target={`${user?.username !== undefined ? '#confirm':''}`} className={"mybtn1"}>Xác nhận</a>
 														</div>
 													</div>
 												</div>

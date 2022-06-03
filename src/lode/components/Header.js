@@ -80,9 +80,15 @@ const Header = () => {
 										</li>
 										<li className={"nav-item dropdown li_cha"}>
 											{user?.username === undefined?(
-											<a href="/#" className={"sign-in"} data-toggle={"modal"} data-target={"#login"}>
-												{'Đăng nhập'}
-											</a>): user?.username}
+													<>
+														<a href="/#" className={"sign-in"} data-toggle={"modal"} data-target={"#login"}>
+															{'Đăng nhập'}
+														</a> |
+														<a href="/#" className={"sign-in"} data-toggle={"modal"} data-target={"#signin"}>
+															{'  Đăng ký'}
+														</a>
+													</>
+												): user?.username}
 											{user&&(
 											<ul className={"ul1"}>
 												<li className={"li1"} style={{display:""}}>

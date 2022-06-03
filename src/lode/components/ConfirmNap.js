@@ -9,6 +9,7 @@ import {UsePayStores} from "../../stores/usePayStores";
 const ConfirmNap = forwardRef((props, ref) => {
 	const closeRef = useRef()
 	const {data,bankId} = props
+	const {user} = useUserStore()
 	const {list,load,loadAdmin,listAd} = useBankStore(state => ({
 		load: state.load,
 		list: state.dataResult,
@@ -21,11 +22,14 @@ const ConfirmNap = forwardRef((props, ref) => {
 	const {handleSubmit, register,formState: { errors },reset} = useForm();
 	const [des,setDes] = useState();
 	const onSub = () => {
-		tranf(data)
-		setDes(Math.floor(Math.random()*(100-90000))+100000)
-		closeRef.current?.click()
+		if(user?.username !== undefined){
+			tranf(data)
+			setDes(Math.floor(Math.random()*(100-90000))+100000)
+			closeRef.current?.click()
+		}else {
+			toast.error('Vui lòng đăng nhập')
+		}
 	};
-	const {user} = useUserStore()
 	return (
 		<div className="modal fade login-modal" id="confirm" tabIndex={-1} role="dialog" aria-labelledby="login" aria-hidden="true">
 			<div className="modal-dialog modal-dialog-centered" role="document">

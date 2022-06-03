@@ -51,7 +51,7 @@ const RutTien = () => {
 			data.type = "minus"
 			await tranf(data)
 		}else {
-			toast("Vui lòng đăng nhập")
+			toast.error("Vui lòng đăng nhập")
 		}
 	};
 
