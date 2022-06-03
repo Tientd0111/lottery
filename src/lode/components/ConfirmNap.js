@@ -42,7 +42,7 @@ const ConfirmNap = forwardRef((props, ref) => {
 					<div className="modal-body">
 						<div className="header-area">
 							<h3>Xác nhận đã chuyển khoản</h3>
-							<small style={{color:"red"}}>vui lòng kiểm tra thông tin và chuyển khoản trước khi nhấn xác nhận </small>
+							<small style={{color:"#ff8282"}}>vui lòng kiểm tra thông tin và chuyển khoản đúng nội dung bên dưới trước khi nhấn xác nhận </small>
 						</div>
 						<div className="form-area">
 							<p>Đến tài khoản: {listAd[bankId]?.bank_name} - {listAd[bankId]?.bank_account_name}</p>

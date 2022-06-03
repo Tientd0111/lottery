@@ -4,7 +4,9 @@ import CommonMain from "../CommonMain";
 import FeaturedGame from '../components/FeaturedGame';
 import {Link} from "react-router-dom";
 import PATH from '../../routes/path';
+import {useUserStore} from "../../stores/useUserStore";
 const HomePage = () => {
+	const {user} = useUserStore()
 	return (
 		<CommonMain>
 			<div className="hero-area">
@@ -85,9 +87,14 @@ const HomePage = () => {
 												<p className="text">
 													Mọi thứ thật dễ dàng
 												</p>
-												<div className="links">
-													<Link to={PATH.LOTTERY} className="mybtn1 link1">Đăng Ký</Link>
-												</div>
+												{user?.username === undefined?
+													<div className="links">
+														<a href="/#" data-toggle="modal" data-target="#signin" className="mybtn1 link1">Đăng Ký</a>
+													</div>:
+													<div className="links">
+														<link to={PATH.NAP} className="mybtn1 link1">Nạp Ngay</link>
+													</div>
+												}
 											</div>
 										</div>
 									</div>
