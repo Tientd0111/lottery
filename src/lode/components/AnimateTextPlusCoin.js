@@ -21,7 +21,7 @@ const AnimateTextPlusCoin = () => {
 				setAnimate(false)
 			}, 2000)
 		})
-	},[])
+	},[socket, user])
 
 	return (
 		<div className={`wrapper_plus_coin ${animate&&('animate-plus-coin')}`}>+{coin}</div>

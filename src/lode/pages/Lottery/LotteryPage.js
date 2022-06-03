@@ -21,7 +21,6 @@ const LotteryPage = () => {
 			kieuChoi: Constant.LO_2_SO
 		}
 	});
-	// eslint-disable-next-line react-hooks/exhaustive-deps
 	const initValue = (kieuDanh, kieuChoi) => {
 		return {soDanh: [], kieuDanh , kieuChoi,mien: form.getValues('mien')}
 	}
@@ -72,6 +71,7 @@ const LotteryPage = () => {
 				))
 				data.soDanh = number
 			}
+			 // console.log(data)
 			await bet(data)
 		}else {
 			toast('Vui lòng đăng nhập')

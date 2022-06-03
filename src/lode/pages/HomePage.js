@@ -1,10 +1,11 @@
 import React from 'react';
 import images from '../../assets/images/images';
 import CommonMain from "../CommonMain";
-import FeaturedGame from '../components/FeaturedGame';
+// import FeaturedGame from '../components/FeaturedGame';
 import {Link} from "react-router-dom";
 import PATH from '../../routes/path';
 import {useUserStore} from "../../stores/useUserStore";
+import FeaturedGame from "../components/FeaturedGame";
 const HomePage = () => {
 	const {user} = useUserStore()
 	return (
@@ -12,7 +13,6 @@ const HomePage = () => {
 			<div className="hero-area">
 				<div>
 					<div id="demo" className="carousel slide" data-ride="carousel">
-
 						<ul className="carousel-indicators">
 							<li data-target="#demo" data-slide-to="0" className="active"/>
 							<li data-target="#demo" data-slide-to="1"/>
@@ -92,7 +92,7 @@ const HomePage = () => {
 														<a href="/#" data-toggle="modal" data-target="#signin" className="mybtn1 link1">Đăng Ký</a>
 													</div>:
 													<div className="links">
-														<link to={PATH.NAP} className="mybtn1 link1">Nạp Ngay</link>
+														<Link to={PATH.NAP} className="mybtn1 link1">Nạp Ngay</Link>
 													</div>
 												}
 											</div>

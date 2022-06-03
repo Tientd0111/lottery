@@ -1,6 +1,8 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import Constant from "../../../contants/constant";
 import { useFormContext} from "react-hook-form";
+import {callService} from "../../../apis/baseRequest";
+import {toast} from "react-toastify";
 
 const HeadLottery = ({pageCallback = () => {}}) =>{
 
@@ -43,9 +45,8 @@ const HeadLottery = ({pageCallback = () => {}}) =>{
 
 	const resetValue = (mien) => {
 		let kieuDanh = mien === Constant.DAI_MN ? Constant.BAO_LO : Constant.DANH_LO
-		return {soDanh: [], mien, kieuChoi: Constant.LO_2_SO, kieuDanh}
+		return {soDanh: [], mien, kieuChoi: Constant.LO_2_SO, kieuDanh,city:''}
 	}
-
 	useEffect(() => {
 		const subscription = watch((value, { name, type }) => {
 			if(name === 'mien') {
@@ -66,14 +67,25 @@ const HeadLottery = ({pageCallback = () => {}}) =>{
 		return () => subscription.unsubscribe();
 	}, []);
 
+	const getDai=()=>{
+		callService('daiLottery/find-dai-daily/'+ watch('mien'), 'GET', {})
+			.then((res)=> {
+				setData(res)
+				toast.success(res.msg)
+			})
+			.catch((err)=> {
+			})
+	}
+	const [data,setData] = useState()
 	return(
 		<section>
 			<div className="row callback">
 				<div className="col-md-4">
 					<div>
-						<label htmlFor="commission_rate" className="label-cus">Đài</label>
+						<label htmlFor="commission_rate" className="label-cus">Miền</label>
 						<select {...register('mien')} id="commission_rate"
 								className="form-control form-option"
+								onClick={getDai}
 								placeholder="Chọn đài">
 							{arrDai.map((item)=>(
 								<option key={item.id} value={item.id}>{item.name}</option>
@@ -81,6 +93,20 @@ const HeadLottery = ({pageCallback = () => {}}) =>{
 						</select>
 					</div>
 				</div>
+				{watch("mien")=== "MB"?'':
+					<div className="col-md-4">
+						<div>
+							<label htmlFor="commission_rate" className="label-cus">Đài</label>
+							<select {...register('city')} id="commission_rate"
+									 className="form-control form-option"
+									 placeholder="Chọn đài">
+								{data.map((item)=>(
+									<option key={item._id}  value={item.code}>{item.name}</option>
+								))}
+							</select>
+						</div>
+					</div>
+				}
 			</div>
 			{watch('mien') === 'MN'?
 				<div className="kieu-danh row">

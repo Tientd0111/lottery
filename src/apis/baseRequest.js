@@ -13,7 +13,6 @@ const apiMiddleware = ({ dispatch }) => next => action => {
 	if (!uri) {
 		throw new Error(`'path' not specified for async action ${action.type}`)
 	}
-
 	// let url = `${environmentConfig.API_ENVIRONMENT_URL}${uri}`;
 	// console.log('Method', method)
 	return callService(uri, method, bodyParameters, hasToken)

@@ -5,6 +5,7 @@ import formatNumber from "../../hooks/formatNumber";
 import {useForm} from "react-hook-form";
 import {toast} from "react-toastify";
 import {UsePayStores} from "../../stores/usePayStores";
+import AppLoading from "./AppLoading";
 
 const ConfirmNap = forwardRef((props, ref) => {
 	const closeRef = useRef()
@@ -16,8 +17,9 @@ const ConfirmNap = forwardRef((props, ref) => {
 		loadAdmin: state.loadAdmin,
 		listAd: state.dataBankAd
 	}))
-	const {tranf} = UsePayStores(state => ({
+	const {tranf,loading} = UsePayStores(state => ({
 		tranf: state.tranf,
+		loading: state.loading,
 	}))
 	const {handleSubmit, register,formState: { errors },reset} = useForm();
 	const [des,setDes] = useState();
@@ -49,7 +51,7 @@ const ConfirmNap = forwardRef((props, ref) => {
 							<p>Số tiền: {formatNumber(data?.money)}</p>
 							<p>Nội dung chuyển khoản: {data?.description}</p>
 						</div>
-						<div style={{display:'flex',justifyContent:"center"}}><a  href="/#" className={"mybtn1"} onClick={handleSubmit(onSub)}>xác nhận</a></div>
+							<div style={{display:'flex',justifyContent:"center"}}><a  href="/#" className={"mybtn1"} onClick={handleSubmit(onSub)}>xác nhận</a></div>
 					</div>
 				</div>
 			</div>

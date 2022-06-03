@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
@@ -8,7 +8,7 @@ import PATH from "../../routes/path";
 import {Link} from "react-router-dom";
 import BangKq from "./BangKq";
 import formatDate from "../../hooks/formatDate";
-import CountUp, {useCountUp} from "react-countup";
+import CountUp from "react-countup";
 
 library.add(fas, fab);
 
@@ -26,7 +26,6 @@ const FeaturedGame = () => {
 									thưởng cực cao , rút &
 									nạp tiền nhanh, an toàn.</p>
 							</div>
-
 						</div>
 						<div className="row">
 							<div className="col-md-4 col-sm-6 col-xs-12">
@@ -41,7 +40,7 @@ const FeaturedGame = () => {
 											<span className={"MB"}>
 												<CountUp
 													start={10000000}
-													end={35090000}
+													end={Math.floor(Math.random()*(100-50000))+100000 + '000'}
 													delay={0}
 													duration={3}
 													separator=","
@@ -63,7 +62,7 @@ const FeaturedGame = () => {
 										<span className="btn-box">
                   						<span className="bg-white"><i className="glyphicon glyphicon-play"/></span>
                 					</span>
-									</Link>..
+									</Link>
 								</div>
 							</div>
 							<div className="col-md-4 col-sm-6 col-xs-12">
@@ -78,7 +77,7 @@ const FeaturedGame = () => {
 											<span  className={"MT"}>
 												<CountUp
 													start={19002}
-													end={16527000}
+													end={Math.floor(Math.random()*(100-40000))+100000 +'000'}
 													delay={0}
 													duration={3}
 													separator=","
@@ -98,8 +97,8 @@ const FeaturedGame = () => {
 									<Link to={PATH.LOTTERY} className="cta-box">
 										<span className="text">Miền Trung</span>
 										<span className="btn-box">
-										<span className="bg-white"><i className="glyphicon glyphicon-play"/></span>
-                					</span>
+											<span className="bg-white"><i className="glyphicon glyphicon-play"/></span>
+										</span>
 									</Link>
 								</div>
 							</div>
@@ -115,7 +114,7 @@ const FeaturedGame = () => {
 											<span className={"MN"}>
 												<CountUp
 													start={19002}
-													end={25674000}
+													end={Math.floor(Math.random()*(100-50000))+100000 + '000'}
 													delay={0}
 													duration={3}
 													separator=","

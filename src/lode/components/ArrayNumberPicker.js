@@ -38,7 +38,6 @@ const ArrayNumberPicker = ({arrays = [], t = false, indexPlus = "0",tab = ''}) =
 		}
 		else append({so: so})
 	},[fields])
-	console.log(watch())
 	return Array.from(Array(arrays.length === 10 ? 1 :arrays.length / 10)).map((e,index)=>{
 		return(
 			<tr key={index}>

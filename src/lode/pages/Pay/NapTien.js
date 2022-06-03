@@ -45,7 +45,7 @@ const NapTien = () => {
 			setDes(Math.floor(Math.random()*(100-90000))+100000)
 		}
 		fetchData()
-	},[])
+	},[load, loadAdmin])
 	const {user} = useUserStore(state => ({
 		user: state.user
 	}))

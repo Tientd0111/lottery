@@ -50,7 +50,7 @@ const DetailBillBet = forwardRef((props, ref) => {
 					}
 				}).catch((err)=>{if(mounted()) {setIsLoading(false)}})
 		}
-	},[billId])
+	},[billId, mounted])
 
 	return (
 		<Modal

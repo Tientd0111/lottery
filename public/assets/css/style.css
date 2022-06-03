@@ -4671,8 +4671,17 @@ body{
   border: solid 1px #e2e2e2;
   margin-bottom: 10px;
 }
+.table span:hover{
+  background-image: linear-gradient(to left, #ff344d, #d2273c);
+  color: #FFFFFF;
+}
 .table .active{
-  background: red;
+  background: #ef2f47;
+  color: #FFFFFF;
+}
+.table .active:hover{
+  background-image: linear-gradient(to left, #ff344d, #d2273c);
+  color: #FFFFFF;
 }
 .table-cus{
   border: none;
@@ -4849,6 +4858,10 @@ body{
   padding: 10px 0;
   cursor: pointer;
 }
+.btn-checkbox:hover{
+  background-image: linear-gradient(to left, #ff344d, #d2273c);
+  color: #FFFFFF;
+}
 .circle {
   width: 15px;
   border: 1px solid #c2c2c2;
@@ -4863,17 +4876,19 @@ body{
   color: #d70a0a;
 }
 .act .btn-checkbox {
+  color: #FFFFFF;
+  background-color: #ef2f47;
   border: 1px solid #d01c2d;
 }
 
 .act .circle {
-  border: 1px solid #d01c2d;
+  border: 1px solid #FFFFFF;
 }
 
 .act .circle-dots {
   width: 5px;
   height: 5px;
-  background: red;
+  background: #FFFFFF;
   border-radius: 50%;
 }
 .hidden{
@@ -4888,7 +4903,8 @@ body{
   margin-right: 5px;
 }
 .butt .active {
-  background-color: #D01C2D;
+  background-color: #ef2f47;
+  color: #FFFFFF !important;
 }
 .tab-head{
   margin-top: 20px;

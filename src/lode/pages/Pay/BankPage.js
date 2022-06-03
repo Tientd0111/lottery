@@ -42,7 +42,7 @@ const BankPage = () => {
 			await load()
 		}
 		fetchData()
-	},[])
+	},[load])
 	const onSubmit = async data => {
 		if (user?.username !== undefined) {
 			await addBank(data)

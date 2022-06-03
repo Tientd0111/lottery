@@ -3,7 +3,6 @@ import {useSocket} from "../../stores/useSocket";
 import Dice from "./Dice";
 import useMounted from "../../hooks/useMounted";
 import {useTxStore} from "../../stores/useTxStore";
-import FlowDrag from "./FlowDrag";
 import {useUserStore} from "../../stores/useUserStore";
 import cookies from "../../contants/cookie";
 
@@ -56,7 +55,7 @@ const ResultDice = () => {
 				setCountTaiXiu(res.countTaiXiu)
 			}, 10000)
 		})
-	},[])
+	},[mounted, reload, setArrResultDice, setBetT, setBetX, setCountTaiXiu, setFlowDraggable, setStrResult, setTimeOpen, socket, user])
 
 	if(timeOpen <= 0) {
 		return (<div/>)
