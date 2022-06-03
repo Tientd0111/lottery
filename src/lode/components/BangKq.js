@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {useLoadTable} from "../../stores/useLoadTable";
 import moment from 'moment-timezone';
+import useMounted from "../../hooks/useMounted";
+import {callService} from "../../apis/baseRequest";
 const inDay = moment.tz(Date.now(), 'Asia/Ho_Chi_Minh')
 const arrdai = [
 	{id:'mb', name:'Miền Bắc'},
@@ -24,8 +26,22 @@ const BangKq = () => {
 		load: state.load,
 		data: state.data,
 		loading: state.loading,
-		
+
 	}));
+
+	const mounted = useMounted()
+
+	const [listDai, setListDai] = useState([]);
+
+	useEffect(()=>{
+		callService('daiLottery/find-all', 'GET')
+			.then((res)=>{
+			if(mounted()) {
+				setListDai(res)
+			}
+		})
+	},[])
+
 	const [nameDai, setNameDai] = useState('')
 
 	const mappingGiai = (id) => {
@@ -33,37 +49,10 @@ const BangKq = () => {
 	}
 
 	useEffect( ()=>{
-		fetchData('mb')
+		load('mien-bac')
+		setNameDai('MIEN-BAC')
 	},[]);
 
-	function fetchData(param) {
-		load(param)
-		switch (param) {
-			case 'mb': setNameDai('Miền Bắc'); break;
-			case 'mt':
-				// eslint-disable-next-line default-case
-				switch (inDay.weekday()) {
-					case 0: case 1: setNameDai('Thừa Thiên Huế'); break;
-					case 2: setNameDai('Đắk Lắk'); break;
-					case 3: case 6: setNameDai('Đà Nẵng'); break;
-					case 4: setNameDai('Bình Định'); break;
-					case 5: setNameDai('Gia Lai'); break;
-				}
-				break;
-			case 'mn':
-				// eslint-disable-next-line default-case
-				switch (inDay.weekday()) {
-					case 0:  setNameDai('Đà Lạt'); break;
-					case 1: case 6: setNameDai('Hồ Chí Minh'); break;
-					case 2: setNameDai('Bến Tre'); break;
-					case 3: setNameDai('Đồng Nai'); break;
-					case 4: setNameDai('An Giang'); break;
-					case 5: setNameDai('Bình Dương'); break;
-				}
-				break;
-			default: setNameDai(''); break
-		}
-	}
 	return (
 		<div className="col-md-8">
 			<div className={"head"}>
@@ -73,15 +62,19 @@ const BangKq = () => {
 						<div className={"col-md-4"} >
 							<div style={{paddingTop:'20px'}}>
 								<label htmlFor="commission_rate" className="label-cus" style={{display:"none"}}>Đài</label>
-								<select onChange={(e)=>{
-									fetchData(e.target.value)
-								}} id="commission_rate" style={{width:"100%"}}
-										className="form-control form-option select-head"
-										placeholder="Chọn đài">
-									{arrdai.map((item)=>(
-										<option key={item.id} value={item.id}>{item.name}</option>
-									))}
-								</select>
+								{
+									listDai.length > 0 &&
+									(<select onChange={(e)=>{
+										load(e.target.value)
+										setNameDai(e.target.value)
+									}} defaultValue={'mien-bac'} id="commission_rate" style={{width:"100%"}}
+											className="form-control form-option select-head"
+											placeholder="Chọn đài">
+										{listDai.map((item)=>(
+											<option key={item.id} value={item.code}>{item.name}</option>
+										))}
+									</select>)
+								}
 							</div>
 						</div>
 						<div className={"col-md-4"}/>
