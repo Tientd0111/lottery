@@ -1,7 +1,6 @@
 import React, {useCallback} from 'react';
 import {useFieldArray, useFormContext} from "react-hook-form";
 import {toast} from "react-toastify";
-import Constant from "../../contants/constant";
 
 const ArrayNumberPicker = ({arrays = [], t = false, indexPlus = "0",tab = ''}) => {
 	let i = -1
@@ -11,7 +10,6 @@ const ArrayNumberPicker = ({arrays = [], t = false, indexPlus = "0",tab = ''}) =
 		name: 'soDanh'
 	});
 	const {watch} = useFormContext()
-	console.log(watch().kieuDanh === tab)
 	const handleClickNumber = useCallback((so) => {
 		const indexOfStevie = fields.findIndex(i => i.so === so);
 		if(fields.length > 9 && indexOfStevie === -1) {
@@ -64,4 +62,4 @@ const ArrayNumberPicker = ({arrays = [], t = false, indexPlus = "0",tab = ''}) =
 	});
 };
 
-export default ArrayNumberPicker;
+export default React.memo(ArrayNumberPicker);

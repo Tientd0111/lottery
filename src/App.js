@@ -41,15 +41,15 @@ function App() {
 	}, []);
 
 	useEffect(()=> {
-		// document.addEventListener("keydown", keyDisable, false);
-		// document.addEventListener("contextmenu", mouseDisable, false);
+		document.addEventListener("keydown", keyDisable, false);
+		document.addEventListener("contextmenu", mouseDisable, false);
 
 		if(user === undefined || user == null) return;
 		socket.on(`message-to-user-${user.username}`, reload)
 		socket.on(`block-user-${user.username}`, logoutSection);
 		return () => {
-			// document.removeEventListener("keydown", keyDisable, false);
-			// document.addEventListener("contextmenu", mouseDisable, false);
+			document.removeEventListener("keydown", keyDisable, false);
+			document.addEventListener("contextmenu", mouseDisable, false);
 		};
 	},[user])
 

@@ -55,7 +55,7 @@ const ResultDice = () => {
 				setCountTaiXiu(res.countTaiXiu)
 			}, 10000)
 		})
-	},[mounted, reload, setArrResultDice, setBetT, setBetX, setCountTaiXiu, setFlowDraggable, setStrResult, setTimeOpen, socket, user])
+	},[])
 
 	if(timeOpen <= 0) {
 		return (<div/>)

@@ -15,7 +15,6 @@ import {useSocket} from "../../stores/useSocket";
 import TextPhien from "../components/TextPhien";
 import WrapperCircle from "../components/WrapperCircle";
 import CloseMiniGame from "../components/CloseMiniGame";
-import AnimateTextPlusCoin from "../components/AnimateTextPlusCoin";
 import FlowDrag from "../components/FlowDrag";
 import IcOpenHistory from "../components/IcOpenHistory";
 import CountTx from "../components/CountTx";
@@ -127,7 +126,7 @@ const BigSmall = () => {
 					justifyContent: 'center',
 					position: 'relative',
 				}}>
-					<AnimateTextPlusCoin/>
+					{/*<AnimateTextPlusCoin/>*/}
 					<CloseMiniGame/>
 					<IcOpenHistory/>
 					<WrapperCircle/>

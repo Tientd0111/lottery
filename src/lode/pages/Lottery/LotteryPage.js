@@ -71,8 +71,10 @@ const LotteryPage = () => {
 				))
 				data.soDanh = number
 			}
-			 console.log(data)
-			// await bet(data)
+			await bet(data)
+			data.soDanh = []
+			data.soTienCuoc = 0
+			form.reset(data)
 		}else {
 			toast('Vui lòng đăng nhập')
 		}

@@ -1,14 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {useLoadTable} from "../../stores/useLoadTable";
-import moment from 'moment-timezone';
 import useMounted from "../../hooks/useMounted";
 import {callService} from "../../apis/baseRequest";
-const inDay = moment.tz(Date.now(), 'Asia/Ho_Chi_Minh')
-const arrdai = [
-	{id:'mb', name:'Miền Bắc'},
-	{id:'mn', name:'Miền Nam'},
-	{id:'mt', name:'Miền Trung'}
-]
+
 const giai = [
 	{id:"db", name:"Giải Đặc Biệt"},
 	{id:"1", name:"Giải Nhất"},
@@ -22,11 +16,9 @@ const giai = [
 ]
 const BangKq = () => {
 
-	const {load,data, loading} = useLoadTable(state => ({
+	const {load,data} = useLoadTable(state => ({
 		load: state.load,
 		data: state.data,
-		loading: state.loading,
-
 	}));
 
 	const mounted = useMounted()

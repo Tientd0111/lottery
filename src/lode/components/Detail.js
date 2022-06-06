@@ -14,8 +14,9 @@ const Detail = forwardRef((props, ref) => {
 				setDataResult(res)
 			}).catch()
 	},[billId])
-	console.log(dataResult)
+
 	const {user} = useUserStore()
+
 	return (
 		<div className="modal fade login-modal" id="detail" tabIndex={-1} role="dialog" aria-labelledby="login" aria-hidden="true">
 			<div className="modal-dialog modal-dialog-centered" role="document">
@@ -44,7 +45,7 @@ const Detail = forwardRef((props, ref) => {
 							<br/>
 							<span>Nội dung chuyển khoản: {dataResult?.description}</span>
 						</div>
-						
+
 					</div>
 				</div>
 			</div>
@@ -52,4 +53,4 @@ const Detail = forwardRef((props, ref) => {
 	);
 });
 
-export default Detail;
+export default React.memo(Detail);

@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import ButtonBase from "../../components/ButtonBase";
 import CommonMain from "../../CommonMain";
 import {useForm} from "react-hook-form";
-import constant from "../../../contants/constant";
 import {toast} from "react-toastify";
 import {useUserStore} from "../../../stores/useUserStore";
 import {useBankStore} from "../../../stores/useBankStore";
