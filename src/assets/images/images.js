@@ -50,10 +50,12 @@ import confirm from "./help/confirm.jpg"
 import banner_4 from "./banner/txt_hoantra_new.png"
 import back_banner4 from "./banner/background-ban-2.png"
 import banner5 from "./banner/bg-ban-2.png"
-import banner6 from "./banner/banner-duatop.png"
+import banner6 from "./banner/duatop.png"
 import ball from "./banner/obj-ball.png"
+import car from "./banner/loading18test2.png"
 const images = {
 	//lode
+	car: car,
 	ball: ball,
 	banner5: banner5,
 	banner6: banner6,

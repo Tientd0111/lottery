@@ -17,7 +17,6 @@ const HomePage = () => {
 							<li data-target="#demo" data-slide-to="0" className="active"/>
 							<li data-target="#demo" data-slide-to="1"/>
 							<li data-target="#demo" data-slide-to="2"/>
-							<li data-target="#demo" data-slide-to="3"/>
 						</ul>
 
 						<div className="carousel-inner">
@@ -44,11 +43,6 @@ const HomePage = () => {
 											<img src={images.banner_4} alt="HERO" />
 										</div>
 									</div>
-								</div>
-							</div>
-							<div className="carousel-item" style={{height:"491px"}}>
-								<div className="row banner_1" style={{marginTop:"80px"}}>
-									<img src={images.banner6} alt=""/>
 								</div>
 							</div>
 							<div className="carousel-item" style={{height:"491px"}}>
