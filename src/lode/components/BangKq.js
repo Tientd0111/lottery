@@ -14,7 +14,8 @@ const giai = [
 	{id:"7", name:"Giải Bảy"},
 	{id:"8", name:"Giải Tám"},
 ]
-const BangKq = () => {
+
+export default React.memo(() => {
 
 	const {load,data} = useLoadTable(state => ({
 		load: state.load,
@@ -28,10 +29,10 @@ const BangKq = () => {
 	useEffect(()=>{
 		callService('daiLottery/find-all', 'GET')
 			.then((res)=>{
-			if(mounted()) {
-				setListDai(res)
-			}
-		})
+				if(mounted()) {
+					setListDai(res)
+				}
+			})
 	},[])
 
 	const [nameDai, setNameDai] = useState('')
@@ -60,10 +61,10 @@ const BangKq = () => {
 										load(e.target.value)
 										setNameDai(e.target.value)
 									}} defaultValue={'mien-bac'} id="commission_rate" style={{width:"100%"}}
-											className="form-control form-option select-head"
-											placeholder="Chọn đài">
+											 className="form-control form-option select-head"
+											 placeholder="Chọn đài">
 										{listDai.map((item)=>(
-											<option key={item.id} value={item.code}>{item.name}</option>
+											<option key={item._id} value={item.code}>{item.name}</option>
 										))}
 									</select>)
 								}
@@ -98,6 +99,4 @@ const BangKq = () => {
 			</div>
 		</div>
 	);
-};
-
-export default BangKq;
+});

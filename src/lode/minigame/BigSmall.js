@@ -19,6 +19,8 @@ import FlowDrag from "../components/FlowDrag";
 import IcOpenHistory from "../components/IcOpenHistory";
 import CountTx from "../components/CountTx";
 import CountUserBetTx from "../components/CountUserBetTx";
+import IcOpenCau from "../components/IcOpenCau";
+import AnimateTextPlusCoin from "../components/AnimateTextPlusCoin";
 
 const money = [
 	{val: 10000},
@@ -129,6 +131,7 @@ const BigSmall = () => {
 					{/*<AnimateTextPlusCoin/>*/}
 					<CloseMiniGame/>
 					<IcOpenHistory/>
+					<IcOpenCau/>
 					<WrapperCircle/>
 					<CountTx/>
 					<CountTx right={true}/>

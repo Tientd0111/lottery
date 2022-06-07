@@ -39,10 +39,6 @@ const ResultDice = () => {
 				setBetT(0)
 				setBetX(0)
 			}
-			if(time == 1) {
-				if(user !== undefined && localStorage.getItem('key') !== null && cookies.get('refreshToken') !== null)
-					reload()
-			}
 		});
 
 		socket.on('diceResults', (res)=> {

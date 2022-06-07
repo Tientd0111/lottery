@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import FormInput from "./FormInput";
 import ButtonBase from "./ButtonBase";
 import {useForm} from "react-hook-form";
+import {useSocket} from "../../stores/useSocket";
 
 library.add(fas, fab);
 
@@ -18,9 +19,12 @@ const Login = () => {
 		login: state.login
 	}));
 
+	const {socket} = useSocket(state => ({socket: state.socket}))
+
 	const onSubmit = async data => {
 		const {isAuth} = await login(data)
 		if(isAuth) {
+			socket.emit('login', data.username)
 			reset({username: '', password: ''})
 			closeRef.current?.click()
 		}

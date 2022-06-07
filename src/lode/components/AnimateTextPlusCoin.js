@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useSocket} from "../../stores/useSocket";
 import {useUserStore} from "../../stores/useUserStore";
+import useMounted from "../../hooks/useMounted";
 
 const AnimateTextPlusCoin = () => {
 
@@ -8,17 +9,23 @@ const AnimateTextPlusCoin = () => {
 
 	const {user} = useUserStore(state => ({user: state.user}))
 
-	const [animate, setAnimate] = useState(false);
+	const [animate, setAnimate] = useState(true);
 
 	const [coin, setCoin] = useState(0)
 
+	const mounted = useMounted()
+
 	useEffect(()=>{
 		if(user === undefined || user == null) return;
-		socket.on(`plus-coin-to-${user.username}`, (data)=>{
-			setCoin(data.coin)
-			setAnimate(true)
+		socket.on(`plus-coin`, (data)=>{
+			if(mounted()) {
+				setCoin(data.coin)
+				setAnimate(true)
+			}
 			setTimeout(()=>{
-				setAnimate(false)
+				if(mounted) {
+					setAnimate(false)
+				}
 			}, 2000)
 		})
 	},[])
@@ -28,4 +35,4 @@ const AnimateTextPlusCoin = () => {
 	);
 };
 
-export default AnimateTextPlusCoin;
+export default React.memo(AnimateTextPlusCoin);

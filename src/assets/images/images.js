@@ -38,6 +38,7 @@ import minigame from './lode/game/icon1.png'
 import ic_close from './taixiu/ic_close.png'
 import ic_history from './taixiu/ic_history.png'
 import bg_history from './taixiu/bg_history.png'
+import ic_cau from './taixiu/ic_cau.png'
 import ic_close_popup from './taixiu/ic_close_popup.png'
 import about from "./about/gt1.png";
 import baomat from "./about/images.png"
@@ -52,6 +53,7 @@ import back_banner4 from "./banner/background-ban-2.png"
 import banner5 from "./banner/bg-ban-2.png"
 import banner6 from "./banner/banner-duatop.png"
 import ball from "./banner/obj-ball.png"
+
 const images = {
 	//lode
 	ball: ball,
@@ -110,6 +112,7 @@ const images = {
 	ic_history,
 	ic_close,
 	bg_history,
-	ic_close_popup
+	ic_close_popup,
+	ic_cau
 };
 export default images;
