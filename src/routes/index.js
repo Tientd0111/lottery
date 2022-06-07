@@ -1,6 +1,4 @@
-import {
-	HashRouter as Router,
-} from "react-router-dom";
+import {HashRouter as Router} from "react-router-dom";
 import React, {Fragment} from 'react';
 import HomeRoutes from "./HomeRoutes";
 import LotteryRoutes from "./LotteryRoutes";

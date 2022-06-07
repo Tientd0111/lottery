@@ -39,10 +39,6 @@ const ResultDice = () => {
 				setBetT(0)
 				setBetX(0)
 			}
-			if(time == 1) {
-				if(user !== undefined && localStorage.getItem('key') !== null && cookies.get('refreshToken') !== null)
-					reload()
-			}
 		});
 
 		socket.on('diceResults', (res)=> {
@@ -55,7 +51,7 @@ const ResultDice = () => {
 				setCountTaiXiu(res.countTaiXiu)
 			}, 10000)
 		})
-	},[mounted, reload, setArrResultDice, setBetT, setBetX, setCountTaiXiu, setFlowDraggable, setStrResult, setTimeOpen, socket, user])
+	},[])
 
 	if(timeOpen <= 0) {
 		return (<div/>)

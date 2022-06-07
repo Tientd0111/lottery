@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import CommonMain from "../../CommonMain";
-import constant from "../../../contants/constant";
 import {useForm} from "react-hook-form";
 import formatNumber from "../../../hooks/formatNumber";
 import {UsePayStores} from "../../../stores/usePayStores";
@@ -9,7 +8,6 @@ import {useUserStore} from "../../../stores/useUserStore";
 import {toast} from "react-toastify";
 import ButtonBase from "../../components/ButtonBase";
 import {useBankStore} from "../../../stores/useBankStore";
-import AppLoading from "../../components/AppLoading";
 import {Link} from "react-router-dom";
 import PATH from "../../../routes/path";
 

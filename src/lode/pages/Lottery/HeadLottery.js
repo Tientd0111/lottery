@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import Constant from "../../../contants/constant";
 import { useFormContext} from "react-hook-form";
 import {callService} from "../../../apis/baseRequest";
-import {toast} from "react-toastify";
 import useMounted from "../../../hooks/useMounted";
 
 const HeadLottery = ({pageCallback = () => {}}) =>{
@@ -59,7 +58,7 @@ const HeadLottery = ({pageCallback = () => {}}) =>{
 						reset(resetValue(Constant.DAI_MB, ''))
 						break
 					case Constant.DAI_MN:
-						callService('daiLottery/find-dai-daily/'+ Constant.DAI_MN, 'GET', {})
+						callService('daiLottery/find-dai-daily/'+ Constant.DAI_MN, 'GET')
 							.then((res)=> {
 								if(mounted()) {
 									setData(res)
@@ -68,7 +67,7 @@ const HeadLottery = ({pageCallback = () => {}}) =>{
 							})
 						break
 					case Constant.DAI_MT:
-						callService('daiLottery/find-dai-daily/'+ Constant.DAI_MT, 'GET', {})
+						callService('daiLottery/find-dai-daily/'+ Constant.DAI_MT, 'GET')
 							.then((res)=> {
 								if(mounted()) {
 									setData(res)

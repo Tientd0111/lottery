@@ -1,14 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {useLoadTable} from "../../stores/useLoadTable";
-import moment from 'moment-timezone';
 import useMounted from "../../hooks/useMounted";
 import {callService} from "../../apis/baseRequest";
-const inDay = moment.tz(Date.now(), 'Asia/Ho_Chi_Minh')
-const arrdai = [
-	{id:'mb', name:'Miền Bắc'},
-	{id:'mn', name:'Miền Nam'},
-	{id:'mt', name:'Miền Trung'}
-]
+
 const giai = [
 	{id:"db", name:"Giải Đặc Biệt"},
 	{id:"1", name:"Giải Nhất"},
@@ -20,13 +14,12 @@ const giai = [
 	{id:"7", name:"Giải Bảy"},
 	{id:"8", name:"Giải Tám"},
 ]
-const BangKq = () => {
 
-	const {load,data, loading} = useLoadTable(state => ({
+export default React.memo(() => {
+
+	const {load,data} = useLoadTable(state => ({
 		load: state.load,
 		data: state.data,
-		loading: state.loading,
-
 	}));
 
 	const mounted = useMounted()
@@ -36,10 +29,10 @@ const BangKq = () => {
 	useEffect(()=>{
 		callService('daiLottery/find-all', 'GET')
 			.then((res)=>{
-			if(mounted()) {
-				setListDai(res)
-			}
-		})
+				if(mounted()) {
+					setListDai(res)
+				}
+			})
 	},[])
 
 	const [nameDai, setNameDai] = useState('')
@@ -68,10 +61,10 @@ const BangKq = () => {
 										load(e.target.value)
 										setNameDai(e.target.value)
 									}} defaultValue={'mien-bac'} id="commission_rate" style={{width:"100%"}}
-											className="form-control form-option select-head"
-											placeholder="Chọn đài">
+											 className="form-control form-option select-head"
+											 placeholder="Chọn đài">
 										{listDai.map((item)=>(
-											<option key={item.id} value={item.code}>{item.name}</option>
+											<option key={item._id} value={item.code}>{item.name}</option>
 										))}
 									</select>)
 								}
@@ -106,6 +99,4 @@ const BangKq = () => {
 			</div>
 		</div>
 	);
-};
-
-export default BangKq;
+});

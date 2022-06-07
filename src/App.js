@@ -8,6 +8,7 @@ import BigSmall from "./lode/minigame/BigSmall";
 import cookies from "./contants/cookie";
 import MiniGame from "./lode/components/MiniGame";
 import HistoryTx from "./lode/components/HistoryTx";
+import Cau from "./lode/components/Cau";
 
 function App() {
 
@@ -41,15 +42,17 @@ function App() {
 	}, []);
 
 	useEffect(()=> {
-		// document.addEventListener("keydown", keyDisable, false);
-		// document.addEventListener("contextmenu", mouseDisable, false);
+		document.addEventListener("keydown", keyDisable, false);
+		document.addEventListener("contextmenu", mouseDisable, false);
 
 		if(user === undefined || user == null) return;
-		socket.on(`message-to-user-${user.username}`, reload)
+		socket.emit('login', user.username)
+		// socket.on(`message-to-user-${user.username}`, reload)
+		socket.on('updating-user', (data)=>setUser(data))
 		socket.on(`block-user-${user.username}`, logoutSection);
 		return () => {
-			// document.removeEventListener("keydown", keyDisable, false);
-			// document.addEventListener("contextmenu", mouseDisable, false);
+			document.removeEventListener("keydown", keyDisable, false);
+			document.addEventListener("contextmenu", mouseDisable, false);
 		};
 	},[user])
 
@@ -57,6 +60,7 @@ function App() {
 		<div style={{position: 'relative'}}>
 			<BigSmall/>
 			<HistoryTx/>
+			<Cau/>
 			<MiniGame/>
 			<RootRoutes/>
 			<ToastContainer

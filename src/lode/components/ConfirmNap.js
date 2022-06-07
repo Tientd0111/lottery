@@ -1,32 +1,27 @@
-import React, {forwardRef, useEffect, useRef, useState} from 'react';
+import React, {forwardRef, useRef} from 'react';
 import {useUserStore} from "../../stores/useUserStore";
 import {useBankStore} from "../../stores/useBankStore";
 import formatNumber from "../../hooks/formatNumber";
 import {useForm} from "react-hook-form";
 import {toast} from "react-toastify";
 import {UsePayStores} from "../../stores/usePayStores";
-import AppLoading from "./AppLoading";
 
 const ConfirmNap = forwardRef((props, ref) => {
 	const closeRef = useRef()
 	const {data,bankId} = props
 	const {user} = useUserStore()
-	const {list,load,loadAdmin,listAd} = useBankStore(state => ({
-		load: state.load,
-		list: state.dataResult,
-		loadAdmin: state.loadAdmin,
+	const {listAd} = useBankStore(state => ({
 		listAd: state.dataBankAd
 	}))
-	const {tranf,loading} = UsePayStores(state => ({
+	const {tranf} = UsePayStores(state => ({
 		tranf: state.tranf,
 		loading: state.loading,
 	}))
-	const {handleSubmit, register,formState: { errors },reset} = useForm();
-	const [des,setDes] = useState();
+	const {handleSubmit} = useForm();
+
 	const onSub = () => {
 		if(user?.username !== undefined){
 			tranf(data)
-			setDes(Math.floor(Math.random()*(100-90000))+100000)
 			closeRef.current?.click()
 		}else {
 			toast.error('Vui lòng đăng nhập')

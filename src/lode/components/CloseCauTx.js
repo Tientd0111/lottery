@@ -1,11 +1,10 @@
 import React from 'react';
-import images from "../../assets/images/images";
 import {useTxStore} from "../../stores/useTxStore";
+import images from "../../assets/images/images";
 
-const ClosePopupHistoryTx = () => {
-
-	const {setOpenHistory} = useTxStore(state => ({
-		setOpenHistory: state.setOpenHistory
+export default React.memo(() => {
+	const {setOpenCau} = useTxStore(state => ({
+		setOpenCau: state.setOpenCau
 	}))
 
 	let style = {
@@ -17,7 +16,7 @@ const ClosePopupHistoryTx = () => {
 	}
 
 	const onClose = () => {
-		setOpenHistory(false)
+		setOpenCau(false)
 	}
 
 	return (
@@ -25,6 +24,4 @@ const ClosePopupHistoryTx = () => {
 			<img style={{pointerEvents: 'none'}} alt={'close_bg.png'} src={images.ic_close_popup}/>
 		</div>
 	);
-};
-
-export default React.memo(ClosePopupHistoryTx);
+});

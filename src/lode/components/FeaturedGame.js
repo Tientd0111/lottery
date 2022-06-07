@@ -209,4 +209,4 @@ const FeaturedGame = () => {
     )
 }
 
-export default FeaturedGame
+export default React.memo(FeaturedGame)

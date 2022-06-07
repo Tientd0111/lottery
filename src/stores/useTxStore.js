@@ -39,6 +39,9 @@ export const useTxStore = create(set => ({
 	openHistory: false,
 	setOpenHistory: (data) => {set({openHistory: data})},
 
+	openCau: false,
+	setOpenCau: (data) => {set({openCau: data})},
+
 	countTaiXiu: {t: 0, x: 0},
 	setCountTaiXiu: (data) => {set({countTaiXiu: data})}
 }))

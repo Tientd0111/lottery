@@ -1,17 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import CommonMain from "../../CommonMain";
 import {useForm} from "react-hook-form";
-import {UsePayStores} from "../../../stores/usePayStores";
 import formatNumber from '../../../hooks/formatNumber'
 import Support from "../../components/Support";
 import {useUserStore} from "../../../stores/useUserStore";
 import {toast} from "react-toastify";
-import ButtonBase from "../../components/ButtonBase";
+
 import {useBankStore} from "../../../stores/useBankStore";
 import {Link} from "react-router-dom";
 import PATH from "../../../routes/path";
 import ConfirmNap from "../../components/ConfirmNap";
-import support from "../../components/Support";
+
 const NapTien = () => {
 
 	const money=[
@@ -25,12 +24,7 @@ const NapTien = () => {
 		{val:'3000000'},
 		{val:'5000000'},
 	]
-	const {tranf, dataResult,confirmData,loading} = UsePayStores(state => ({
-		tranf: state.tranf,
-		loading: state.loading,
-		dataResult: state.dataResult,
-		confirmData: state.confirmData,
-	}))
+
 	const {list,load,loadAdmin,listAd} = useBankStore(state => ({
 		load: state.load,
 		list: state.dataResult,
@@ -50,7 +44,7 @@ const NapTien = () => {
 		user: state.user
 	}))
 	const [data,setData] = useState()
-	const {handleSubmit, register,formState: { errors },reset} = useForm();
+	const {handleSubmit, register, reset} = useForm();
 	const onSubmit = async data => {
 		if(user?.username !== undefined) {
 			data.bank_id_to = listAd[bankId]?._id

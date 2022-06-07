@@ -4,9 +4,9 @@ import {callService} from "../../apis/baseRequest";
 import apis from "../../apis/definesApi";
 import AppLoading from "./AppLoading";
 import formatNumber from "../../hooks/formatNumber";
-import formatDate from "../../hooks/formatDate";
 import useMounted from "../../hooks/useMounted";
 import getText from "../../hooks/getText";
+
 const customStyles = {
 	content: {
 		top: '50%',
@@ -71,11 +71,5 @@ const DetailBillBet = forwardRef((props, ref) => {
 		</Modal>
 	);
 });
-
-const wrapper = {
-	display: 'flex',
-	flexDirection: 'column',
-	gap: '8px'
-}
 
 export default DetailBillBet;

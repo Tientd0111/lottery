@@ -22,7 +22,7 @@ const CountTx = ({
 		socket.on('countTaiXiu', (data)=>{
 			setCountTaiXiu(data)
 		})
-	},[setCountTaiXiu, socket])
+	},[])
 
 	return (
 		<div style={style}>

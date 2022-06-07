@@ -38,6 +38,7 @@ import minigame from './lode/game/icon1.png'
 import ic_close from './taixiu/ic_close.png'
 import ic_history from './taixiu/ic_history.png'
 import bg_history from './taixiu/bg_history.png'
+import ic_cau from './taixiu/ic_cau.png'
 import ic_close_popup from './taixiu/ic_close_popup.png'
 import about from "./about/gt1.png";
 import baomat from "./about/images.png"
@@ -108,10 +109,12 @@ const images = {
 	d_6: d_6,
 	loop_o: loop_o,
 	loop_i: loop_i,
+
 	flowdraggable,
 	ic_history,
 	ic_close,
 	bg_history,
-	ic_close_popup
+	ic_close_popup,
+	ic_cau
 };
 export default images;

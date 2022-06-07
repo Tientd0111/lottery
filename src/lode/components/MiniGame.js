@@ -7,9 +7,8 @@ const MiniGame = () => {
 
 	const dragRef = useRef()
 
-	const {setVisitableTx, visitableTx} = useTxStore(state => ({
+	const {setVisitableTx} = useTxStore(state => ({
 		setVisitableTx: state.setVisitableTx,
-		visitableTx: state.visitableTx
 	}))
 
 	const onSetVisitable = () => {

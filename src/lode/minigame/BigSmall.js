@@ -15,11 +15,12 @@ import {useSocket} from "../../stores/useSocket";
 import TextPhien from "../components/TextPhien";
 import WrapperCircle from "../components/WrapperCircle";
 import CloseMiniGame from "../components/CloseMiniGame";
-import AnimateTextPlusCoin from "../components/AnimateTextPlusCoin";
 import FlowDrag from "../components/FlowDrag";
 import IcOpenHistory from "../components/IcOpenHistory";
 import CountTx from "../components/CountTx";
 import CountUserBetTx from "../components/CountUserBetTx";
+import IcOpenCau from "../components/IcOpenCau";
+import AnimateTextPlusCoin from "../components/AnimateTextPlusCoin";
 
 const money = [
 	{val: 10000},
@@ -127,9 +128,10 @@ const BigSmall = () => {
 					justifyContent: 'center',
 					position: 'relative',
 				}}>
-					<AnimateTextPlusCoin/>
+					{/*<AnimateTextPlusCoin/>*/}
 					<CloseMiniGame/>
 					<IcOpenHistory/>
+					<IcOpenCau/>
 					<WrapperCircle/>
 					<CountTx/>
 					<CountTx right={true}/>
