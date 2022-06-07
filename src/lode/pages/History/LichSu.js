@@ -46,6 +46,7 @@ const LichSu = () => {
 								<tr style={{textAlign:'center'}}>
 									<td>Ngày đánh</td>
 									<td>Miền</td>
+									<td>Đài</td>
 									<td>Kiểu đánh</td>
 									<td>kiểu chơi</td>
 									<td>Số đánh</td>
@@ -55,8 +56,9 @@ const LichSu = () => {
 								{
 									histories?.map((item, index)=>(
 										<tr key={index} style={{textAlign:'center'}}>
-											<td>{formatDate(item.created_at,"DD/MM/YYYY")}</td>
+											<td>{formatDate(item.created_at,"DD/MM/YYYY hh:mm:ss")}</td>
 											<td>{item.mien}</td>
+											<td>{item.city}</td>
 											<td>{item.kieuDanh}</td>
 											<td>{item.kieuChoi}</td>
 											<td>{item.soDanh?.toString()}</td>
