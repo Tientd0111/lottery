@@ -80,7 +80,6 @@ const HeadLottery = ({pageCallback = () => {}}) =>{
 		})
 		return () => subscription.unsubscribe();
 	}, []);
-
 	const [data, setData] = useState([])
 	return(
 		<section>
