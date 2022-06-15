@@ -25,6 +25,7 @@ const BankPage = () => {
 		{id: 'Sacombank', name: 'Sacombank'},
 		{id: 'VIB', name: 'VIB'},
 		{id: 'TPBank', name: 'TPBank'},
+		{id: 'SeABank', name: 'SeABank'},
 		{id: 'MSB', name: 'MSB'},
 		{id: 'OCB', name: 'OCB'},
 		{id: 'LienVietPostBank', name: 'LienVietPostBank'}
